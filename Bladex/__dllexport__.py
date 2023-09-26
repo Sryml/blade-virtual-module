@@ -256,9 +256,18 @@ def CreateDFCAnimation():
     """CreateDFCAnmimation(str File1,str File2,str InternalName,int n_armonics)"""
 
 
-# def CreateEntity(name, kind, x, y, z, parent_class="", unknown="") -> B_PyEntity:
-#     """CreateEntity(string name,string kind,double x,double y,double z)
-#     Crea una entidad nueva."""
+def CreateEntity(
+    name: str,
+    kind: str,
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    unknown: str = "",
+) -> __entity.B_PyEntity:
+    """CreateEntity(string name,string kind,double x,double y,double z)
+    Crea una entidad nueva."""
+    return __entity.B_PyEntity()
 
 
 def CreateFCAnimation():
@@ -427,11 +436,12 @@ def GetEntitiesVisibleFrom():
     """tuple GetEntitiesVisibleFrom(tuple center,double radius,tuple direction,double angle)"""
 
 
-def GetEntity():
+def GetEntity(arg: __t.Union[str, int]) -> __entity.B_PyEntity:
     """GetEntity(int n)
      Crea una entidad de Python que referencia a la entidad Blade de índice n.
     GetEntity(string name)
      Crea una entidad de Python que referencia a la entidad Blade de nombre name."""
+    return __entity.B_PyEntity()
 
 
 def GetGhostSectorSound():
