@@ -5,6 +5,9 @@ import typing
 
 
 class B_PyEntity:
+    __RasterMode: TypeAlias = Literal[
+                "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+            ]
     def __init__(self):
         self.__Name: str
         self.__Kind: str
@@ -17,7 +20,13 @@ class B_PyEntity:
         self.__ActiveEnemy: str
         self.__CharType: str
         self.__CharTypeExt: str
-        self.__RasterModeAlpha: Optional[str]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+        # self.__RasterMode: TypeAlias = Literal[
+        #     "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+        # ]
 
         ####
         self.Alpha: float
@@ -26,10 +35,8 @@ class B_PyEntity:
         self.Blind: Bool
         self.SelfIlum: float
         self.CastShadows: Bool
-        self.RasterMode: Literal[
-            "Read", "Write", "Full", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-        ]
-        self.Data: Any
+
+        self.Data: Any = None
         self.InitPos: Vector3
         self.Life: Int
         self.Level: Int
@@ -55,51 +62,91 @@ class B_PyEntity:
 
     @property
     def AnmPos(self):
+        """*read only*"""
         return self.__AnmPos
 
     @property
     def InvRight(self):
+        """*read only*"""
         return self.__InvRight
 
     @property
     def InvRightBack(self):
+        """*read only*"""
         return self.__InvRightBack
 
     @property
     def InvLeft(self):
+        """*read only*"""
         return self.__InvLeft
 
     @property
     def InvLeftBack(self):
+        """*read only*"""
         return self.__InvLeftBack
 
     @property
     def Name(self):
+        """Modifying this variable is not recommended."""
         return self.__Name
+
+    @Name.setter
+    def Name(self, value: str):
+        self.__Name = value
 
     @property
     def Kind(self):
+        """*read only*"""
         return self.__Kind
 
     @property
     def OnFloor(self):
+        """*read only*"""
         return self.__OnFloor
 
     @property
     def ActiveEnemy(self):
+        """*read only*"""
         return self.__ActiveEnemy
 
     @property
     def CharType(self):
+        """*read only*"""
         return self.__CharType
 
     @property
     def CharTypeExt(self):
+        """*read only*"""
         return self.__CharTypeExt
 
     @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
+
+    @property
     def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
         return self.__RasterModeAlpha
+
+    @property
+    def RasterMode(self):
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.
+        """
 
     ####
     def Abs2RelPoint(self):
