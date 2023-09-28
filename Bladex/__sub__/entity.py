@@ -5,7 +5,7 @@ import typing
 
 
 class B_PyEntity:
-    __RasterMode: TypeAlias = Literal[
+    __RasterMode = Literal[
                 "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
             ]
     def __init__(self):
@@ -24,7 +24,7 @@ class B_PyEntity:
         self.__RasterModeAlpha: Literal[
             "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
         ]
-        # self.__RasterMode: TypeAlias = Literal[
+        # self.__RasterMode = Literal[
         #     "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
         # ]
 
