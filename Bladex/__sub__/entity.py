@@ -3,85 +3,17 @@ from b_types import *
 
 import typing
 
+# Entity.init_entity_properties
 
-class B_Entity_Person:
-    __RasterMode = Literal[
-        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-    ]
+
+class B_Entity:
 
     def __init__(self) -> None:
         self.__Name: str
         self.__Kind: str
-        self.__OnFloor: bool
-        self.__AnmPos: float
-        self.__InvRight: str
-        self.__InvRightBack: str
-        self.__InvLeft: str
-        self.__InvLeftBack: str
-        self.__ActiveEnemy: str
-        self.__CharType: str
-        self.__CharTypeExt: str
-        self.__RasterModeZ: Literal["Full", "Read", "Write"]
-        self.__RasterModeAlpha: Literal[
-            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
-        ]
 
-        ####
-        self.Alpha: float
-        self.Scale: float
-        self.Deaf: Bool
-        self.Blind: Bool
-        self.SelfIlum: float
-        self.CastShadows: Bool
-
-        self.Data: Any = None
-        self.InitPos: Vector3
-        self.Life: Int
-        self.Level: Int
-        self.Orientation: Quaternion
+        self.Data: Union[Any,None] = None
         self.Position: Vector3
-        self.AnmEndedFunc: Optional[Callable[[str], Any]]
-        self.RouteEndedFunc: Optional[Callable[[str], Any]]
-        self.Person: Bool
-        self.Physic: Bool
-        self.Actor: Bool
-        self.Arrow: Bool
-        self.Weapon: Bool
-        self.Static: Bool
-        self.Frozen: Bool
-        self.AimOffTarget: float
-        self.ActionAreaMin: Int
-        self.ActionAreaMax: Int
-        self.GoToSneaking: Bool
-        self.GoToJogging: Bool
-        self.InvertedRoute: Bool
-        self.AddBayPoint: Vector3
-        self.HitShieldFunc: Optional[Callable]
-
-    @property
-    def AnmPos(self):
-        """*read only*"""
-        return self.__AnmPos
-
-    @property
-    def InvRight(self):
-        """*read only*"""
-        return self.__InvRight
-
-    @property
-    def InvRightBack(self):
-        """*read only*"""
-        return self.__InvRightBack
-
-    @property
-    def InvLeft(self):
-        """*read only*"""
-        return self.__InvLeft
-
-    @property
-    def InvLeftBack(self):
-        """*read only*"""
-        return self.__InvLeftBack
 
     @property
     def Name(self):
@@ -97,58 +29,7 @@ class B_Entity_Person:
         """*read only*"""
         return self.__Kind
 
-    @property
-    def OnFloor(self):
-        """*read only*"""
-        return self.__OnFloor
-
-    @property
-    def ActiveEnemy(self):
-        """*read only*"""
-        return self.__ActiveEnemy
-
-    @property
-    def CharType(self):
-        """*read only*"""
-        return self.__CharType
-
-    @property
-    def CharTypeExt(self):
-        """*read only*"""
-        return self.__CharTypeExt
-
-    @property
-    def RasterModeZ(self):
-        """*read only*\n
-        Default:`"Full"`\n
-        Use `RasterMode` to set this value.
-        """
-        return self.__RasterModeZ
-
-    @property
-    def RasterModeAlpha(self):
-        """*read only*\n
-        Default:`None`\n
-        Use `RasterMode` to set this value.
-        """
-        return self.__RasterModeAlpha
-
-    @property
-    def RasterMode(self):
-        """*write only*\n
-        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
-        Default:`Full`, `BlendingAlpha`
-        """
-        return AttributeError
-
-    @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
-        ...
-
-    ####
+    # Methods
     def Abs2RelPoint(self):
         ...
 
@@ -525,6 +406,140 @@ class B_Entity_Person:
         ...
 
 
-class B_Entity_Weapon:
+class B_Entity_Person(B_Entity):
+    __RasterMode = Literal[
+        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+    ]
+
     def __init__(self) -> None:
-        self.AAA: int
+        super().__init__()
+
+        self.__OnFloor: bool
+        self.__AnmPos: float
+        self.__InvRight: str
+        self.__InvRightBack: str
+        self.__InvLeft: str
+        self.__InvLeftBack: str
+        self.__ActiveEnemy: str
+        self.__CharType: str
+        self.__CharTypeExt: str
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+
+        ####
+        self.Alpha: float
+        self.Scale: float
+        self.Deaf: Bool
+        self.Blind: Bool
+        self.SelfIlum: float
+        self.CastShadows: Bool
+        self.InitPos: Vector3
+        self.Life: Int
+        self.Level: Int
+        self.Orientation: Quaternion
+        self.AnmEndedFunc: Optional[Callable[[str], Any]]
+        self.RouteEndedFunc: Optional[Callable[[str], Any]]
+        self.Person: Bool
+        self.Physic: Bool
+        self.Actor: Bool
+        self.Arrow: Bool
+        self.Weapon: Bool
+        self.Static: Bool
+        self.Frozen: Bool
+        self.AimOffTarget: float
+        self.ActionAreaMin: Int
+        self.ActionAreaMax: Int
+        self.GoToSneaking: Bool
+        self.GoToJogging: Bool
+        self.InvertedRoute: Bool
+        self.AddBayPoint: Vector3
+        self.HitShieldFunc: Optional[Callable]
+
+    @property
+    def AnmPos(self):
+        """*read only*"""
+        return self.__AnmPos
+
+    @property
+    def InvRight(self):
+        """*read only*"""
+        return self.__InvRight
+
+    @property
+    def InvRightBack(self):
+        """*read only*"""
+        return self.__InvRightBack
+
+    @property
+    def InvLeft(self):
+        """*read only*"""
+        return self.__InvLeft
+
+    @property
+    def InvLeftBack(self):
+        """*read only*"""
+        return self.__InvLeftBack
+
+    @property
+    def OnFloor(self):
+        """*read only*"""
+        return self.__OnFloor
+
+    @property
+    def ActiveEnemy(self):
+        """*read only*"""
+        return self.__ActiveEnemy
+
+    @property
+    def CharType(self):
+        """*read only*"""
+        return self.__CharType
+
+    @property
+    def CharTypeExt(self):
+        """*read only*"""
+        return self.__CharTypeExt
+
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
+
+    @property
+    def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeAlpha
+
+    @property
+    def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
+        """
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        ...
+
+
+class B_Entity_Weapon(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.AAA:int
+
+
+class B_Entity_All(B_Entity_Person, B_Entity_Weapon):
+    ...
