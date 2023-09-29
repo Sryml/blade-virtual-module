@@ -256,6 +256,51 @@ def CreateDFCAnimation():
     """CreateDFCAnmimation(str File1,str File2,str InternalName,int n_armonics)"""
 
 
+B_PyEntity = __t.NewType("B_PyEntity", __entity.B_Entity_Person)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: str,
+    x: float,
+    y: float,
+    z: float,
+    parent_class: __t.Literal["Person"],
+    unknown: str = "",
+) -> B_PyEntity:
+    ...
+
+
+B_PyEntity = __t.NewType("B_PyEntity", __entity.B_Entity_Weapon)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: str,
+    x: float,
+    y: float,
+    z: float,
+    parent_class: __t.Literal["Weapon"],
+    unknown: str = "",
+) -> B_PyEntity:
+    ...
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: str,
+    x: float,
+    y: float,
+    z: float,
+    parent_class: __t.Literal["Person", "Weapon"],
+    unknown: str = "",
+) -> __t.Any:
+    ...
+
+
 def CreateEntity(
     name: str,
     kind: str,
@@ -264,10 +309,10 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     unknown: str = "",
-) -> __entity.B_PyEntity:
-    """CreateEntity(string name,string kind,double x,double y,double z)
+) -> __t.Any:
+    """CreateEntity(string name,string kind,double x,double y,double z)\n
     Crea una entidad nueva."""
-    return __entity.B_PyEntity()
+    ...
 
 
 def CreateFCAnimation():

@@ -4,11 +4,12 @@ from b_types import *
 import typing
 
 
-class B_PyEntity:
+class B_Entity_Person:
     __RasterMode = Literal[
-                "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-            ]
-    def __init__(self):
+        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+    ]
+
+    def __init__(self) -> None:
         self.__Name: str
         self.__Kind: str
         self.__OnFloor: bool
@@ -24,9 +25,6 @@ class B_PyEntity:
         self.__RasterModeAlpha: Literal[
             "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
         ]
-        # self.__RasterMode = Literal[
-        #     "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-        # ]
 
         ####
         self.Alpha: float
@@ -137,6 +135,10 @@ class B_PyEntity:
 
     @property
     def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
+        """
         return AttributeError
 
     @RasterMode.setter
@@ -144,9 +146,7 @@ class B_PyEntity:
         self,
         value: __RasterMode,
     ):
-        """*write only*\n
-        Use `RasterModeZ`/`RasterModeAlpha` to get.
-        """
+        ...
 
     ####
     def Abs2RelPoint(self):
@@ -523,3 +523,8 @@ class B_PyEntity:
 
     def Use(self):
         ...
+
+
+class B_Entity_Weapon:
+    def __init__(self) -> None:
+        self.AAA: int
