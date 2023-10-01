@@ -7,13 +7,54 @@ import typing
 
 
 class B_Entity:
-
     def __init__(self) -> None:
         self.__Name: str
         self.__Kind: str
 
-        self.Data: Union[Any,None] = None
+        self.Actor: Any
+        self.AngVel: Any
+        self.Arrow: Any
+        self.AttackList: Any
+        self.CanUse: Any
+        self.ContinuousDamage: Any
+        self.DamageFunc: Any
+        self.Data: Union[Any, None] = None
+        self.FrameFunc: Any
+        self.GlowSizeDist: Any
+        self.GlowTestZ: Any
+        self.HearFunc: Any
+        self.HitFunc: Any
+        self.HitShieldFunc: Any
+        self.InAttack: Any
+        self.InDestructorAttack: Any
+        self.InWorld: Any
+        self.InflictHitFunc: Any
+        self.Intensity: Any
+        self.InternalState: Any
+        # self.Kind: Any
+        self.Mass: Any
+        self.Material: Any
+        # self.Name: Any
+        self.Object: Any
+        self.Parent: Any
+        self.Person: Any
+        self.Physic: Any
         self.Position: Vector3
+        self.Precission: Any
+        self.Reflects: Any
+        self.SeeFunc: Any
+        self.SendSectorMsgs: Any
+        self.SendTriggerSectorMsgs: Any
+        self.SizeFactor: Any
+        self.Static: Any
+        self.StaticWeaponMode: Any
+        self.StickFunc: Any
+        self.SubscribedLists: Any
+        self.TimerFunc: Any
+        self.TrailMode: Any
+        self.UseFunc: Any
+        self.Weapon: Any
+        self.WeaponMode: Any
 
     @property
     def Name(self):
@@ -538,7 +579,7 @@ class B_Entity_Weapon(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.AAA:int
+        self.AAA: int
 
 
 class B_Entity_All(B_Entity_Person, B_Entity_Weapon):
