@@ -8,53 +8,70 @@ import typing
 
 class B_Entity:
     def __init__(self) -> None:
-        self.__Name: str
+        self.Actor: Bool
+        self.AngVel: float
+        self.Arrow: Bool
+        self.AttackList: Optional[list]
+        self.CanUse: Bool
+        self.ContinuousDamage: int
+        self.DamageFunc: Optional[Callable]
+        self.Data: Any = None
+        self.FrameFunc: Optional[Callable] = None
+        self.GlowSizeDist: int
+        self.GlowTestZ: Bool
+        self.HearFunc: Optional[Callable]
+        self.HitFunc: Optional[Callable]
+        self.HitShieldFunc: Optional[Callable]
+        self.__InAttack: Bool
+        self.__InDestructorAttack: Bool
+        self.__InWorld: Bool
+        self.InflictHitFunc: Optional[Callable]
+        self.Intensity: float
+        self.InternalState: Unknown
         self.__Kind: str
-
-        self.Actor: Any
-        self.AngVel: Any
-        self.Arrow: Any
-        self.AttackList: Any
-        self.CanUse: Any
-        self.ContinuousDamage: Any
-        self.DamageFunc: Any
-        self.Data: Union[Any, None] = None
-        self.FrameFunc: Any
-        self.GlowSizeDist: Any
-        self.GlowTestZ: Any
-        self.HearFunc: Any
-        self.HitFunc: Any
-        self.HitShieldFunc: Any
-        self.InAttack: Any
-        self.InDestructorAttack: Any
-        self.InWorld: Any
-        self.InflictHitFunc: Any
-        self.Intensity: Any
-        self.InternalState: Any
-        # self.Kind: Any
-        self.Mass: Any
-        self.Material: Any
-        # self.Name: Any
-        self.Object: Any
-        self.Parent: Any
-        self.Person: Any
-        self.Physic: Any
+        self.Mass: float
+        self.Material: Unknown
+        self.__Name: str
+        self.Object: Unknown
+        self.__Parent: str
+        self.Person: Bool
+        self.Physic: Bool
         self.Position: Vector3
-        self.Precission: Any
-        self.Reflects: Any
-        self.SeeFunc: Any
-        self.SendSectorMsgs: Any
-        self.SendTriggerSectorMsgs: Any
-        self.SizeFactor: Any
-        self.Static: Any
-        self.StaticWeaponMode: Any
-        self.StickFunc: Any
-        self.SubscribedLists: Any
-        self.TimerFunc: Any
-        self.TrailMode: Any
-        self.UseFunc: Any
-        self.Weapon: Any
-        self.WeaponMode: Any
+        self.Precission: float
+        self.Reflects: int
+        self.SeeFunc: Optional[Callable]
+        self.SendSectorMsgs: Bool
+        self.SendTriggerSectorMsgs: Bool
+        self.SizeFactor: float
+        self.Static: Bool
+        self.StaticWeaponMode: int
+        self.StickFunc: Optional[Callable]
+        self.__SubscribedLists: List[str]
+        self.TimerFunc: Optional[Callable]
+        self.TrailMode: int
+        self.UseFunc: Optional[Callable]
+        self.Weapon: Bool
+        self.WeaponMode: int
+
+    @property
+    def InAttack(self):
+        """*read only*"""
+        return self.__InAttack
+
+    @property
+    def InDestructorAttack(self):
+        """*read only*"""
+        return self.__InDestructorAttack
+
+    @property
+    def InWorld(self):
+        """*read only*"""
+        return self.__InWorld
+
+    @property
+    def Kind(self):
+        """*read only*"""
+        return self.__Kind
 
     @property
     def Name(self):
@@ -66,384 +83,389 @@ class B_Entity:
         self.__Name = value
 
     @property
-    def Kind(self):
+    def Parent(self):
         """*read only*"""
-        return self.__Kind
+        return self.__Parent
+
+    @property
+    def SubscribedLists(self):
+        """*read only*"""
+        return self.__SubscribedLists
 
     # Methods
-    def Abs2RelPoint(self):
+    def Abs2RelPoint(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Abs2RelVector(self):
+    def Abs2RelVector(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddAnimSound(self):
+    def AddAnimSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddAnmEventFunc(self):
+    def AddAnmEventFunc(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddCameraEvent(self):
+    def AddCameraEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddCameraNode(self):
+    def AddCameraNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddEventSound(self):
+    def AddEventSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddPathNode(self):
+    def AddPathNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def AddWatchAnim(self):
+    def AddWatchAnim(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CameraClearPath(self):
+    def CameraClearPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CameraStartPath(self):
+    def CameraStartPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CanGoTo(self):
+    def CanGoTo(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CanISee(self):
+    def CanISee(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CanISeeFrom(self):
+    def CanISeeFrom(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CatchOnFire(self):
+    def CatchOnFire(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Chase(self):
+    def Chase(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def CheckAnimCol(self):
+    def CheckAnimCol(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ClearAnmEventFuncs(self):
+    def ClearAnmEventFuncs(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ClearPath(self):
+    def ClearPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Cut(self):
+    def Cut(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def DelAnmEventFunc(self):
+    def DelAnmEventFunc(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def DoAction(self):
+    def DoAction(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def DoActionWI(self):
+    def DoActionWI(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ExcludeHitFor(self):
+    def ExcludeHitFor(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ExcludeHitInAnimationFor(self):
+    def ExcludeHitInAnimationFor(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Face(self):
+    def Face(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Fly(self):
+    def Fly(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Freeze(self):
+    def Freeze(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetActionMode(self):
+    def GetActionMode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetChild(self):
+    def GetChild(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetCombatants(self):
+    def GetCombatants(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetDummyAxis(self):
+    def GetDummyAxis(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetEnemyName(self):
+    def GetEnemyName(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetGroupMembers(self):
+    def GetGroupMembers(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetInventory(self):
+    def GetInventory(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetInventoryEntity(self):
+    def GetInventoryEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetInventorySelected(self):
+    def GetInventorySelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetNChildren(self):
+    def GetNChildren(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetNodeIndex(self):
+    def GetNodeIndex(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetParticleEntity(self):
+    def GetParticleEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetWoundedZone(self):
+    def GetWoundedZone(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GoTo(self):
+    def GoTo(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GoToPath(self):
+    def GoToPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GotAnmType(self):
+    def GotAnmType(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GraspPos(self):
+    def GraspPos(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Impulse(self):
+    def Impulse(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ImpulseC(self):
+    def ImpulseC(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def InsideActionArea(self):
+    def InsideActionArea(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def InterruptCombat(self):
+    def InterruptCombat(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def IsValid(self):
+    def IsValid(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LaunchAnimation(self):
+    def LaunchAnimation(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LaunchAnimation2(self):
+    def LaunchAnimation2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LaunchAnmType(self):
+    def LaunchAnmType(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LaunchBayRoute(self):
+    def LaunchBayRoute(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LaunchWatch(self):
+    def LaunchWatch(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Link(self):
+    def Link(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LinkAnchors(self):
+    def LinkAnchors(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LinkToNode(self):
+    def LinkToNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LookAt(self):
+    def LookAt(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LookAtEntity(self):
+    def LookAtEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def LookAtPerson(self):
+    def LookAtPerson(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def MessageEvent(self):
+    def MessageEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Move(self):
+    def Move(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def PlaySound(self):
+    def PlaySound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def PutToWorld(self):
+    def PutToWorld(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def QuickFace(self):
+    def QuickFace(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RaiseEvent(self):
+    def RaiseEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Rel2AbsPoint(self):
+    def Rel2AbsPoint(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Rel2AbsVector(self):
+    def Rel2AbsVector(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveCameraEvent(self):
+    def RemoveCameraEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromInvent(self):
+    def RemoveFromInvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromInventLeft(self):
+    def RemoveFromInventLeft(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromInventLeft2(self):
+    def RemoveFromInventLeft2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromInventRight(self):
+    def RemoveFromInventRight(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromList(self):
+    def RemoveFromList(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromWorld(self):
+    def RemoveFromWorld(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RemoveFromWorldWithChilds(self):
+    def RemoveFromWorldWithChilds(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ResetChase(self):
+    def ResetChase(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def ResetWounds(self):
+    def ResetWounds(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Rotate(self):
+    def Rotate(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RotateAbs(self):
+    def RotateAbs(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def RotateRel(self):
+    def RotateRel(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SQDistance2(self):
+    def SQDistance2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetActiveEnemy(self):
+    def SetActiveEnemy(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetAnmFlags(self):
+    def SetAnmFlags(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetAuraActive(self):
+    def SetAuraActive(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetAuraGradient(self):
+    def SetAuraGradient(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetAuraParams(self):
+    def SetAuraParams(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetCameraEndTangentNode(self):
+    def SetCameraEndTangentNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetCameraStartTangentNode(self):
+    def SetCameraStartTangentNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetEnemy(self):
+    def SetEnemy(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetMaxCamera(self):
+    def SetMaxCamera(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetMesh(self):
+    def SetMesh(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetNextAttack(self):
+    def SetNextAttack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetNodeEndTangent(self):
+    def SetNodeEndTangent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetNodeStartTangent(self):
+    def SetNodeStartTangent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetObjectSound(self):
+    def SetObjectSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetOnFloor(self):
+    def SetOnFloor(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetOrientation(self):
+    def SetOrientation(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetPersonView(self):
+    def SetPersonView(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetPosition(self):
+    def SetPosition(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetSound(self):
+    def SetSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetTmpAnmFlags(self):
+    def SetTmpAnmFlags(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetTravellingView(self):
+    def SetTravellingView(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SetWoundedZone(self):
+    def SetWoundedZone(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
     def SeverLimb(self, limb: int):
         ...
 
-    def SlideTo(self):
+    def SlideTo(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def StartGrabbing(self):
+    def StartGrabbing(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def StartLooking(self):
+    def StartLooking(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def StartPath(self):
+    def StartPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Stop(self):
+    def Stop(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def StopGrabbing(self):
+    def StopGrabbing(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def StopLooking(self):
+    def StopLooking(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def StopSound(self):
+    def StopSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SubscribeToList(self):
+    def SubscribeToList(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SwitchTo1H(self):
+    def SwitchTo1H(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def SwitchToBow(self):
+    def SwitchToBow(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def TestPos(self):
+    def TestPos(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def TestPosInOwnBox(self):
+    def TestPosInOwnBox(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def TurnOff(self):
+    def TurnOff(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def TurnOn(self):
+    def TurnOn(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def UnFreeze(self):
+    def UnFreeze(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Unlink(self):
+    def Unlink(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def UnlinkChildren(self):
+    def UnlinkChildren(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Use(self):
+    def Use(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
 
@@ -578,8 +600,6 @@ class B_Entity_Person(B_Entity):
 class B_Entity_Weapon(B_Entity):
     def __init__(self) -> None:
         super().__init__()
-
-        self.AAA: int
 
 
 class B_Entity_All(B_Entity_Person, B_Entity_Weapon):
