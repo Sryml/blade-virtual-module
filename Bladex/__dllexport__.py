@@ -317,7 +317,7 @@ __Type = __t.NewType("B_PyEntity", __entity.B_Entity_Person)
 @__t.overload
 def CreateEntity(
     name: str,
-    kind: __bt.BodLink,
+    kind: str,
     x: float,
     y: float,
     z: float,
@@ -333,11 +333,11 @@ __Type = __t.NewType("B_PyEntity", __entity.B_Entity_Weapon)
 @__t.overload
 def CreateEntity(
     name: str,
-    kind: __bt.BodLink,
+    kind: str,
     x: float,
     y: float,
     z: float,
-    parent_class: __t.Literal["Weapon"],
+    parent_class: __t.Literal["Weapon", "Arrow"],
     mesh_name: str = "",
 ) -> __Type:
     ...
@@ -349,11 +349,13 @@ __Type = __t.NewType("B_PyEntity", __entity.B_Entity_All)
 @__t.overload
 def CreateEntity(
     name: str,
-    kind: __bt.BodLink,
+    kind: __t.Union[__bt.str_, __bt.Builtin_Kind, __bt.BodList],
     x: float,
     y: float,
     z: float,
-    parent_class: __t.Union[__t.Any, __t.Literal["Person", "Weapon", "Physic", "Arrow", "Actor", ""]] = "",
+    parent_class: __t.Union[
+        __bt.str_, __t.Literal["", "Actor", "Arrow", "Person", "Physic", "Weapon"]
+    ] = "",
     mesh_name: str = "",
 ) -> __Type:
     ...

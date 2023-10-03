@@ -1,0 +1,14 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.ignore": [
+        "*"
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnType": true,
+        "editor.codeActionsOnSave": {
+            // "source.fixAll.ruff": true,
+            // "source.organizeImports.ruff": true,
+        },
+    },
+}

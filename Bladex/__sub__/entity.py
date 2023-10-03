@@ -469,6 +469,56 @@ class B_Entity:
         ...
 
 
+class B_Entity_Actor(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Aura(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Camera(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Default(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_ElectricBolt(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Fire(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Lava(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Magic_Missile(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Particle(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Particle_System_D(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
 class B_Entity_Person(B_Entity):
     __RasterMode = Literal[
         "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
@@ -597,10 +647,60 @@ class B_Entity_Person(B_Entity):
         ...
 
 
+class B_Entity_Physic(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Pool(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Sliding_Area(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Sound(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Spot(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
+class B_Entity_Water(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
 class B_Entity_Weapon(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
 
-class B_Entity_All(B_Entity_Person, B_Entity_Weapon):
+# 18
+class B_Entity_All(
+    B_Entity_Actor,
+    B_Entity_Aura,
+    B_Entity_Camera,
+    B_Entity_Default,
+    B_Entity_ElectricBolt,
+    B_Entity_Fire,
+    B_Entity_Lava,
+    B_Entity_Magic_Missile,
+    B_Entity_Particle,
+    B_Entity_Particle_System_D,
+    B_Entity_Person,
+    B_Entity_Physic,
+    B_Entity_Pool,
+    B_Entity_Sliding_Area,
+    B_Entity_Sound,
+    B_Entity_Spot,
+    B_Entity_Water,
+    B_Entity_Weapon,
+):
     ...
