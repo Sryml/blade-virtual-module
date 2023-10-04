@@ -1,5 +1,5 @@
 import Bladex
-from b_types import *
+from .b_types import *
 
 import typing
 

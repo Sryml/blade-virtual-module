@@ -1,6 +1,7 @@
 # 09 2023 sryml
-import __sub__.entity as __entity
-import __sub__.b_types as __bt
+# Module 'Bladex'
+from . import entity as __entity
+from . import b_types as __bt
 
 import typing as __t
 
@@ -354,7 +355,8 @@ def CreateEntity(
     y: float,
     z: float,
     parent_class: __t.Union[
-        __bt.str_, __t.Literal["", "Actor", "Arrow", "Person", "Physic", "Weapon"]
+        __bt.str_, __t.Literal["", "Actor",
+                               "Arrow", "Person", "Physic", "Weapon"]
     ] = "",
     mesh_name: str = "",
 ) -> __Type:
@@ -1566,10 +1568,10 @@ def nSounds(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
 def nTriggerSectors(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     """int nTriggerSectors(void)
     Desvincula el número de triggersectors en el mapa."""
-
-    ########
-    ######## reissue
     ...
+
+#########
+# reissue
 
 
 def ApplyVideoSettings(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
