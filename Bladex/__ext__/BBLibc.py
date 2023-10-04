@@ -2,7 +2,9 @@
 import Bladex.__sub__.b_types as __bt
 
 
-def B_BitMap24_ChangeRGBOrder(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_BitMap24_ChangeRGBOrder(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
@@ -17,7 +19,9 @@ def B_BitMap24_GetData(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unkn
     ...
 
 
-def B_BitMap24_GetDimension(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_BitMap24_GetDimension(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
@@ -27,12 +31,16 @@ def B_BitMap24_ReadFromBMP(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.
     ...
 
 
-def B_BitMap24_ReadFromFile(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_BitMap24_ReadFromFile(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_BitMap24_ReadFromJPEG(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_BitMap24_ReadFromJPEG(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
@@ -77,42 +85,58 @@ def B_CID_OBJDSCR(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def B_ResourceManager_GetFile(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_GetFile(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_GetResourceFile(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_GetResourceFile(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_GetResourceName(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_GetResourceName(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_GetnFiles(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_GetnFiles(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_IsResourceLoaded(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_IsResourceLoaded(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_LoadResourceToMemory(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_LoadResourceToMemory(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_NResources(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_NResources(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
 
-def B_ResourceManager_SaveResource(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def B_ResourceManager_SaveResource(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 
@@ -177,7 +201,9 @@ def ReadMMP(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def RemoveOnOpenInputFileFunc(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def RemoveOnOpenInputFileFunc(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """"""
     ...
 

@@ -321,6 +321,7 @@ def nVideoModes(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     """"""
     ...
 
+
 #########
 # reissue
 
@@ -330,7 +331,9 @@ def DrawResizeImage(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown
     ...
 
 
-def GetScaledCenteredSizeFactor(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetScaledCenteredSizeFactor(
+    *args: __bt.Unknown, **kwargs: __bt.Unknown
+) -> __bt.Unknown:
     """*reissue only*"""
     ...
 

@@ -312,6 +312,237 @@ def CreateDFCAnimation(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unkn
 
 
 # CreateEntity >>>
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Aura)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Aura"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Camera)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Camera"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_ElectricBolt)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity ElectricBolt"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Fire)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Fire", "Entity Dynamic Fire"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Lava)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Lava"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Magic_Missile)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Magic Missile"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Particle)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Particle"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Particle_System_D)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal[
+        "Entity Particle System D1",
+        "Entity Particle System D2",
+        "Entity Particle System D3",
+        "Entity Particle System Dobj",
+        "Entity Particle System Dperson",
+    ],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Pool)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Pool"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Sliding_Area)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Sliding Area"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Sound)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Sound"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Spot)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Spot"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Water)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: __t.Literal["Entity Water"],
+    x: float,
+    y: float,
+    z: float,
+    parent_class: str = "",
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Actor)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: str,
+    x: float,
+    y: float,
+    z: float,
+    parent_class: __t.Literal["Actor"],
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
 __Type = __t.NewType("B_PyEntity", __entity.B_Entity_Person)
 
 
@@ -338,13 +569,29 @@ def CreateEntity(
     x: float,
     y: float,
     z: float,
-    parent_class: __t.Literal["Weapon", "Arrow"],
+    parent_class: __t.Literal["Arrow", "Weapon"],
     mesh_name: str = "",
 ) -> __Type:
     ...
 
 
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_All)
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Physic)
+
+
+@__t.overload
+def CreateEntity(
+    name: str,
+    kind: str,
+    x: float,
+    y: float,
+    z: float,
+    parent_class: __t.Literal["Physic"],
+    mesh_name: str = "",
+) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Default)
 
 
 @__t.overload
@@ -355,8 +602,7 @@ def CreateEntity(
     y: float,
     z: float,
     parent_class: __t.Union[
-        __bt.str_, __t.Literal["", "Actor",
-                               "Arrow", "Person", "Physic", "Weapon"]
+        __bt.str_, __t.Literal["", "Actor", "Arrow", "Person", "Physic", "Weapon"]
     ] = "",
     mesh_name: str = "",
 ) -> __Type:
@@ -580,10 +826,31 @@ def GetEntitiesVisibleFrom(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.
     ...
 
 
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Person)
+
+
+@__t.overload
+def GetEntity(arg: __t.Literal["Player1"]) -> __Type:
+    ...
+
+
+__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Camera)
+
+
+@__t.overload
+def GetEntity(arg: __t.Literal["Camera"]) -> __Type:
+    ...
+
+
 __Type = __t.NewType("B_PyEntity", __entity.B_Entity_All)
 
 
-def GetEntity(arg: __t.Union[str, int]) -> __Type:
+@__t.overload
+def GetEntity(arg: __t.Union[str, int, __t.Literal["Camera", "Player1"]]) -> __Type:
+    ...
+
+
+def GetEntity(arg: __t.Union[str, int]) -> __t.Any:
     """GetEntity(int n)
      Crea una entidad de Python que referencia a la entidad Blade de índice n.
     GetEntity(string name)
@@ -1569,6 +1836,7 @@ def nTriggerSectors(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown
     """int nTriggerSectors(void)
     Desvincula el número de triggersectors en el mapa."""
     ...
+
 
 #########
 # reissue

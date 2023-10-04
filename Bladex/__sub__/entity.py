@@ -1,4 +1,5 @@
-import Bladex
+# import Bladex
+from . import inventory
 from .b_types import *
 
 import typing
@@ -195,7 +196,7 @@ class B_Entity:
     def GetGroupMembers(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetInventory(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetInventory(self, *args: Unknown, **kwargs: Unknown) -> inventory.B_PyInventory:
         ...
 
     def GetInventoryEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
@@ -469,6 +470,11 @@ class B_Entity:
         ...
 
 
+class B_Entity_Default(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+
 class B_Entity_Actor(B_Entity):
     def __init__(self) -> None:
         super().__init__()
@@ -480,11 +486,6 @@ class B_Entity_Aura(B_Entity):
 
 
 class B_Entity_Camera(B_Entity):
-    def __init__(self) -> None:
-        super().__init__()
-
-
-class B_Entity_Default(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
