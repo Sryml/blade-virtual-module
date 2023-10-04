@@ -196,7 +196,9 @@ class B_Entity:
     def GetGroupMembers(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetInventory(self, *args: Unknown, **kwargs: Unknown) -> inventory.B_PyInventory:
+    def GetInventory(
+        self, *args: Unknown, **kwargs: Unknown
+    ) -> inventory.B_PyInventory:
         ...
 
     def GetInventoryEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
@@ -211,8 +213,8 @@ class B_Entity:
     def GetNodeIndex(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetParticleEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
-        ...
+    def GetParticleEntity(self, *args: Unknown, **kwargs: Unknown):
+        return B_Entity_Particle()
 
     def GetWoundedZone(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
@@ -474,50 +476,173 @@ class B_Entity_Default(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.Alpha: float
+        self.CastShadows: Bool
+        self.ExclusionGroup: Unknown
+        self.ExclusionMask: Unknown
+        self.FireParticleType: Unknown
+        self.FiresIntensity: Unknown
+        self.LightColor: Unknown
+        self.LightGlow: Unknown
+        self.LightIntensity: Unknown
+        self.LightPrecission: Unknown
+        self.Lights: Unknown
+        self.Orientation: Quaternion
+        self.RasterModeAlpha: Unknown
+        self.RasterModeZ: Unknown
+        self.Scale: float
+        self.SelfIlum: float
+        self.Solid: Unknown
+        self.nFires: Unknown
+        self.nLights: Unknown
+
 
 class B_Entity_Actor(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.Alpha: float
+        self.Animation: Unknown
+        self.CastShadows: Bool
+        self.ExclusionMask: Unknown
+        self.FireParticleType: Unknown
+        self.FiresIntensity: Unknown
+        self.Frame: Unknown
+        self.LightColor: Unknown
+        self.LightGlow: Unknown
+        self.LightIntensity: Unknown
+        self.LightPrecission: Unknown
+        self.Lights: Unknown
+        self.OnAnimationEndFunc: Unknown
+        self.OnPathNodeFunc: Unknown
+        self.Orientation: Quaternion
+        self.RasterModeAlpha: Unknown
+        self.RasterModeZ: Unknown
+        self.Scale: float
+        self.SelfIlum: float
+        self.Solid: Unknown
+        self.nFires: Unknown
+        self.nLights: Unknown
 
 
 class B_Entity_Aura(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.Scale: float
+
 
 class B_Entity_Camera(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.ChangeNodeFunc: Unknown
+        self.Dist: Unknown
+        self.ESource: Unknown
+        self.ETarget: Unknown
+        self.EarthQuake: Unknown
+        self.EarthQuakeFactor: Unknown
+        self.PViewType: Unknown
+        self.Returns: Unknown
+        self.SType: Unknown
+        self.Scale: float
+        self.TAng: Unknown
+        self.TPos: Unknown
+        self.TType: Unknown
 
 
 class B_Entity_ElectricBolt(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.Active: Unknown
+        self.CoreGlowColor: Unknown
+        self.Damage: Unknown
+        self.ETarget: Unknown
+        self.FixedTarget: Unknown
+        self.InnerGlowColor: Unknown
+        self.MaxAmplitude: Unknown
+        self.MinSectorLength: Unknown
+        self.OuterGlowColor: Unknown
+        self.Scale: float
+        self.SimpleSections: Unknown
+        self.Target: Unknown
+
 
 class B_Entity_Fire(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.FireParticleType: Unknown
+        self.Scale: float
 
 
 class B_Entity_Lava(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.Scale: float
+        self.SelfLight: Unknown
+        self.TextureName: Unknown
+        self.TouchFluidFunc: Unknown
+        self.Zoom: Unknown
+
 
 class B_Entity_Magic_Missile(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.CastShadows: Bool
+        self.Color: Unknown
+        self.Damage: Unknown
+        self.DamageRadius: Unknown
+        self.ETarget: Unknown
+        self.Flick: Unknown
+        self.Intensity2: Unknown
+        self.OnHitFunc: Unknown
+        self.Scale: float
+        self.Velocity: Unknown
+        self.Visible: Unknown
 
 
 class B_Entity_Particle(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.DeathTime: Unknown
+        self.Friction: Unknown
+        self.Friction2: Unknown
+        self.Gravity: Unknown
+        self.ObjCTest: Unknown
+        self.PartialLevel: Unknown
+        self.Scale: float
+        self.Velocity: Unknown
+
 
 class B_Entity_Particle_System_D(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.D: Unknown
+        self.D1: Unknown
+        self.D2: Unknown
+        self.DeathTime: Unknown
+        self.FollowFactor: Unknown
+        self.Friction: Unknown
+        self.Friction2: Unknown
+        self.NormalVelocity: Unknown
+        self.ObjectName: Unknown
+        self.PPS: Unknown
+        self.ParticleType: Unknown
+        self.PersonName: Unknown
+        self.PersonNodeName: Unknown
+        self.RandomVelocity: Unknown
+        self.RandomVelocity_V: Unknown
+        self.Scale: float
+        self.Time2Live: Unknown
+        self.Time2Live_V: Unknown
+        self.Velocity: Unknown
+        self.YGravity: Unknown
 
 
 class B_Entity_Person(B_Entity):
@@ -528,48 +653,108 @@ class B_Entity_Person(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.__OnFloor: bool
-        self.__AnmPos: float
-        self.__InvRight: str
-        self.__InvRightBack: str
-        self.__InvLeft: str
-        self.__InvLeftBack: str
+        self.Accuracy: float
+        self.ActionAreaMax: Int
+        self.ActionAreaMin: Int
         self.__ActiveEnemy: str
+        self.AddBayPoint: Vector3
+        self.Aim: Unknown
+        self.AimOffTarget: float
+        self.AimVector: Unknown
+        self.Alpha: float
+        self.Angle: float
+        self.AnimFullName: str
+        self.AnimName: str
+        self.AnmEndedFunc: Optional[Callable[[str], Any]]
+        self.__AnmPos: float
+        self.AnmTranFunc: Unknown
+        self.AstarState: Unknown
+        self.Attack: Unknown
+        self.AttackFunc: Unknown
+        self.BayRoute: Unknown
+        self.BigFallFunc: Unknown
+        self.Blind: Bool
+        self.Block: Unknown
+        self.BlockingPropensity: Unknown
+        self.CastShadows: Bool
+        self.CharSeeingEnemyFunc: Unknown
         self.__CharType: str
         self.__CharTypeExt: str
-        self.__RasterModeZ: Literal["Full", "Read", "Write"]
+        self.CombatDistFlag: Unknown
+        self.CombatGroup: Unknown
+        self.ContinuousBlock: Unknown
+        self.CurrentAreas: Unknown
+        self.Deaf: Bool
+        self.DefenceNeeded: Unknown
+        self.DelayNoSeenFunc: Unknown
+        self.Dist2Floor: Unknown
+        self.EnemyDeadFunc: Unknown
+        self.EnemyLastSeen: Unknown
+        self.EnemyNoAllowedAreaFunc: Unknown
+        self.Energy: Unknown
+        self.EnterCloseFunc: Unknown
+        self.EnterLargeFunc: Unknown
+        self.EnterPrimaryAAFunc: Unknown
+        self.EnterSecondaryAAFunc: Unknown
+        self.Frozen: Bool
+        self.GoToJogging: Bool
+        self.GoToSneaking: Bool
+        self.Gob: Unknown
+        self.Gof: Unknown
+        self.Heard: Unknown
+        self.ImDeadFunc: Unknown
+        self.ImHurtFunc: Unknown
+        self.InCombat: Unknown
+        self.InitPos: Vector3
+        self.__InvLeft: str
+        self.__InvLeft2: str
+        self.__InvLeftBack: str
+        self.__InvRight: str
+        self.__InvRightBack: str
+        self.InvertedRoute: Bool
+        self.LastAttackTime: Unknown
+        self.LastSound: Unknown
+        self.LastSoundPosition: Unknown
+        self.LastTimeSeen: Unknown
+        self.Level: Int
+        self.Life: Int
+        self.MeleeActive: Unknown
+        self.MeshName: Unknown
+        self.MutilateFunc: Unknown
+        self.MutilationsMask: Unknown
+        self.NewComboFunc: Unknown
+        self.NoAllowedAreaFunc: Unknown
+        self.__OnFloor: bool
+        self.OnHitFunc: Unknown
+        self.OnStepFunc: Unknown
+        self.Orientation: Quaternion
+        self.PartialLevel: Unknown
+        self.PrevAnimName: Unknown
+        self.RAttackMax: Unknown
+        self.RAttackMin: Unknown
+        self.RangeActive: Unknown
+        self.RangeDefenceCapable: Unknown
         self.__RasterModeAlpha: Literal[
             "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
         ]
-
-        ####
-        self.Alpha: float
-        self.Scale: float
-        self.Deaf: Bool
-        self.Blind: Bool
-        self.SelfIlum: float
-        self.CastShadows: Bool
-        self.InitPos: Vector3
-        self.Life: Int
-        self.Level: Int
-        self.Orientation: Quaternion
-        self.AnmEndedFunc: Optional[Callable[[str], Any]]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
+        self.Returns: Unknown
         self.RouteEndedFunc: Optional[Callable[[str], Any]]
-        self.Person: Bool
-        self.Physic: Bool
-        self.Actor: Bool
-        self.Arrow: Bool
-        self.Weapon: Bool
-        self.Static: Bool
-        self.Frozen: Bool
-        self.AimOffTarget: float
-        self.ActionAreaMin: Int
-        self.ActionAreaMax: Int
-        self.GoToSneaking: Bool
-        self.GoToJogging: Bool
-        self.InvertedRoute: Bool
-        self.AddBayPoint: Vector3
-        self.HitShieldFunc: Optional[Callable]
+        self.RouteType: Unknown
+        self.Run: Unknown
+        self.Scale: float
+        self.Seen: Unknown
+        self.SelfIlum: float
+        self.Sneak: Unknown
+        self.TakeFunc: Unknown
+        self.Texture: Unknown
+        self.ThrowFunc: Unknown
+        self.Tl: Unknown
+        self.ToggleCombatFunc: Unknown
+        self.Tr: Unknown
+        self.Will1aaTo2aa: Unknown
+        self.WillCrashInFloor: Unknown
+        self.Wuea: Unknown
 
     @property
     def AnmPos(self):
@@ -652,35 +837,128 @@ class B_Entity_Physic(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.Alpha: float
+        self.AngularVelocity: Unknown
+        self.CastShadows: Bool
+        self.ExclusionGroup: Unknown
+        self.ExclusionMask: Unknown
+        self.FireParticleType: Unknown
+        self.FiresIntensity: Unknown
+        self.Frozen: Bool
+        self.Gravity: Unknown
+        self.LightColor: Unknown
+        self.LightGlow: Unknown
+        self.LightIntensity: Unknown
+        self.LightPrecission: Unknown
+        self.Lights: Unknown
+        self.OnStopFunc: Unknown
+        self.Orientation: Quaternion
+        self.RasterModeAlpha: Unknown
+        self.RasterModeZ: Unknown
+        self.Scale: float
+        self.SelfIlum: float
+        self.Solid: Unknown
+        self.TestHit: Unknown
+        self.Velocity: Unknown
+        self.nFires: Unknown
+        self.nLights: Unknown
+
 
 class B_Entity_Pool(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.Color: Unknown
+        self.DeathTime: Unknown
+        self.DeepColor: Unknown
+        self.Scale: float
 
 
 class B_Entity_Sliding_Area(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.A_D: Unknown
+        self.Displacement: Unknown
+        self.DisplacementLimit: Unknown
+        self.IsStopped: Unknown
+        self.OnStopFunc: Unknown
+        self.Orientation: Quaternion
+        self.SlidingSurface: Unknown
+        self.V_D: Unknown
+
 
 class B_Entity_Sound(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.BaseVolume: Unknown
+        self.MaxDistance: Unknown
+        self.MinDistance: Unknown
+        self.Pitch: Unknown
+        self.Playing: Unknown
+        self.SendNotify: Unknown
+        self.Volume: Unknown
 
 
 class B_Entity_Spot(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.CastShadows: Bool
+        self.Color: Unknown
+        self.Flick: Unknown
+        self.FlickPeriod: Unknown
+        self.Intensity2: Unknown
+        self.Scale: float
+        self.Visible: Unknown
+
 
 class B_Entity_Water(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
+        self.Color: Unknown
+        self.Reflection: Unknown
+        self.Scale: float
+        self.TouchFluidFunc: Unknown
+        self.Transparency: Unknown
+
 
 class B_Entity_Weapon(B_Entity):
     def __init__(self) -> None:
         super().__init__()
+
+        self.Alpha: float
+        self.AngularVelocity: Unknown
+        self.CastShadows: Bool
+        self.Cone: Unknown
+        self.ExclusionGroup: Unknown
+        self.ExclusionMask: Unknown
+        self.FireParticleType: Unknown
+        self.FiresIntensity: Unknown
+        self.Frozen: Bool
+        self.Gravity: Unknown
+        self.Height: Unknown
+        self.LightColor: Unknown
+        self.LightGlow: Unknown
+        self.LightIntensity: Unknown
+        self.LightPrecission: Unknown
+        self.Lights: Unknown
+        self.OnStopFunc: Unknown
+        self.Orientation: Quaternion
+        self.Radius: Unknown
+        self.RasterModeAlpha: Unknown
+        self.RasterModeZ: Unknown
+        self.Scale: float
+        self.SelfIlum: float
+        self.Solid: Unknown
+        self.TestHit: Unknown
+        self.TrailColor: Unknown
+        self.TrailLifeTime: Unknown
+        self.Velocity: Unknown
+        self.nFires: Unknown
+        self.nLights: Unknown
 
 
 # 18
