@@ -473,56 +473,170 @@ class B_Entity:
 
 
 class B_Entity_Default(B_Entity):
+    __RasterMode = Literal[
+        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+    ]
+
     def __init__(self) -> None:
         super().__init__()
 
         self.Alpha: float
         self.CastShadows: Bool
-        self.ExclusionGroup: Unknown
-        self.ExclusionMask: Unknown
-        self.FireParticleType: Unknown
-        self.FiresIntensity: Unknown
-        self.LightColor: Unknown
-        self.LightGlow: Unknown
-        self.LightIntensity: Unknown
-        self.LightPrecission: Unknown
-        self.Lights: Unknown
+        self.ExclusionGroup: Bool
+        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.FireParticleType: str
+        self.FiresIntensity: List[int] = []
+        self.__LightColor: Tuple
+        self.__LightGlow: Tuple
+        self.__LightIntensity: Tuple
+        self.__LightPrecission: Tuple
+        self.Lights: List[Tuple[float, float, RGBColor]]
         self.Orientation: Quaternion
-        self.RasterModeAlpha: Unknown
-        self.RasterModeZ: Unknown
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
         self.Scale: float
         self.SelfIlum: float
-        self.Solid: Unknown
-        self.nFires: Unknown
-        self.nLights: Unknown
+        self.Solid: Bool
+        self.nFires: int
+        self.nLights: int
+
+    @property
+    def LightColor(self):
+        """*read only*"""
+        return self.__LightColor
+
+    @property
+    def LightGlow(self):
+        """*read only*"""
+        return self.__LightGlow
+
+    @property
+    def LightIntensity(self):
+        """*read only*"""
+        return self.__LightIntensity
+
+    @property
+    def LightPrecission(self):
+        """*read only*"""
+        return self.__LightPrecission
+
+    @property
+    def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
+        """
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        ...
+
+    @property
+    def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeAlpha
+
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
 
 
 class B_Entity_Actor(B_Entity):
+    __RasterMode = Literal[
+        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+    ]
+
     def __init__(self) -> None:
         super().__init__()
 
         self.Alpha: float
-        self.Animation: Unknown
+        self.Animation: str
         self.CastShadows: Bool
-        self.ExclusionMask: Unknown
-        self.FireParticleType: Unknown
-        self.FiresIntensity: Unknown
-        self.Frame: Unknown
-        self.LightColor: Unknown
-        self.LightGlow: Unknown
-        self.LightIntensity: Unknown
-        self.LightPrecission: Unknown
-        self.Lights: Unknown
-        self.OnAnimationEndFunc: Unknown
-        self.OnPathNodeFunc: Unknown
+        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.FireParticleType: Optional[str] = None
+        self.FiresIntensity: List[int] = []
+        self.Frame: int
+        self.__LightColor: Tuple
+        self.__LightGlow: Tuple
+        self.__LightIntensity: Tuple
+        self.__LightPrecission: Tuple
+        self.Lights: List[Tuple[float, float, RGBColor]]
+        self.OnAnimationEndFunc: Optional[Callable[[str], Any]]
+        self.OnPathNodeFunc: Optional[Callable[[str, int], Any]]
         self.Orientation: Quaternion
-        self.RasterModeAlpha: Unknown
-        self.RasterModeZ: Unknown
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
         self.Scale: float
         self.SelfIlum: float
-        self.Solid: Unknown
-        self.nFires: Unknown
-        self.nLights: Unknown
+        self.Solid: Bool
+        self.nFires: int
+        self.nLights: int
+
+    @property
+    def LightColor(self):
+        """*read only*"""
+        return self.__LightColor
+
+    @property
+    def LightGlow(self):
+        """*read only*"""
+        return self.__LightGlow
+
+    @property
+    def LightIntensity(self):
+        """*read only*"""
+        return self.__LightIntensity
+
+    @property
+    def LightPrecission(self):
+        """*read only*"""
+        return self.__LightPrecission
+
+    @property
+    def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
+        """
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        ...
+
+    @property
+    def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeAlpha
+
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
 
 
 class B_Entity_Aura(B_Entity):
@@ -573,7 +687,7 @@ class B_Entity_Fire(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.FireParticleType: Unknown
+        self.FireParticleType: Optional[str] = None
         self.Scale: float
 
 
@@ -802,12 +916,19 @@ class B_Entity_Person(B_Entity):
         return self.__CharTypeExt
 
     @property
-    def RasterModeZ(self):
-        """*read only*\n
-        Default:`"Full"`\n
-        Use `RasterMode` to set this value.
+    def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
         """
-        return self.__RasterModeZ
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        ...
 
     @property
     def RasterModeAlpha(self):
@@ -816,6 +937,71 @@ class B_Entity_Person(B_Entity):
         Use `RasterMode` to set this value.
         """
         return self.__RasterModeAlpha
+
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
+
+
+class B_Entity_Physic(B_Entity):
+    __RasterMode = Literal[
+        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+    ]
+
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.Alpha: float
+        self.AngularVelocity: Unknown
+        self.CastShadows: Bool
+        self.ExclusionGroup: Bool
+        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.FireParticleType: Optional[str] = None
+        self.FiresIntensity: List[int] = []
+        self.Frozen: Bool
+        self.Gravity: Unknown
+        self.__LightColor: Tuple
+        self.__LightGlow: Tuple
+        self.__LightIntensity: Tuple
+        self.__LightPrecission: Tuple
+        self.Lights: List[Tuple[float, float, RGBColor]]
+        self.OnStopFunc: Unknown
+        self.Orientation: Quaternion
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
+        self.Scale: float
+        self.SelfIlum: float
+        self.Solid: Bool
+        self.TestHit: Unknown
+        self.Velocity: Unknown
+        self.nFires: int
+        self.nLights: int
+
+    @property
+    def LightColor(self):
+        """*read only*"""
+        return self.__LightColor
+
+    @property
+    def LightGlow(self):
+        """*read only*"""
+        return self.__LightGlow
+
+    @property
+    def LightIntensity(self):
+        """*read only*"""
+        return self.__LightIntensity
+
+    @property
+    def LightPrecission(self):
+        """*read only*"""
+        return self.__LightPrecission
 
     @property
     def RasterMode(self):
@@ -832,36 +1018,21 @@ class B_Entity_Person(B_Entity):
     ):
         ...
 
+    @property
+    def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeAlpha
 
-class B_Entity_Physic(B_Entity):
-    def __init__(self) -> None:
-        super().__init__()
-
-        self.Alpha: float
-        self.AngularVelocity: Unknown
-        self.CastShadows: Bool
-        self.ExclusionGroup: Unknown
-        self.ExclusionMask: Unknown
-        self.FireParticleType: Unknown
-        self.FiresIntensity: Unknown
-        self.Frozen: Bool
-        self.Gravity: Unknown
-        self.LightColor: Unknown
-        self.LightGlow: Unknown
-        self.LightIntensity: Unknown
-        self.LightPrecission: Unknown
-        self.Lights: Unknown
-        self.OnStopFunc: Unknown
-        self.Orientation: Quaternion
-        self.RasterModeAlpha: Unknown
-        self.RasterModeZ: Unknown
-        self.Scale: float
-        self.SelfIlum: float
-        self.Solid: Unknown
-        self.TestHit: Unknown
-        self.Velocity: Unknown
-        self.nFires: Unknown
-        self.nLights: Unknown
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
 
 
 class B_Entity_Pool(B_Entity):
@@ -926,6 +1097,10 @@ class B_Entity_Water(B_Entity):
 
 
 class B_Entity_Weapon(B_Entity):
+    __RasterMode = Literal[
+        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+    ]
+
     def __init__(self) -> None:
         super().__init__()
 
@@ -933,32 +1108,85 @@ class B_Entity_Weapon(B_Entity):
         self.AngularVelocity: Unknown
         self.CastShadows: Bool
         self.Cone: Unknown
-        self.ExclusionGroup: Unknown
-        self.ExclusionMask: Unknown
-        self.FireParticleType: Unknown
-        self.FiresIntensity: Unknown
+        self.ExclusionGroup: Bool
+        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.FireParticleType: Optional[str] = None
+        self.FiresIntensity: List[int] = []
         self.Frozen: Bool
         self.Gravity: Unknown
         self.Height: Unknown
-        self.LightColor: Unknown
-        self.LightGlow: Unknown
-        self.LightIntensity: Unknown
-        self.LightPrecission: Unknown
-        self.Lights: Unknown
+        self.__LightColor: Tuple
+        self.__LightGlow: Tuple
+        self.__LightIntensity: Tuple
+        self.__LightPrecission: Tuple
+        self.Lights: List[Tuple[float, float, RGBColor]]
         self.OnStopFunc: Unknown
         self.Orientation: Quaternion
         self.Radius: Unknown
-        self.RasterModeAlpha: Unknown
-        self.RasterModeZ: Unknown
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
         self.Scale: float
         self.SelfIlum: float
-        self.Solid: Unknown
+        self.Solid: Bool
         self.TestHit: Unknown
         self.TrailColor: Unknown
         self.TrailLifeTime: Unknown
         self.Velocity: Unknown
-        self.nFires: Unknown
-        self.nLights: Unknown
+        self.nFires: int
+        self.nLights: int
+
+    @property
+    def LightColor(self):
+        """*read only*"""
+        return self.__LightColor
+
+    @property
+    def LightGlow(self):
+        """*read only*"""
+        return self.__LightGlow
+
+    @property
+    def LightIntensity(self):
+        """*read only*"""
+        return self.__LightIntensity
+
+    @property
+    def LightPrecission(self):
+        """*read only*"""
+        return self.__LightPrecission
+
+    @property
+    def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
+        """
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        ...
+
+    @property
+    def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeAlpha
+
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
 
 
 # 18
