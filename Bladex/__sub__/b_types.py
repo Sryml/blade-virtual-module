@@ -11,6 +11,8 @@ RGBColor = Tuple[int, int, int]
 # Any_ = Union[Any, None]
 Unknown = Any
 
+NodeType = Literal[""]
+
 Builtin_Kind = Literal[
     "Entity Aura",
     "Entity Camera",
@@ -31,6 +33,8 @@ Builtin_Kind = Literal[
     "Entity Spot",
     "Entity Water",
 ]
+
+ParticleType = Literal[""]
 
 BodList = Literal[
     "Amz_Bng",

@@ -650,37 +650,37 @@ class B_Entity_Camera(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.ChangeNodeFunc: Unknown
-        self.Dist: Unknown
-        self.ESource: Unknown
-        self.ETarget: Unknown
-        self.EarthQuake: Unknown
-        self.EarthQuakeFactor: Unknown
-        self.PViewType: Unknown
+        self.ChangeNodeFunc: Union[Callable[[str, int, int], Any], Literal[""]]
+        self.Dist: float
+        self.ESource: str
+        self.ETarget: str
+        self.EarthQuake: Bool
+        self.EarthQuakeFactor: float
+        self.PViewType: Literal[0, 1, 2, 3]
         self.Returns: Unknown
-        self.SType: Unknown
+        self.SType: Literal[0, 1, 2]
         self.Scale: float
-        self.TAng: Unknown
-        self.TPos: Unknown
-        self.TType: Unknown
+        self.TAng: Vector3
+        self.TPos: Vector3
+        self.TType: Literal[0, 1, 2, 3]
 
 
 class B_Entity_ElectricBolt(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.Active: Unknown
-        self.CoreGlowColor: Unknown
-        self.Damage: Unknown
-        self.ETarget: Unknown
-        self.FixedTarget: Unknown
-        self.InnerGlowColor: Unknown
-        self.MaxAmplitude: Unknown
-        self.MinSectorLength: Unknown
-        self.OuterGlowColor: Unknown
+        self.Active: Bool
+        self.CoreGlowColor: RGBColor
+        self.Damage: Bool
+        self.ETarget: str
+        self.FixedTarget: Bool
+        self.InnerGlowColor: RGBColor
+        self.MaxAmplitude: float
+        self.MinSectorLength: float
+        self.OuterGlowColor: RGBColor
         self.Scale: float
-        self.SimpleSections: Unknown
-        self.Target: Unknown
+        self.SimpleSections: Bool
+        self.Target: Vector3
 
 
 class B_Entity_Fire(B_Entity):
@@ -696,10 +696,10 @@ class B_Entity_Lava(B_Entity):
         super().__init__()
 
         self.Scale: float
-        self.SelfLight: Unknown
-        self.TextureName: Unknown
-        self.TouchFluidFunc: Unknown
-        self.Zoom: Unknown
+        self.SelfLight: Bool
+        self.TextureName: str
+        self.TouchFluidFunc: Optional[Callable[[str, str, float], Any]]
+        self.Zoom: float
 
 
 class B_Entity_Magic_Missile(B_Entity):
@@ -707,56 +707,56 @@ class B_Entity_Magic_Missile(B_Entity):
         super().__init__()
 
         self.CastShadows: Bool
-        self.Color: Unknown
-        self.Damage: Unknown
-        self.DamageRadius: Unknown
-        self.ETarget: Unknown
-        self.Flick: Unknown
+        self.Color: RGBColor
+        self.Damage: Bool
+        self.DamageRadius: float
+        self.ETarget: str
+        self.Flick: Bool
         self.Intensity2: Unknown
-        self.OnHitFunc: Unknown
+        self.OnHitFunc: Optional[Callable[[str, str], Any]]
         self.Scale: float
-        self.Velocity: Unknown
-        self.Visible: Unknown
+        self.Velocity: Vector3
+        self.Visible: Bool
 
 
 class B_Entity_Particle(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.DeathTime: Unknown
-        self.Friction: Unknown
-        self.Friction2: Unknown
-        self.Gravity: Unknown
-        self.ObjCTest: Unknown
+        self.DeathTime: float
+        self.Friction: float
+        self.Friction2: float
+        self.Gravity: Vector3
+        self.ObjCTest: Bool
         self.PartialLevel: Unknown
         self.Scale: float
-        self.Velocity: Unknown
+        self.Velocity: Vector3
 
 
 class B_Entity_Particle_System_D(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.D: Unknown
-        self.D1: Unknown
-        self.D2: Unknown
-        self.DeathTime: Unknown
-        self.FollowFactor: Unknown
-        self.Friction: Unknown
-        self.Friction2: Unknown
-        self.NormalVelocity: Unknown
-        self.ObjectName: Unknown
-        self.PPS: Unknown
-        self.ParticleType: Unknown
-        self.PersonName: Unknown
-        self.PersonNodeName: Unknown
-        self.RandomVelocity: Unknown
-        self.RandomVelocity_V: Unknown
+        self.D: Vector3
+        self.D1: Vector3
+        self.D2: Vector3
+        self.DeathTime: float
+        self.FollowFactor: float
+        self.Friction: float
+        self.Friction2: float
+        self.NormalVelocity: Int
+        self.ObjectName: str
+        self.PPS: int
+        self.ParticleType: Union[str, ParticleType]
+        self.PersonName: str
+        self.PersonNodeName: Union[str, NodeType]
+        self.RandomVelocity: Int
+        self.RandomVelocity_V: Int
         self.Scale: float
-        self.Time2Live: Unknown
-        self.Time2Live_V: Unknown
-        self.Velocity: Unknown
-        self.YGravity: Unknown
+        self.Time2Live: int
+        self.Time2Live_V: int
+        self.Velocity: Vector3
+        self.YGravity: Int
 
 
 class B_Entity_Person(B_Entity):
