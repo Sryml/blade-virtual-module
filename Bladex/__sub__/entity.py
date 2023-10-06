@@ -747,9 +747,9 @@ class B_Entity_Particle_System_D(B_Entity):
         self.NormalVelocity: Int
         self.ObjectName: str
         self.PPS: int
-        self.ParticleType: Union[str, ParticleType]
+        self.ParticleType: Union[str_, ParticleType]
         self.PersonName: str
-        self.PersonNodeName: Union[str, NodeType]
+        self.PersonNodeName: Union[str_, NodeType]
         self.RandomVelocity: Int
         self.RandomVelocity_V: Int
         self.Scale: float

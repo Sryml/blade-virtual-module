@@ -14,7 +14,7 @@
 ### ✨ Blade of Darkness virtual python module for code completion
 
 ## 🌟 Requirements
-- Python version >= 3.7
+- Python version >= 3.8
 
 ## 📖 Install
 

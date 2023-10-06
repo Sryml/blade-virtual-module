@@ -1,7 +1,16 @@
 import typing
-from typing import List, Tuple, Dict, Any, AnyStr, Callable, Union, Optional, Literal
-
-str_ = typing.TypeVar("str_", str, str)
+from typing import (
+    List,
+    Tuple,
+    Dict,
+    Any,
+    AnyStr,
+    Callable,
+    Union,
+    Optional,
+    Literal,
+    overload,
+)
 
 Int = Union[int, float]
 Bool = Union[bool, Literal[0, 1]]
@@ -9,9 +18,35 @@ Vector3 = Tuple[float, float, float]
 Quaternion = Tuple[float, float, float, float]
 RGBColor = Tuple[int, int, int]
 # Any_ = Union[Any, None]
-Unknown = Any
+Unknown = str_ = Any
 
-NodeType = Literal[""]
+NodeType = Literal[
+    "Center",
+    "Chest",
+    "Head",
+    "R_Shoulder",
+    "R_Arm",
+    "R_Elbow",
+    "R_Forearm",
+    "R_Wrist",
+    "R_Hand",
+    "L_Shoulder",
+    "L_Arm",
+    "L_Elbow",
+    "L_Forearm",
+    "L_Wrist",
+    "L_Hand",
+    "R_Ass",
+    "R_Leg",
+    "R_Knee",
+    "R_Boot",
+    "R_Foot",
+    "L_Ass",
+    "L_Leg",
+    "L_Knee",
+    "L_Boot",
+    "L_Foot",
+]
 
 Builtin_Kind = Literal[
     "Entity Aura",
@@ -34,7 +69,76 @@ Builtin_Kind = Literal[
     "Entity Water",
 ]
 
-ParticleType = Literal[""]
+ParticleType = Literal[
+    "AnkBlood",
+    "BigFire",
+    "BladeSwordMissile",
+    "Blood",
+    "BlueMagicMissile",
+    "BlueSpark",
+    "BlueTrail",
+    "BrillosBladeSword",
+    "DGLevelUpParticle",
+    "DGLifeUpEnergyConc",
+    "DLLevelUpParticle",
+    "DLLifeUpEnergyConc",
+    "DarkSmoke",
+    "DeathCloud",
+    "DeepGreenEnergyConc",
+    "DeepGreenMagicMissile",
+    "DeepOrangeEnergyConc",
+    "DeepOrangeMagicMissile",
+    "DeepRedEnergyConc",
+    "DeepRedMagicMissile",
+    "DemonShield",
+    "Dust",
+    "Energia2",
+    "Energia3",
+    "EnergyConc",
+    "EnergyDissip",
+    "FastEnergyConc",
+    "FastRedEnergyConc",
+    "Fire",
+    "Flame",
+    "FuegoInvocacion",
+    "GDLevelUpParticle",
+    "GDLifeUpEnergyConc",
+    "GasVenenoso",
+    "GasVenenoso2",
+    "GotasSangre",
+    "GreenBlood",
+    "GreenFire",
+    "GreenTrail",
+    "GreyBlood",
+    "LargeDust",
+    "LargeFire",
+    "LargeFlame",
+    "LevelUpParticle",
+    "LittleBlueEnergyConc",
+    "LittleBlueSpark",
+    "LittleDeepOrangeMagicMissile",
+    "LittleEnergyDissip",
+    "Llamita",
+    "Llamita2",
+    "LucesCools",
+    "MediumDust",
+    "Miguillas",
+    "MulticolourEnergyDissip",
+    "RedMagicMissile",
+    "RedTrail",
+    "SacredFX",
+    "Sand",
+    "ShitSmoke",
+    "Smoke",
+    "SnowDust",
+    "Splinter",
+    "Vaho",
+    "Venom",
+    "VenomSmoke",
+    "Vomit",
+    "WhiteTrail",
+    "YellowTrail",
+]
 
 BodList = Literal[
     "Amz_Bng",

@@ -9,4 +9,7 @@
       // "source.organizeImports.ruff": true,
     }
   },
+  "python.analysis.diagnosticSeverityOverrides": {
+    // "reportGeneralTypeIssues" :"none",
+  },
 }
