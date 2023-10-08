@@ -859,18 +859,18 @@ class B_Entity_Person(B_Entity):
         self.__RouteType: int
         self.Run: Bool
         self.Scale: float
-        self.Seen: Unknown
+        self.Seen: Bool
         self.SelfIlum: float
-        self.Sneak: Unknown
-        self.TakeFunc: Unknown
+        self.Sneak: Bool
+        self.TakeFunc: Optional[Callable[[str], Any]]
         self.Texture: Unknown
-        self.ThrowFunc: Unknown
-        self.Tl: Unknown
-        self.ToggleCombatFunc: Unknown
-        self.Tr: Unknown
-        self.Will1aaTo2aa: Unknown
-        self.WillCrashInFloor: Unknown
-        self.Wuea: Unknown
+        self.ThrowFunc: Optional[Callable[[str], Any]]
+        self.Tl: Bool
+        self.ToggleCombatFunc: Optional[Callable[[str], Any]]
+        self.Tr: Bool
+        self.__Will1aaTo2aa: Bool
+        self.__WillCrashInFloor: Bool
+        self.Wuea: Literal[0, 1, 2]
 
     @property
     def ActiveEnemy(self):
@@ -1000,6 +1000,16 @@ class B_Entity_Person(B_Entity):
         non-player attribute"""
         return self.__RouteType
 
+    @property
+    def Will1aaTo2aa(self):
+        """*read only*"""
+        return self.__Will1aaTo2aa
+
+    @property
+    def WillCrashInFloor(self):
+        """*read only*"""
+        return self.__WillCrashInFloor
+
 
 class B_Entity_Physic(B_Entity):
     __RasterMode = Literal[
@@ -1010,20 +1020,20 @@ class B_Entity_Physic(B_Entity):
         super().__init__()
 
         self.Alpha: float
-        self.AngularVelocity: Unknown
+        self.AngularVelocity: Vector3
         self.CastShadows: Bool
         self.ExclusionGroup: Bool
         self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
         self.FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frozen: Bool
-        self.Gravity: Unknown
+        self.Gravity: Vector3
         self.__LightColor: Tuple
         self.__LightGlow: Tuple
         self.__LightIntensity: Tuple
         self.__LightPrecission: Tuple
         self.Lights: List[Tuple[float, float, RGBColor]]
-        self.OnStopFunc: Unknown
+        self.OnStopFunc: Optional[Callable[[str], Any]]
         self.Orientation: Quaternion
         self.__RasterModeAlpha: Literal[
             "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
@@ -1032,8 +1042,8 @@ class B_Entity_Physic(B_Entity):
         self.Scale: float
         self.SelfIlum: float
         self.Solid: Bool
-        self.TestHit: Unknown
-        self.Velocity: Unknown
+        self.__TestHit: Bool
+        self.Velocity: Vector3
         self.nFires: int
         self.nLights: int
 
@@ -1088,14 +1098,19 @@ class B_Entity_Physic(B_Entity):
         """
         return self.__RasterModeZ
 
+    @property
+    def TestHit(self):
+        """*read only*"""
+        return self.__TestHit
+
 
 class B_Entity_Pool(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.Color: Unknown
-        self.DeathTime: Unknown
-        self.DeepColor: Unknown
+        self.Color: RGBColor
+        self.DeathTime: float
+        self.DeepColor: RGBColor
         self.Scale: float
 
 
@@ -1103,14 +1118,19 @@ class B_Entity_Sliding_Area(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.A_D: Unknown
-        self.Displacement: Unknown
-        self.DisplacementLimit: Unknown
-        self.IsStopped: Unknown
-        self.OnStopFunc: Unknown
+        self.A_D: float
+        self.Displacement: float
+        self.DisplacementLimit: float
+        self.__IsStopped: Bool
+        self.OnStopFunc: Optional[Callable[[str], Any]]
         self.Orientation: Quaternion
-        self.SlidingSurface: Unknown
-        self.V_D: Unknown
+        self.SlidingSurface: Vector3
+        self.V_D: float
+
+    @property
+    def IsStopped(self):
+        """*read only*"""
+        return self.__IsStopped
 
 
 class B_Entity_Sound(B_Entity):
@@ -1131,7 +1151,7 @@ class B_Entity_Spot(B_Entity):
         super().__init__()
 
         self.CastShadows: Bool
-        self.Color: Unknown
+        self.Color: RGBColor
         self.Flick: Unknown
         self.FlickPeriod: Unknown
         self.Intensity2: Unknown
@@ -1143,7 +1163,7 @@ class B_Entity_Water(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.Color: Unknown
+        self.Color: RGBColor
         self.Reflection: Unknown
         self.Scale: float
         self.TouchFluidFunc: Unknown
@@ -1159,7 +1179,7 @@ class B_Entity_Weapon(B_Entity):
         super().__init__()
 
         self.Alpha: float
-        self.AngularVelocity: Unknown
+        self.AngularVelocity: Vector3
         self.CastShadows: Bool
         self.Cone: Unknown
         self.ExclusionGroup: Bool
@@ -1167,14 +1187,14 @@ class B_Entity_Weapon(B_Entity):
         self.FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frozen: Bool
-        self.Gravity: Unknown
+        self.Gravity: Vector3
         self.Height: Unknown
         self.__LightColor: Tuple
         self.__LightGlow: Tuple
         self.__LightIntensity: Tuple
         self.__LightPrecission: Tuple
         self.Lights: List[Tuple[float, float, RGBColor]]
-        self.OnStopFunc: Unknown
+        self.OnStopFunc: Optional[Callable[[str], Any]]
         self.Orientation: Quaternion
         self.Radius: Unknown
         self.__RasterModeAlpha: Literal[
@@ -1184,10 +1204,10 @@ class B_Entity_Weapon(B_Entity):
         self.Scale: float
         self.SelfIlum: float
         self.Solid: Bool
-        self.TestHit: Unknown
+        self.__TestHit: Bool
         self.TrailColor: Unknown
         self.TrailLifeTime: Unknown
-        self.Velocity: Unknown
+        self.Velocity: Vector3
         self.nFires: int
         self.nLights: int
 
@@ -1241,6 +1261,11 @@ class B_Entity_Weapon(B_Entity):
         Use `RasterMode` to set this value.
         """
         return self.__RasterModeZ
+
+    @property
+    def TestHit(self):
+        """*read only*"""
+        return self.__TestHit
 
 
 # 18
