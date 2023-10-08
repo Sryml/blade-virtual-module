@@ -19,6 +19,7 @@ Quaternion = Tuple[float, float, float, float]
 RGBColor = Tuple[int, int, int]
 # Any_ = Union[Any, None]
 Unknown = str_ = Any
+Radian = float
 
 NodeType = Literal[
     "Center",

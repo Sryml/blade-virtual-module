@@ -772,53 +772,53 @@ class B_Entity_Person(B_Entity):
         self.ActionAreaMin: Int
         self.__ActiveEnemy: str
         self.AddBayPoint: Vector3
-        self.Aim: Unknown
-        self.AimOffTarget: float
-        self.AimVector: Unknown
+        self.Aim: Bool
+        self.AimOffTarget: Radian
+        self.AimVector: Vector3
         self.Alpha: float
-        self.Angle: float
+        self.Angle: Radian
         self.AnimFullName: str
         self.AnimName: str
         self.AnmEndedFunc: Optional[Callable[[str], Any]]
         self.__AnmPos: float
-        self.AnmTranFunc: Unknown
-        self.AstarState: Unknown
-        self.Attack: Unknown
-        self.AttackFunc: Unknown
-        self.BayRoute: Unknown
-        self.BigFallFunc: Unknown
+        self.AnmTranFunc: Optional[Callable[[str], Any]]
+        self.__AstarState: Literal[0, 1, 2, 3]
+        self.Attack: Bool
+        self.AttackFunc: Optional[Callable[[str, str], Any]]
+        self.BayRoute: Bool
+        self.BigFallFunc: Optional[Callable[[str, float], Any]]
         self.Blind: Bool
-        self.Block: Unknown
-        self.BlockingPropensity: Unknown
+        self.Block: Bool
+        self.BlockingPropensity: float
         self.CastShadows: Bool
-        self.CharSeeingEnemyFunc: Unknown
+        self.CharSeeingEnemyFunc: Optional[Callable[[str, str], Any]]
         self.__CharType: str
         self.__CharTypeExt: str
-        self.CombatDistFlag: Unknown
-        self.CombatGroup: Unknown
-        self.ContinuousBlock: Unknown
-        self.CurrentAreas: Unknown
+        self.CombatDistFlag: Bool
+        self.CombatGroup: str
+        self.ContinuousBlock: Bool
+        self.__CurrentAreas: Unknown
         self.Deaf: Bool
-        self.DefenceNeeded: Unknown
-        self.DelayNoSeenFunc: Unknown
-        self.Dist2Floor: Unknown
-        self.EnemyDeadFunc: Unknown
-        self.EnemyLastSeen: Unknown
-        self.EnemyNoAllowedAreaFunc: Unknown
-        self.Energy: Unknown
-        self.EnterCloseFunc: Unknown
-        self.EnterLargeFunc: Unknown
-        self.EnterPrimaryAAFunc: Unknown
-        self.EnterSecondaryAAFunc: Unknown
+        self.DefenceNeeded: Bool
+        self.DelayNoSeenFunc: Optional[Callable[[str], Any]]
+        self.Dist2Floor: float
+        self.EnemyDeadFunc: Optional[Callable[[str], Any]]
+        self.EnemyLastSeen: Vector3
+        self.EnemyNoAllowedAreaFunc: Optional[Callable[[str], Any]]
+        self.Energy: float
+        self.EnterCloseFunc: Optional[Callable[[str], Any]]
+        self.EnterLargeFunc: Optional[Callable[[str], Any]]
+        self.EnterPrimaryAAFunc: Optional[Callable[[str], Any]]
+        self.EnterSecondaryAAFunc: Optional[Callable[[str], Any]]
         self.Frozen: Bool
         self.GoToJogging: Bool
         self.GoToSneaking: Bool
-        self.Gob: Unknown
-        self.Gof: Unknown
-        self.Heard: Unknown
-        self.ImDeadFunc: Unknown
-        self.ImHurtFunc: Unknown
-        self.InCombat: Unknown
+        self.Gob: Bool
+        self.Gof: Bool
+        self.Heard: Bool
+        self.ImDeadFunc: Optional[Callable[[str], Any]]
+        self.ImHurtFunc: Optional[Callable[[str], Any]]
+        self.__InCombat: Bool
         self.InitPos: Vector3
         self.__InvLeft: str
         self.__InvLeft2: str
@@ -826,36 +826,38 @@ class B_Entity_Person(B_Entity):
         self.__InvRight: str
         self.__InvRightBack: str
         self.InvertedRoute: Bool
-        self.LastAttackTime: Unknown
-        self.LastSound: Unknown
-        self.LastSoundPosition: Unknown
-        self.LastTimeSeen: Unknown
+        self.LastAttackTime: float
+        self.__LastSound: str
+        self.__LastSoundPosition: Vector3
+        self.LastTimeSeen: float
         self.Level: Int
         self.Life: Int
-        self.MeleeActive: Unknown
-        self.MeshName: Unknown
-        self.MutilateFunc: Unknown
-        self.MutilationsMask: Unknown
-        self.NewComboFunc: Unknown
-        self.NoAllowedAreaFunc: Unknown
+        self.MeleeActive: Bool
+        self.MeshName: str
+        self.MutilateFunc: Optional[
+            Callable[[str, str, float, float, float, float, float, float, int], Any]
+        ]
+        self.__MutilationsMask: int
+        self.NewComboFunc: Optional[Callable[[str, str], Any]]
+        self.NoAllowedAreaFunc: Optional[Callable[[str], Any]]
         self.__OnFloor: bool
-        self.OnHitFunc: Unknown
-        self.OnStepFunc: Unknown
+        self.OnHitFunc: Optional[Callable[[str, str], Any]]
+        self.OnStepFunc: Optional[Callable[[Unknown], Any]]
         self.Orientation: Quaternion
-        self.PartialLevel: Unknown
-        self.PrevAnimName: Unknown
-        self.RAttackMax: Unknown
-        self.RAttackMin: Unknown
-        self.RangeActive: Unknown
-        self.RangeDefenceCapable: Unknown
+        self.PartialLevel: Int
+        self.__PrevAnimName: str
+        self.RAttackMax: Int
+        self.RAttackMin: Int
+        self.__RangeActive: Bool
+        self.RangeDefenceCapable: Bool
         self.__RasterModeAlpha: Literal[
             "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
         ]
         self.__RasterModeZ: Literal["Full", "Read", "Write"]
         self.Returns: Unknown
         self.RouteEndedFunc: Optional[Callable[[str], Any]]
-        self.RouteType: Unknown
-        self.Run: Unknown
+        self.__RouteType: int
+        self.Run: Bool
         self.Scale: float
         self.Seen: Unknown
         self.SelfIlum: float
@@ -871,9 +873,55 @@ class B_Entity_Person(B_Entity):
         self.Wuea: Unknown
 
     @property
+    def ActiveEnemy(self):
+        """*read only*"""
+        return self.__ActiveEnemy
+
+    @property
     def AnmPos(self):
         """*read only*"""
         return self.__AnmPos
+
+    @property
+    def AstarState(self):
+        """*read only*\n
+        non-player attribute"""
+        return self.__AstarState
+
+    @property
+    def CharType(self):
+        """*read only*"""
+        return self.__CharType
+
+    @property
+    def CharTypeExt(self):
+        """*read only*"""
+        return self.__CharTypeExt
+
+    @property
+    def CurrentAreas(self):
+        """*read only*"""
+        return self.__CurrentAreas
+
+    @property
+    def InCombat(self):
+        """*read only*"""
+        return self.__InCombat
+
+    @property
+    def InvLeft(self):
+        """*read only*"""
+        return self.__InvLeft
+
+    @property
+    def InvLeft2(self):
+        """*read only*"""
+        return self.__InvLeft2
+
+    @property
+    def InvLeftBack(self):
+        """*read only*"""
+        return self.__InvLeftBack
 
     @property
     def InvRight(self):
@@ -886,14 +934,19 @@ class B_Entity_Person(B_Entity):
         return self.__InvRightBack
 
     @property
-    def InvLeft(self):
+    def LastSound(self):
         """*read only*"""
-        return self.__InvLeft
+        return self.__LastSound
 
     @property
-    def InvLeftBack(self):
+    def LastSoundPosition(self):
         """*read only*"""
-        return self.__InvLeftBack
+        return self.__LastSoundPosition
+
+    @property
+    def MutilationsMask(self):
+        """*read only*"""
+        return self.__MutilationsMask
 
     @property
     def OnFloor(self):
@@ -901,19 +954,14 @@ class B_Entity_Person(B_Entity):
         return self.__OnFloor
 
     @property
-    def ActiveEnemy(self):
+    def PrevAnimName(self):
         """*read only*"""
-        return self.__ActiveEnemy
+        return self.__PrevAnimName
 
     @property
-    def CharType(self):
+    def RangeActive(self):
         """*read only*"""
-        return self.__CharType
-
-    @property
-    def CharTypeExt(self):
-        """*read only*"""
-        return self.__CharTypeExt
+        return self.__RangeActive
 
     @property
     def RasterMode(self):
@@ -945,6 +993,12 @@ class B_Entity_Person(B_Entity):
         Use `RasterMode` to set this value.
         """
         return self.__RasterModeZ
+
+    @property
+    def RouteType(self):
+        """*read only*\n
+        non-player attribute"""
+        return self.__RouteType
 
 
 class B_Entity_Physic(B_Entity):
