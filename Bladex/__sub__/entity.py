@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # import Bladex
 from . import inventory
 from .b_types import *
@@ -139,111 +141,128 @@ class B_Entity:
         return self.__SubscribedLists
 
     # Methods
-    def Abs2RelPoint(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Abs2RelPoint(
+        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+    ) -> Vector3:
         ...
 
-    def Abs2RelVector(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Abs2RelVector(
+        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+    ) -> Vector3:
         ...
 
-    def AddAnimSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddAnimSound(self, animation: str, sound: B_Entity_Sound, time: float) -> Bool:
         ...
 
-    def AddAnmEventFunc(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddAnmEventFunc(self, anm_event: str, func: Callable[[str, str], Any]) -> Bool:
         ...
 
-    def AddCameraEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddCameraEvent(self, frame: int, func: Callable[[str, int], Any]) -> Bool:
         ...
 
-    def AddCameraNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddCameraNode(
+        self, node: int, time: float, x: float, y: float, z: float
+    ) -> Bool:
         ...
 
-    def AddEventSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddEventSound(self, event_name: str, sound: B_Entity_Sound) -> Bool:
         ...
 
-    def AddPathNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddPathNode(self, time: float, x: float, y: float, z: float) -> Bool:
         ...
 
-    def AddWatchAnim(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddWatchAnim(self, anm_name: str) -> Bool:
         ...
 
-    def CameraClearPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CameraClearPath(self, node: int) -> Bool:
         ...
 
-    def CameraStartPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CameraStartPath(self, node: int) -> Bool:
         ...
 
-    def CanGoTo(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CanGoTo(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def CanISee(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CanISee(self, ent: B_PyEntity) -> Bool:
         ...
 
-    def CanISeeFrom(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CanISeeFrom(self, ent: B_PyEntity, x: float, y: float, z: float) -> Bool:
         ...
 
-    def CatchOnFire(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CatchOnFire(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def Chase(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Chase(self, enemy: B_PyEntity, action_area: Int) -> Bool:
         ...
 
-    def CheckAnimCol(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CheckAnimCol(self, anm_name: str, obj: B_PyEntity, unknown: int) -> int:
         ...
 
-    def ClearAnmEventFuncs(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ClearAnmEventFuncs(self) -> Bool:
         ...
 
-    def ClearPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ClearPath(self) -> Bool:
         ...
 
-    def Cut(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Cut(self) -> Bool:
         ...
 
-    def DelAnmEventFunc(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def DelAnmEventFunc(self, anm_event: str) -> Bool:
         ...
 
-    def DoAction(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def DoAction(self, action_name: str) -> int:
         ...
 
-    def DoActionWI(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def DoActionWI(
+        self,
+        action_name: str,
+        interpolation_type: int,
+        time: float,
+        unknown: float = 0.0,
+    ) -> int:
         ...
 
-    def ExcludeHitFor(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ExcludeHitFor(self, ent: B_PyEntity) -> Bool:
         ...
 
-    def ExcludeHitInAnimationFor(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ExcludeHitInAnimationFor(self, ent: B_PyEntity) -> Bool:
         ...
 
-    def Face(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Face(self, angle: float) -> Bool:
         ...
 
-    def Fly(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Fly(self, velocity_x: float, velocity_y: float, velocity_z: float) -> Bool:
         ...
 
-    def Freeze(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Freeze(self) -> Bool:
         ...
 
-    def GetActionMode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetActionMode(self) -> int:
         ...
 
-    def GetChild(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetChild(self, index: int) -> str:
         ...
 
-    def GetCombatants(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetCombatants(self) -> List:
         ...
 
-    def GetDummyAxis(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetDummyAxis(
+        self,
+        anchor_name: str,
+        x_axis: float,
+        y_axis: float,
+        z_axis: float,
+        unknown: int = 1,
+    ) -> Tuple:
         ...
 
-    def GetEnemyName(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetEnemyName(self) -> str:
         ...
 
-    def GetGroupMembers(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetGroupMembers(self) -> Union[List, Literal[0]]:
         ...
 
-    def GetInventory(
-        self, *args: Unknown, **kwargs: Unknown
-    ) -> inventory.B_PyInventory:
+    def GetInventory(self) -> inventory.B_PyInventory:
         ...
 
     def GetInventoryEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
@@ -252,14 +271,14 @@ class B_Entity:
     def GetInventorySelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetNChildren(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetNChildren(self) -> int:
         ...
 
-    def GetNodeIndex(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetNodeIndex(self, node_name: str) -> int:
         ...
 
-    def GetParticleEntity(self, *args: Unknown, **kwargs: Unknown):
-        return B_Entity_Particle()
+    def GetParticleEntity(self) -> B_Entity_Particle:
+        ...
 
     def GetWoundedZone(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
@@ -342,10 +361,14 @@ class B_Entity:
     def RaiseEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def Rel2AbsPoint(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Rel2AbsPoint(
+        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+    ) -> Vector3:
         ...
 
-    def Rel2AbsVector(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Rel2AbsVector(
+        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+    ) -> Vector3:
         ...
 
     def RemoveCameraEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
@@ -517,7 +540,7 @@ class B_Entity:
         ...
 
 
-class B_Entity_Default(B_Entity):
+class B_Entity_(B_Entity):
     __RasterMode = Literal[
         "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
     ]
@@ -813,7 +836,7 @@ class B_Entity_Particle(B_Entity):
         self.Velocity: Vector3
 
 
-class B_Entity_Particle_System_D(B_Entity):
+class B_Entity_Particle_System(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
@@ -1429,17 +1452,17 @@ class B_Entity_Weapon(B_Entity):
 
 
 # 18
-class B_Entity_All(
+class B_PyEntity(
     B_Entity_Actor,
     B_Entity_Aura,
     B_Entity_Camera,
-    B_Entity_Default,
+    B_Entity_,
     B_Entity_ElectricBolt,
     B_Entity_Fire,
     B_Entity_Lava,
     B_Entity_Magic_Missile,
     B_Entity_Particle,
-    B_Entity_Particle_System_D,
+    B_Entity_Particle_System,
     B_Entity_Person,
     B_Entity_Physic,
     B_Entity_Pool,

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import typing
 from typing import (
     List,
@@ -21,6 +23,7 @@ RGBNormalized = Tuple[float, float, float]
 # Any_ = Union[Any, None]
 Unknown = str_ = Any
 Radian = float
+NULL = typing.NewType("NULL", int)
 
 NodeType = Literal[
     "Center",

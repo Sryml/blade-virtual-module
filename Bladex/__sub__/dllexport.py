@@ -1,5 +1,6 @@
 # 09 2023 sryml
 # Module 'Bladex'
+from __future__ import annotations
 from . import entity as __entity
 from . import b_types as __bt
 
@@ -313,7 +314,7 @@ def CreateDFCAnimation(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unkn
 
 # CreateEntity >>>
 
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Aura)
+# __Type = __t.NewType("B_PyEntity", __entity.B_Entity_Aura)
 
 
 @__t.overload
@@ -325,11 +326,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Aura:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Camera)
 
 
 @__t.overload
@@ -341,11 +339,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Camera:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_ElectricBolt)
 
 
 @__t.overload
@@ -357,11 +352,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_ElectricBolt:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Fire)
 
 
 @__t.overload
@@ -373,11 +365,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Fire:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Lava)
 
 
 @__t.overload
@@ -389,11 +378,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Lava:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Magic_Missile)
 
 
 @__t.overload
@@ -405,11 +391,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Magic_Missile:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Particle)
 
 
 @__t.overload
@@ -421,11 +404,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Particle:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Particle_System_D)
 
 
 @__t.overload
@@ -443,11 +423,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> B_Entity_Particle_System:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Pool)
 
 
 @__t.overload
@@ -459,11 +436,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Pool:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Sliding_Area)
 
 
 @__t.overload
@@ -475,11 +449,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Sliding_Area:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Sound)
 
 
 @__t.overload
@@ -491,11 +462,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Sound:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Spot)
 
 
 @__t.overload
@@ -507,11 +475,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Spot:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Water)
 
 
 @__t.overload
@@ -523,11 +488,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Water:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Actor)
 
 
 @__t.overload
@@ -539,11 +501,8 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Actor"],
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Actor:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Person)
 
 
 @__t.overload
@@ -555,11 +514,8 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Person"],
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Person:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Weapon)
 
 
 @__t.overload
@@ -571,11 +527,8 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Arrow", "Weapon"],
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Weapon:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Physic)
 
 
 @__t.overload
@@ -587,11 +540,8 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Physic"],
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_Physic:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Default)
 
 
 @__t.overload
@@ -603,11 +553,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> __Type:
+) -> __entity.B_Entity_:
     ...
-
-
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Default)
 
 
 @__t.overload
@@ -619,7 +566,7 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["", "Actor", "Arrow", "Person", "Physic", "Weapon"] = "",
     mesh_name: str = "",
-) -> __Type:
+):
     ...
 
 
@@ -840,27 +787,20 @@ def GetEntitiesVisibleFrom(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.
     ...
 
 
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Person)
-
-
 @__t.overload
-def GetEntity(arg: __t.Literal["Player1"]) -> __Type:
+def GetEntity(arg: __t.Literal["Player1"]) -> __entity.B_Entity_Person:
     ...
 
 
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_Camera)
-
-
 @__t.overload
-def GetEntity(arg: __t.Literal["Camera"]) -> __Type:
+def GetEntity(arg: __t.Literal["Camera"]) -> __entity.B_Entity_Camera:
     ...
 
 
-__Type = __t.NewType("B_PyEntity", __entity.B_Entity_All)
-
-
 @__t.overload
-def GetEntity(arg: __t.Union[str, int, __t.Literal["Camera", "Player1"]]) -> __Type:
+def GetEntity(
+    arg: __t.Union[str, int, __t.Literal["Camera", "Player1"]]
+) -> __entity.B_PyEntity:
     ...
 
 
