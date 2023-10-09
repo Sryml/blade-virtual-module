@@ -17,6 +17,7 @@ Bool = Union[bool, Literal[0, 1]]
 Vector3 = Tuple[float, float, float]
 Quaternion = Tuple[float, float, float, float]
 RGBColor = Tuple[int, int, int]
+RGBNormalized = Tuple[float, float, float]
 # Any_ = Union[Any, None]
 Unknown = str_ = Any
 Radian = float

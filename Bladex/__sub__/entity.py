@@ -13,7 +13,7 @@ class B_Entity:
         self.AngVel: float
         self.Arrow: Bool
         self.AttackList: Optional[list]
-        self.CanUse: Bool
+        self.__CanUse: Bool
         self.ContinuousDamage: int
         self.DamageFunc: Optional[Callable]
         self.Data: Any = None
@@ -31,12 +31,12 @@ class B_Entity:
         self.InternalState: Unknown
         self.__Kind: str
         self.Mass: float
-        self.Material: Unknown
+        self.__Material: Unknown
         self.__Name: str
-        self.Object: Unknown
+        self.__Object: Unknown
         self.__Parent: str
         self.Person: Bool
-        self.Physic: Bool
+        self.__Physic: Bool
         self.Position: Vector3
         self.Precission: float
         self.Reflects: int
@@ -54,6 +54,16 @@ class B_Entity:
         self.Weapon: Bool
         self.WeaponMode: int
 
+    # @property
+    # def AngVel(self):
+    #     """*read only*"""
+    #     return self.__AngVel
+
+    @property
+    def CanUse(self):
+        """*read only*"""
+        return self.__CanUse
+
     @property
     def InAttack(self):
         """*read only*"""
@@ -69,10 +79,25 @@ class B_Entity:
         """*read only*"""
         return self.__InWorld
 
+    # @property
+    # def Intensity(self):
+    #     """*read only*"""
+    #     return self.__Intensity
+
+    # @property
+    # def InternalState(self):
+    #     """*read only*"""
+    #     return self.__InternalState
+
     @property
     def Kind(self):
         """*read only*"""
         return self.__Kind
+
+    @property
+    def Material(self):
+        """*read only*"""
+        return self.__Material
 
     @property
     def Name(self):
@@ -84,9 +109,29 @@ class B_Entity:
         self.__Name = value
 
     @property
+    def Object(self):
+        """*read only*"""
+        return self.__Object
+
+    @property
     def Parent(self):
         """*read only*"""
         return self.__Parent
+
+    @property
+    def Physic(self):
+        """*read only*"""
+        return self.__Physic
+
+    # @property
+    # def Precission(self):
+    #     """*read only*"""
+    #     return self.__Precission
+
+    # @property
+    # def SizeFactor(self):
+    #     """*read only*"""
+    #     return self.__SizeFactor
 
     @property
     def SubscribedLists(self):
@@ -484,7 +529,7 @@ class B_Entity_Default(B_Entity):
         self.CastShadows: Bool
         self.ExclusionGroup: Bool
         self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
-        self.FireParticleType: str
+        self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.__LightColor: Tuple
         self.__LightGlow: Tuple
@@ -499,8 +544,13 @@ class B_Entity_Default(B_Entity):
         self.Scale: float
         self.SelfIlum: float
         self.Solid: Bool
-        self.nFires: int
-        self.nLights: int
+        self.__nFires: int
+        self.__nLights: int
+
+    @property
+    def FireParticleType(self):
+        """*read only*"""
+        return self.__FireParticleType
 
     @property
     def LightColor(self):
@@ -553,6 +603,16 @@ class B_Entity_Default(B_Entity):
         """
         return self.__RasterModeZ
 
+    @property
+    def nFires(self):
+        """*read only*"""
+        return self.__nFires
+
+    @property
+    def nLights(self):
+        """*read only*"""
+        return self.__nLights
+
 
 class B_Entity_Actor(B_Entity):
     __RasterMode = Literal[
@@ -566,7 +626,7 @@ class B_Entity_Actor(B_Entity):
         self.Animation: str
         self.CastShadows: Bool
         self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
-        self.FireParticleType: Optional[str] = None
+        self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frame: int
         self.__LightColor: Tuple
@@ -584,8 +644,13 @@ class B_Entity_Actor(B_Entity):
         self.Scale: float
         self.SelfIlum: float
         self.Solid: Bool
-        self.nFires: int
-        self.nLights: int
+        self.__nFires: int
+        self.__nLights: int
+
+    @property
+    def FireParticleType(self):
+        """*read only*"""
+        return self.__FireParticleType
 
     @property
     def LightColor(self):
@@ -637,6 +702,16 @@ class B_Entity_Actor(B_Entity):
         Use `RasterMode` to set this value.
         """
         return self.__RasterModeZ
+
+    @property
+    def nFires(self):
+        """*read only*"""
+        return self.__nFires
+
+    @property
+    def nLights(self):
+        """*read only*"""
+        return self.__nLights
 
 
 class B_Entity_Aura(B_Entity):
@@ -687,8 +762,13 @@ class B_Entity_Fire(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.FireParticleType: Optional[str] = None
+        self.__FireParticleType: Optional[str] = None
         self.Scale: float
+
+    @property
+    def FireParticleType(self):
+        """*read only*"""
+        return self.__FireParticleType
 
 
 class B_Entity_Lava(B_Entity):
@@ -774,18 +854,18 @@ class B_Entity_Person(B_Entity):
         self.AddBayPoint: Vector3
         self.Aim: Bool
         self.AimOffTarget: Radian
-        self.AimVector: Vector3
+        self.__AimVector: Vector3
         self.Alpha: float
         self.Angle: Radian
-        self.AnimFullName: str
-        self.AnimName: str
+        self.__AnimFullName: str
+        self.__AnimName: str
         self.AnmEndedFunc: Optional[Callable[[str], Any]]
         self.__AnmPos: float
         self.AnmTranFunc: Optional[Callable[[str], Any]]
         self.__AstarState: Literal[0, 1, 2, 3]
         self.Attack: Bool
         self.AttackFunc: Optional[Callable[[str, str], Any]]
-        self.BayRoute: Bool
+        self.__BayRoute: Bool
         self.BigFallFunc: Optional[Callable[[str, float], Any]]
         self.Blind: Bool
         self.Block: Bool
@@ -799,11 +879,11 @@ class B_Entity_Person(B_Entity):
         self.ContinuousBlock: Bool
         self.__CurrentAreas: Unknown
         self.Deaf: Bool
-        self.DefenceNeeded: Bool
+        self.__DefenceNeeded: Bool
         self.DelayNoSeenFunc: Optional[Callable[[str], Any]]
-        self.Dist2Floor: float
+        self.__Dist2Floor: float
         self.EnemyDeadFunc: Optional[Callable[[str], Any]]
-        self.EnemyLastSeen: Vector3
+        self.__EnemyLastSeen: Vector3
         self.EnemyNoAllowedAreaFunc: Optional[Callable[[str], Any]]
         self.Energy: float
         self.EnterCloseFunc: Optional[Callable[[str], Any]]
@@ -832,7 +912,7 @@ class B_Entity_Person(B_Entity):
         self.LastTimeSeen: float
         self.Level: Int
         self.Life: Int
-        self.MeleeActive: Bool
+        self.__MeleeActive: Bool
         self.MeshName: str
         self.MutilateFunc: Optional[
             Callable[[str, str, float, float, float, float, float, float, int], Any]
@@ -878,6 +958,21 @@ class B_Entity_Person(B_Entity):
         return self.__ActiveEnemy
 
     @property
+    def AimVector(self):
+        """*read only*"""
+        return self.__AimVector
+
+    @property
+    def AnimFullName(self):
+        """*read only*"""
+        return self.__AnimFullName
+
+    @property
+    def AnimName(self):
+        """*read only*"""
+        return self.__AnimName
+
+    @property
     def AnmPos(self):
         """*read only*"""
         return self.__AnmPos
@@ -887,6 +982,11 @@ class B_Entity_Person(B_Entity):
         """*read only*\n
         non-player attribute"""
         return self.__AstarState
+
+    @property
+    def BayRoute(self):
+        """*read only*"""
+        return self.__BayRoute
 
     @property
     def CharType(self):
@@ -902,6 +1002,21 @@ class B_Entity_Person(B_Entity):
     def CurrentAreas(self):
         """*read only*"""
         return self.__CurrentAreas
+
+    @property
+    def DefenceNeeded(self):
+        """*read only*"""
+        return self.__DefenceNeeded
+
+    @property
+    def Dist2Floor(self):
+        """*read only*"""
+        return self.__Dist2Floor
+
+    @property
+    def EnemyLastSeen(self):
+        """*read only*"""
+        return self.__EnemyLastSeen
 
     @property
     def InCombat(self):
@@ -942,6 +1057,11 @@ class B_Entity_Person(B_Entity):
     def LastSoundPosition(self):
         """*read only*"""
         return self.__LastSoundPosition
+
+    @property
+    def MeleeActive(self):
+        """*read only*"""
+        return self.__MeleeActive
 
     @property
     def MutilationsMask(self):
@@ -1024,7 +1144,7 @@ class B_Entity_Physic(B_Entity):
         self.CastShadows: Bool
         self.ExclusionGroup: Bool
         self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
-        self.FireParticleType: Optional[str] = None
+        self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frozen: Bool
         self.Gravity: Vector3
@@ -1044,8 +1164,13 @@ class B_Entity_Physic(B_Entity):
         self.Solid: Bool
         self.__TestHit: Bool
         self.Velocity: Vector3
-        self.nFires: int
-        self.nLights: int
+        self.__nFires: int
+        self.__nLights: int
+
+    @property
+    def FireParticleType(self):
+        """*read only*"""
+        return self.__FireParticleType
 
     @property
     def LightColor(self):
@@ -1102,6 +1227,16 @@ class B_Entity_Physic(B_Entity):
     def TestHit(self):
         """*read only*"""
         return self.__TestHit
+
+    @property
+    def nFires(self):
+        """*read only*"""
+        return self.__nFires
+
+    @property
+    def nLights(self):
+        """*read only*"""
+        return self.__nLights
 
 
 class B_Entity_Pool(B_Entity):
@@ -1137,13 +1272,18 @@ class B_Entity_Sound(B_Entity):
     def __init__(self) -> None:
         super().__init__()
 
-        self.BaseVolume: Unknown
-        self.MaxDistance: Unknown
-        self.MinDistance: Unknown
-        self.Pitch: Unknown
-        self.Playing: Unknown
-        self.SendNotify: Unknown
-        self.Volume: Unknown
+        self.BaseVolume: float
+        self.MaxDistance: float
+        self.MinDistance: float
+        self.Pitch: float
+        self.__Playing: Bool
+        self.SendNotify: Bool
+        self.Volume: float
+
+    @property
+    def Playing(self):
+        """*read only*"""
+        return self.__Playing
 
 
 class B_Entity_Spot(B_Entity):
@@ -1152,11 +1292,16 @@ class B_Entity_Spot(B_Entity):
 
         self.CastShadows: Bool
         self.Color: RGBColor
-        self.Flick: Unknown
-        self.FlickPeriod: Unknown
-        self.Intensity2: Unknown
+        self.Flick: Bool
+        self.__FlickPeriod: float
+        self.Intensity2: float
         self.Scale: float
-        self.Visible: Unknown
+        self.Visible: Bool
+
+    @property
+    def FlickPeriod(self):
+        """B_ENTITYEXT_SPOT_FLICKPERIOD -> Not implemented"""
+        return self.__FlickPeriod
 
 
 class B_Entity_Water(B_Entity):
@@ -1164,10 +1309,10 @@ class B_Entity_Water(B_Entity):
         super().__init__()
 
         self.Color: RGBColor
-        self.Reflection: Unknown
+        self.Reflection: float
         self.Scale: float
-        self.TouchFluidFunc: Unknown
-        self.Transparency: Unknown
+        self.TouchFluidFunc: Optional[Callable[[str, str, float], Any]]
+        self.Transparency: float
 
 
 class B_Entity_Weapon(B_Entity):
@@ -1181,14 +1326,14 @@ class B_Entity_Weapon(B_Entity):
         self.Alpha: float
         self.AngularVelocity: Vector3
         self.CastShadows: Bool
-        self.Cone: Unknown
+        self.Cone: float
         self.ExclusionGroup: Bool
         self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
-        self.FireParticleType: Optional[str] = None
+        self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frozen: Bool
         self.Gravity: Vector3
-        self.Height: Unknown
+        self.Height: float
         self.__LightColor: Tuple
         self.__LightGlow: Tuple
         self.__LightIntensity: Tuple
@@ -1196,7 +1341,7 @@ class B_Entity_Weapon(B_Entity):
         self.Lights: List[Tuple[float, float, RGBColor]]
         self.OnStopFunc: Optional[Callable[[str], Any]]
         self.Orientation: Quaternion
-        self.Radius: Unknown
+        self.Radius: float
         self.__RasterModeAlpha: Literal[
             "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
         ]
@@ -1205,11 +1350,16 @@ class B_Entity_Weapon(B_Entity):
         self.SelfIlum: float
         self.Solid: Bool
         self.__TestHit: Bool
-        self.TrailColor: Unknown
-        self.TrailLifeTime: Unknown
+        self.TrailColor: RGBNormalized
+        self.TrailLifeTime: float
         self.Velocity: Vector3
-        self.nFires: int
-        self.nLights: int
+        self.__nFires: int
+        self.__nLights: int
+
+    @property
+    def FireParticleType(self):
+        """*read only*"""
+        return self.__FireParticleType
 
     @property
     def LightColor(self):
@@ -1266,6 +1416,16 @@ class B_Entity_Weapon(B_Entity):
     def TestHit(self):
         """*read only*"""
         return self.__TestHit
+
+    @property
+    def nFires(self):
+        """*read only*"""
+        return self.__nFires
+
+    @property
+    def nLights(self):
+        """*read only*"""
+        return self.__nLights
 
 
 # 18
