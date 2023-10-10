@@ -28,6 +28,78 @@ class B_PyRoute:
         ...
 
 
+class B_PySector:
+    def __init__(self) -> None:
+        pass
+
+    def DoBreak(
+        self,
+        impulse: Vector3,
+        pos: Vector3,
+        unknown: Vector3,
+    ) -> Bool:
+        ...
+
+    def GetSelfLight(self, surface_index: int) -> float:
+        ...
+
+    def GetSpecularLight(self, surface_index: int) -> float:
+        ...
+
+    def GetSpecularShininess(self, surface_index: int) -> float:
+        ...
+
+    def GetSurfaceTexture(self, surface_index: int) -> str:
+        ...
+
+    def GetSurfaceTextureX(self, surface_index: int) -> float:
+        ...
+
+    def GetSurfaceTextureY(self, surface_index: int) -> float:
+        ...
+
+    def GetSurfaceTextureZoomX(self, surface_index: int) -> float:
+        ...
+
+    def GetSurfaceTextureZoomY(self, surface_index: int) -> float:
+        ...
+
+    def InitBreak(
+        self,
+        vec1: Vector3,
+        vec2: Vector3,
+        vec3: Vector3,
+        sound_name: str,
+        unknown1: float,
+        unknown2: int,
+    ) -> Bool:
+        ...
+
+    def SetSelfLight(self, surface_index: int, self_light: str) -> Bool:
+        ...
+
+    def SetSpecularLight(self, surface_index: int, specular_light: str) -> Bool:
+        ...
+
+    def SetSpecularShininess(self, surface_index: int, specular_shininess: str) -> Bool:
+        ...
+
+    def SetSurfaceTexture(self, surface_index: int, texture: str) -> Bool:
+        ...
+
+    def SetSurfaceTextureX(self, surface_index: int, texture_x: float) -> Bool:
+        ...
+
+    def SetSurfaceTextureY(self, surface_index: int, texture_y: float) -> Bool:
+        ...
+
+    def SetSurfaceTextureZoomX(self, surface_index: int, zoom_x: float) -> Bool:
+        ...
+
+    def SetSurfaceTextureZoomY(self, surface_index: int, zoom_y: float) -> Bool:
+        ...
+
+
 class B_PySound:
     def __init__(self) -> None:
         self.BaseVolume: float
@@ -64,3 +136,11 @@ class B_PySound:
 
     def Stop(self) -> Bool:
         ...
+
+
+class B_PyTrail:
+    def __init__(self) -> None:
+        self.Color: RGBColor
+        self.ShrinkFactor: float
+        self.Time2Live: float
+        self.Transparency: float

@@ -2,6 +2,7 @@
 # Module 'Bladex'
 from __future__ import annotations
 from . import entity as __entity
+from . import character as __character
 from . import b_object as __b_object
 from . import b_types as __bt
 
@@ -763,7 +764,7 @@ def GetBloodLevel(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def GetCharType(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetCharType(name: str, short_name: str) -> __character.B_PyChar:
     """GetCharType(Barbarian,Bar)
     Crea un CharType , o raza de personaje."""
     ...
@@ -855,7 +856,7 @@ def GetLastPlayerCType(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unkn
     ...
 
 
-def GetMaterial(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetMaterial(x: __bt.Union[str, int]) -> __b_object.B_PyMaterial:
     """GetMaterial(int n)
      Crea un objeto Python que referencia al material Blade de índice n.
     GetMaterial(string name)
@@ -972,7 +973,17 @@ def GetScreenXY(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def GetSector(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+@__bt.overload
+def GetSector(index: int) -> __b_object.B_PySector:
+    ...
+
+
+@__bt.overload
+def GetSector(x: float, y: float, z: float) -> __b_object.B_PySector:
+    ...
+
+
+def GetSector(*args: __bt.Any, **kwargs: __bt.Any) -> __bt.Any:
     """GetSector(int n)
      Crea un sector de Python que referencia al sector Blade de índice n.
     GetSector(double x,double y,double z)
@@ -981,7 +992,7 @@ def GetSector(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def GetSound(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetSound(sound_name: str) -> __b_object.B_PySound:
     """GetSound(name)"""
     ...
 
@@ -1020,7 +1031,7 @@ def GetTextWH(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def GetTime(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetTime() -> float:
     """float GetTime(void)
     Devuelve el tiempo del juego en segundos."""
     ...
@@ -1043,7 +1054,7 @@ def GetTimerInfo(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
     ...
 
 
-def GetTrailType(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetTrailType(name: str) -> __b_object.B_PyTrail:
     """GetTrailType(esteraCorta)
     Crea un TrailType , o tipo de estelas."""
     ...
@@ -1133,7 +1144,7 @@ def GetnScheduledFuncs(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unkn
     ...
 
 
-def GetnTimers(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetnTimers() -> int:
     """int GetnTimers(void)
     Devuelve el número de timers del sistema."""
     ...
