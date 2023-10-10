@@ -2,11 +2,16 @@ from __future__ import annotations
 
 # import Bladex
 from . import inventory
+from . import b_object
 from .b_types import *
 
 import typing
 
 # Entity.init_entity_properties
+
+__RasterMode = Literal[
+    "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
+]
 
 
 class B_Entity:
@@ -159,7 +164,9 @@ class B_Entity:
     def Abs2RelVector(self, *args: Any, **kwargs: Any) -> Vector3:
         ...
 
-    def AddAnimSound(self, animation: str, sound: B_Entity_Sound, time: float) -> Bool:
+    def AddAnimSound(
+        self, animation: str, sound: b_object.B_PySound, time: float
+    ) -> Bool:
         ...
 
     def AddAnmEventFunc(self, anm_event: str, func: Callable[[str, str], Any]) -> Bool:
@@ -173,7 +180,7 @@ class B_Entity:
     ) -> Bool:
         ...
 
-    def AddEventSound(self, event_name: str, sound: B_Entity_Sound) -> Bool:
+    def AddEventSound(self, event_name: str, sound: b_object.B_PySound) -> Bool:
         ...
 
     def AddPathNode(self, time: float, x: float, y: float, z: float) -> Bool:
@@ -562,7 +569,7 @@ class B_Entity:
     def SetPosition(self, x: float, y: float, z: float, unknown: int = 1) -> Bool:
         ...
 
-    def SetSound(self, sound_path: str) -> Bool:
+    def SetSound(self, file_name: str) -> Bool:
         ...
 
     def SetTmpAnmFlags(
@@ -661,10 +668,6 @@ class B_Entity:
 
 
 class B_Entity_(B_Entity):
-    __RasterMode = Literal[
-        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-    ]
-
     def __init__(self) -> None:
         super().__init__()
 
@@ -758,10 +761,6 @@ class B_Entity_(B_Entity):
 
 
 class B_Entity_Actor(B_Entity):
-    __RasterMode = Literal[
-        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-    ]
-
     def __init__(self) -> None:
         super().__init__()
 
@@ -983,10 +982,6 @@ class B_Entity_Particle_System(B_Entity):
 
 
 class B_Entity_Person(B_Entity):
-    __RasterMode = Literal[
-        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-    ]
-
     def __init__(self) -> None:
         super().__init__()
 
@@ -1275,10 +1270,6 @@ class B_Entity_Person(B_Entity):
 
 
 class B_Entity_Physic(B_Entity):
-    __RasterMode = Literal[
-        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-    ]
-
     def __init__(self) -> None:
         super().__init__()
 
@@ -1429,6 +1420,48 @@ class B_Entity_Sound(B_Entity):
         return self.__Playing
 
 
+class B_Entity_Spark(B_Entity):
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.__RasterModeAlpha: Literal[
+            "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha", None
+        ]
+        self.__RasterModeZ: Literal["Full", "Read", "Write"]
+        self.Scale: float
+
+    @property
+    def RasterMode(self):
+        """*write only*\n
+        Use `RasterModeZ`/`RasterModeAlpha` to get.\n
+        Default:`Full`, `BlendingAlpha`
+        """
+        return AttributeError
+
+    @RasterMode.setter
+    def RasterMode(
+        self,
+        value: __RasterMode,
+    ):
+        ...
+
+    @property
+    def RasterModeAlpha(self):
+        """*read only*\n
+        Default:`None`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeAlpha
+
+    @property
+    def RasterModeZ(self):
+        """*read only*\n
+        Default:`"Full"`\n
+        Use `RasterMode` to set this value.
+        """
+        return self.__RasterModeZ
+
+
 class B_Entity_Spot(B_Entity):
     def __init__(self) -> None:
         super().__init__()
@@ -1459,10 +1492,6 @@ class B_Entity_Water(B_Entity):
 
 
 class B_Entity_Weapon(B_Entity):
-    __RasterMode = Literal[
-        "Full", "Read", "Write", "BlendingAlpha", "AdditiveAlpha", "MultiplyAlpha"
-    ]
-
     def __init__(self) -> None:
         super().__init__()
 
@@ -1588,6 +1617,7 @@ class B_PyEntity(
     B_Entity_Pool,
     B_Entity_Sliding_Area,
     B_Entity_Sound,
+    B_Entity_Spark,
     B_Entity_Spot,
     B_Entity_Water,
     B_Entity_Weapon,

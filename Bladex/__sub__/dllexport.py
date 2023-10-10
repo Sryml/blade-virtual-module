@@ -2,6 +2,7 @@
 # Module 'Bladex'
 from __future__ import annotations
 from . import entity as __entity
+from . import b_object as __b_object
 from . import b_types as __bt
 
 import typing as __t
@@ -302,12 +303,14 @@ def CloseProfileSection(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unk
     ...
 
 
-def CreateBipedData(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateBipedData(biped_name: str, kind: str) -> int:
     """"""
     ...
 
 
-def CreateDFCAnimation(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateDFCAnimation(
+    file1: str, file2: str, internal_name: str, n_armonics: int
+) -> int:
     """CreateDFCAnmimation(str File1,str File2,str InternalName,int n_armonics)"""
     ...
 
@@ -587,42 +590,65 @@ def CreateEntity(
 # CreateEntity <<<
 
 
-def CreateFCAnimation(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateFCAnimation(file: str, internal_name: str, n_armonics: int) -> int:
     """CreateFCAnmimation(str File,str InternalName,int n_armonics)"""
     ...
 
 
-def CreateMaterial(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateMaterial(name: str) -> __b_object.B_PyMaterial:
     """CreateMaterial(string name)
     Crea un nuevo material con nombre name."""
     ...
 
 
-def CreateRoute(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateRoute() -> __b_object.B_PyRoute:
     """CreateRoute()
     Crea una ruta vacía nueva."""
     ...
 
 
-def CreateSound(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateSound(file_name: str, sound_name: str) -> __b_object.B_PySound:
     """CreateSound(string filename,string soundname)
     Crea un sonido a partir del filename y con nombre name."""
     ...
 
 
-def CreateSpark(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateSpark(
+    name: str,
+    x: float,
+    y: float,
+    z: float,
+    x_spark_dir: float,
+    y_spark_dir: float,
+    z_spark_dir: float,
+    angle: float,
+    normal_velocity: __bt.Int,
+    unknown2: float,
+    YGravity: __bt.Int,
+    scale: float,
+    r1: int,
+    g1: int,
+    b1: int,
+    r2: int,
+    g2: int,
+    b2: int,
+    pps: int,
+    Time2Live: float,
+    DeathTime: float,
+    isglow: __bt.Bool,
+) -> __entity.B_Entity_Spark:
     """CreateSpark(string name,double x,double y,double z,)
     Crea un efecto de chispas."""
     ...
 
 
-def CreateTimer(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateTimer(timer_name: str, period: float) -> __bt.Bool:
     """CreateTimer(string TimerName,double period)
     Crea un Timer de nombre TimerName con periodo period."""
     ...
 
 
-def DeactivateInput(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def DeactivateInput() -> int:
     """DeactivateInput()
     Disabled the input for the main player."""
     ...
