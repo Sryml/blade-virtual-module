@@ -14,6 +14,7 @@ class B_PyMaterial:
 
     @property
     def Name(self):
+        """*read only*"""
         return self.__Name
 
     def AddHitSoundComb(self, material_name: str, sound: B_PySound) -> Bool:
@@ -113,6 +114,7 @@ class B_PySound:
 
     @property
     def Name(self):
+        """*read only*"""
         return self.__Name
 
     def AddAltSound(self, alt_sound: str) -> Bool:

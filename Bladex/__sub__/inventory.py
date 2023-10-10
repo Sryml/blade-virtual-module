@@ -4,93 +4,192 @@ from .b_types import *
 
 class B_PyInventory:
     def __init__(self) -> None:
-        pass
+        self.__HasBow: Bool
+        self.__HasBowOnBack: Bool
+        self.__HasShieldOnBack: Bool
+        self.__HoldingBow: Bool
+        self.__HoldingShield: Bool
+        self.maxObjects: int
+        self.maxQuivers: int
+        self.maxShields: int
+        self.maxWeapons: int
+        self.__Name: str
+        self.__nKeys: int
+        self.__nKindObjects: int
+        self.__nObjects: int
+        self.__nQuivers: int
+        self.__nShields: int
+        self.__nSpecialKeys: int
+        self.__nTablets: int
+        self.__nWeapons: int
+        self.__Owner: str
 
-    def AddBow(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    @property
+    def HasBow(self):
+        """*read only*"""
+        return self.__HasBow
+
+    @property
+    def HasBowOnBack(self):
+        """*read only*"""
+        return self.__HasBowOnBack
+
+    @property
+    def HasShieldOnBack(self):
+        """*read only*"""
+        return self.__HasShieldOnBack
+
+    @property
+    def HoldingBow(self):
+        """*read only*"""
+        return self.__HoldingBow
+
+    @property
+    def HoldingShield(self):
+        """*read only*"""
+        return self.__HoldingShield
+
+    @property
+    def Name(self):
+        """*read only*"""
+        return self.__Name
+
+    @property
+    def nKeys(self):
+        """*read only*"""
+        return self.__nKeys
+
+    @property
+    def nKindObjects(self):
+        """*read only*"""
+        return self.__nKindObjects
+
+    @property
+    def nObjects(self):
+        """*read only*"""
+        return self.__nObjects
+
+    @property
+    def nQuivers(self):
+        """*read only*"""
+        return self.__nQuivers
+
+    @property
+    def nShields(self):
+        """*read only*"""
+        return self.__nShields
+
+    @property
+    def nSpecialKeys(self):
+        """*read only*"""
+        return self.__nSpecialKeys
+
+    @property
+    def nTablets(self):
+        """*read only*"""
+        return self.__nTablets
+
+    @property
+    def nWeapons(self):
+        """*read only*"""
+        return self.__nWeapons
+
+    @property
+    def Owner(self):
+        """*read only*"""
+        return self.__Owner
+
+    def AddBow(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddKey(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddMagicShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddMagicShield(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddObject(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddObject(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddQuiver(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddQuiver(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddShield(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddSpecialKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddSpecialKey(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddTablet(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddTablet(self, obj_name: str, unknown: int = 0) -> int:
         """"""
         ...
 
-    def AddWeapon(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def AddWeapon(self, weapon_name: str, flag: Literal[0, 1, 2, 3] = 0) -> int:
+        """
+        :flag:
+            W_FLAG_1H = 0  # One handed _whatever_ weapon\n
+            W_FLAG_2W = 1  # Two handed sword\n
+            W_FLAG_AXE = 2  # Two handed axw\n
+            W_FLAG_SP = 3  # Two handed spear
+        """
+        ...
+
+    def CarringObject(self, obj_name: str) -> int:
         """"""
         ...
 
-    def CarringObject(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CycleKeys(self) -> None:
         """"""
         ...
 
-    def CycleKeys(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CycleObjects(self) -> None:
         """"""
         ...
 
-    def CycleObjects(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CycleQuivers(self) -> None:
         """"""
         ...
 
-    def CycleQuivers(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CycleShields(self) -> None:
         """"""
         ...
 
-    def CycleShields(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def CycleWeapons(self) -> None:
         """"""
         ...
 
-    def CycleWeapons(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetActiveQuiver(self) -> str:
         """"""
         ...
 
-    def GetActiveQuiver(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetActiveShield(self) -> str:
         """"""
         ...
 
-    def GetActiveShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetActiveWeapon(self) -> str:
         """"""
         ...
 
-    def GetActiveWeapon(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetBow(self) -> str:
         """"""
         ...
 
-    def GetBow(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetKey(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def GetKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetLeftBack(self) -> str:
         """"""
         ...
 
-    def GetLeftBack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
-        """"""
-        ...
-
-    def GetMagicShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetMagicShield(self) -> str:
         """"""
         ...
 
