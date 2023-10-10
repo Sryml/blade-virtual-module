@@ -146,9 +146,17 @@ class B_Entity:
     ) -> Vector3:
         ...
 
+    @overload
+    def Abs2RelVector(self, entity: B_PyEntity) -> Vector3:
+        ...
+
+    @overload
     def Abs2RelVector(
         self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
     ) -> Vector3:
+        ...
+
+    def Abs2RelVector(self, *args: Any, **kwargs: Any) -> Vector3:
         ...
 
     def AddAnimSound(self, animation: str, sound: B_Entity_Sound, time: float) -> Bool:
@@ -183,10 +191,10 @@ class B_Entity:
     def CanGoTo(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def CanISee(self, ent: B_PyEntity) -> Bool:
+    def CanISee(self, entity: B_PyEntity) -> Bool:
         ...
 
-    def CanISeeFrom(self, ent: B_PyEntity, x: float, y: float, z: float) -> Bool:
+    def CanISeeFrom(self, entity: B_PyEntity, x: float, y: float, z: float) -> Bool:
         ...
 
     def CatchOnFire(self, x: float, y: float, z: float) -> Bool:
@@ -222,10 +230,10 @@ class B_Entity:
     ) -> int:
         ...
 
-    def ExcludeHitFor(self, ent: B_PyEntity) -> Bool:
+    def ExcludeHitFor(self, entity: B_PyEntity) -> Bool:
         ...
 
-    def ExcludeHitInAnimationFor(self, ent: B_PyEntity) -> Bool:
+    def ExcludeHitInAnimationFor(self, entity: B_PyEntity) -> Bool:
         ...
 
     def Face(self, angle: float) -> Bool:
@@ -249,9 +257,9 @@ class B_Entity:
     def GetDummyAxis(
         self,
         anchor_name: str,
-        x_axis: float,
-        y_axis: float,
-        z_axis: float,
+        axis_x: float,
+        axis_y: float,
+        axis_z: float,
         unknown: int = 1,
     ) -> Tuple:
         ...
@@ -280,85 +288,97 @@ class B_Entity:
     def GetParticleEntity(self) -> B_Entity_Particle:
         ...
 
-    def GetWoundedZone(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetWoundedZone(self, zone: int) -> Bool:
         ...
 
-    def GoTo(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GoTo(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def GoToPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GoToPath(self, i_unknown: int, f_unknown: float) -> Bool:
         ...
 
-    def GotAnmType(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GotAnmType(self, anm_name: str) -> Bool:
         ...
 
-    def GraspPos(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GraspPos(self, anchor_name: str) -> Vector3:
         ...
 
-    def Impulse(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Impulse(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def ImpulseC(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ImpulseC(
+        self, x: float, y: float, z: float, dx: float, dy: float, dz: float
+    ) -> int:
         ...
 
-    def InsideActionArea(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def InsideActionArea(self, action_area: int) -> Bool:
         ...
 
-    def InterruptCombat(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def InterruptCombat(self) -> Bool:
         ...
 
-    def IsValid(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def IsValid(self) -> Bool:
         ...
 
-    def LaunchAnimation(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LaunchAnimation(self, anm_name: str) -> Bool:
         ...
 
-    def LaunchAnimation2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LaunchAnimation2(self, anm_name1: str, anm_name2: str) -> Bool:
         ...
 
-    def LaunchAnmType(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LaunchAnmType(self, anm_type: str, index: int = 0) -> Bool:
         ...
 
-    def LaunchBayRoute(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LaunchBayRoute(self) -> Bool:
         ...
 
-    def LaunchWatch(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LaunchWatch(self) -> Bool:
         ...
 
-    def Link(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Link(self, child: B_PyEntity) -> Bool:
         ...
 
-    def LinkAnchors(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkAnchors(
+        self, entity_anchor: str, child: B_PyEntity, child_anchor: str
+    ) -> Bool:
         ...
 
-    def LinkToNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkToNode(self, child: B_PyEntity, node: int) -> Bool:
         ...
 
-    def LookAt(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    @overload
+    def LookAt(self, obj_name: str) -> Bool:
         ...
 
-    def LookAtEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    @overload
+    def LookAt(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def LookAtPerson(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LookAt(self, *args: Any, **kwargs: Any) -> Bool:
         ...
 
-    def MessageEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LookAtEntity(self, ent_name: str) -> Bool:
         ...
 
-    def Move(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LookAtPerson(self, person_name: str) -> Bool:
         ...
 
-    def PlaySound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def MessageEvent(self, message_type: int, unknown1: int, unknown2: int) -> int:
         ...
 
-    def PutToWorld(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Move(self, x: float, y: float, z: float, unknown: int = 1) -> Bool:
         ...
 
-    def QuickFace(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def PlaySound(self, cycles: int = -1) -> Bool:
         ...
 
-    def RaiseEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def PutToWorld(self) -> Bool:
+        ...
+
+    def QuickFace(self, angle: float) -> Bool:
+        ...
+
+    def RaiseEvent(self, event_name: str) -> int:
         ...
 
     def Rel2AbsPoint(
@@ -366,177 +386,277 @@ class B_Entity:
     ) -> Vector3:
         ...
 
+    @overload
+    def Rel2AbsVector(self, entity: B_PyEntity) -> Vector3:
+        ...
+
+    @overload
     def Rel2AbsVector(
         self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
     ) -> Vector3:
         ...
 
-    def RemoveCameraEvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Rel2AbsVector(self, *args: Any, **kwargs: Any) -> Vector3:
         ...
 
-    def RemoveFromInvent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveCameraEvent(self, frame: int) -> Bool:
         ...
 
-    def RemoveFromInventLeft(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromInvent(self, obj_name: str) -> Bool:
         ...
 
-    def RemoveFromInventLeft2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromInventLeft(self) -> Bool:
         ...
 
-    def RemoveFromInventRight(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromInventLeft2(self) -> Bool:
         ...
 
-    def RemoveFromList(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromInventRight(self) -> Bool:
         ...
 
-    def RemoveFromWorld(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromList(self, timer_name: str) -> Bool:
         ...
 
-    def RemoveFromWorldWithChilds(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromWorld(self) -> Literal[1]:
         ...
 
-    def ResetChase(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveFromWorldWithChilds(self) -> Literal[1]:
         ...
 
-    def ResetWounds(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ResetChase(self) -> Bool:
         ...
 
-    def Rotate(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def ResetWounds(self) -> Bool:
         ...
 
-    def RotateAbs(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Rotate(
+        self,
+        axis_x: float,
+        axis_y: float,
+        axis_z: float,
+        angle: float,
+        unknown: int = 1,
+    ) -> Bool:
         ...
 
-    def RotateRel(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RotateAbs(
+        self,
+        x: float,
+        y: float,
+        z: float,
+        axis_x: float,
+        axis_y: float,
+        axis_z: float,
+        angle: float,
+        unknown: int = 1,
+    ) -> Bool:
         ...
 
-    def SQDistance2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RotateRel(
+        self,
+        x: float,
+        y: float,
+        z: float,
+        axis_x: float,
+        axis_y: float,
+        axis_z: float,
+        angle: float,
+        unknown: int = 1,
+    ) -> Bool:
         ...
 
-    def SetActiveEnemy(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SQDistance2(self, entity: B_PyEntity) -> float:
         ...
 
-    def SetAnmFlags(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetActiveEnemy(self, entity: B_PyEntity) -> Bool:
         ...
 
-    def SetAuraActive(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetAnmFlags(
+        self,
+        anm_name: str,
+        wuea: Literal[0, 1, 2],
+        mod_y: int,
+        solf: int,
+        copy_rot: int,
+        bng_mov: int,
+        headf: int,
+    ) -> Bool:
         ...
 
-    def SetAuraGradient(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetAuraActive(self, is_active: int) -> Bool:
         ...
 
-    def SetAuraParams(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetAuraGradient(
+        self,
+        gap: int,
+        r1: float,
+        g1: float,
+        b1: float,
+        alpha1: float,
+        starting_point: float,
+        r2: float,
+        g2: float,
+        b2: float,
+        alpha2: float,
+        ending_point: float,
+    ) -> Bool:
         ...
 
-    def SetCameraEndTangentNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetAuraParams(
+        self,
+        size: float,
+        alpha: float,
+        color_intensity: float,
+        hide_front_faces: int,
+        hide_back_faces: int,
+        alpha_mode: int,
+    ) -> Bool:
         ...
 
-    def SetCameraStartTangentNode(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetCameraEndTangentNode(
+        self, node: int, node_index: int, tang_x: float, tang_y: float, tang_z: float
+    ) -> Bool:
         ...
 
-    def SetEnemy(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetCameraStartTangentNode(
+        self, node: int, node_index: int, tang_x: float, tang_y: float, tang_z: float
+    ) -> Bool:
         ...
 
-    def SetMaxCamera(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetEnemy(self, enemy: B_PyEntity) -> Bool:
         ...
 
-    def SetMesh(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetMaxCamera(self, cam_file_name: str, start: int, end: int) -> Bool:
         ...
 
-    def SetNextAttack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetMesh(self, mesh_name: str) -> Bool:
         ...
 
-    def SetNodeEndTangent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetNextAttack(self, attack: str) -> int:
         ...
 
-    def SetNodeStartTangent(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetNodeEndTangent(
+        self, unknown1: int, unknown2: float, unknown3: float, unknown4: float
+    ) -> Bool:
         ...
 
-    def SetObjectSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetNodeStartTangent(
+        self, unknown1: int, unknown2: float, unknown3: float, unknown4: float
+    ) -> Bool:
         ...
 
-    def SetOnFloor(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetObjectSound(self, sound_name: str) -> Bool:
         ...
 
-    def SetOrientation(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetOnFloor(self) -> int:
         ...
 
-    def SetPersonView(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetOrientation(
+        self, quat1: float, quat2: float, quat3: float, quat4: float, unknown: int = 1
+    ) -> Bool:
         ...
 
-    def SetPosition(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetPersonView(self, person_name: str) -> Bool:
         ...
 
-    def SetSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetPosition(self, x: float, y: float, z: float, unknown: int = 1) -> Bool:
         ...
 
-    def SetTmpAnmFlags(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetSound(self, sound_path: str) -> Bool:
         ...
 
-    def SetTravellingView(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetTmpAnmFlags(
+        self,
+        wuea: Literal[0, 1, 2],
+        mod_y: int,
+        solf: int,
+        copy_rot: int,
+        bng_mov: int,
+        headf: int,
+        unknown: int = 1,
+    ) -> Bool:
         ...
 
-    def SetWoundedZone(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetTravellingView(self, s_type: int, t_type: int) -> Bool:
         ...
 
-    def SeverLimb(self, limb: int):
+    def SetWoundedZone(self, zone: int, is_active: int) -> Bool:
         ...
 
-    def SlideTo(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SeverLimb(self, limb: int) -> B_Entity_Weapon:
         ...
 
-    def StartGrabbing(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SlideTo(
+        self, final_displacement: float, initial_velocity: float, acceleration: float
+    ) -> Bool:
         ...
 
-    def StartLooking(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def StartGrabbing(self) -> Bool:
         ...
 
-    def StartPath(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def StartLooking(self, x: float, y: float, z: float) -> Bool:
         ...
 
-    def Stop(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def StartPath(self, node: int) -> Bool:
         ...
 
-    def StopGrabbing(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def Stop(self) -> Bool:
         ...
 
-    def StopLooking(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def StopGrabbing(self) -> Bool:
         ...
 
-    def StopSound(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def StopLooking(self) -> Bool:
         ...
 
-    def SubscribeToList(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def StopSound(self) -> Bool:
         ...
 
-    def SwitchTo1H(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    @overload
+    def SubscribeToList(
+        self, name: Literal["Pin", "Listeners", "Timer60", "Timer30", "Timer15"]
+    ) -> Bool:
         ...
 
-    def SwitchToBow(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    @overload
+    def SubscribeToList(self, name: str) -> Bool:
         ...
 
-    def TestPos(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SubscribeToList(self, name: str) -> Bool:
         ...
 
-    def TestPosInOwnBox(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SwitchTo1H(self) -> Bool:
         ...
 
-    def TurnOff(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SwitchToBow(self) -> Bool:
         ...
 
-    def TurnOn(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def TestPos(
+        self, x: float, y: float, z: float, action_area: int, max_fall: float
+    ) -> int:
         ...
 
-    def UnFreeze(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def TestPosInOwnBox(
+        self, x: float, y: float, z: float, box_size: float = 1.0
+    ) -> int:
         ...
 
-    def Unlink(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def TurnOff(self) -> Bool:
         ...
 
-    def UnlinkChildren(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def TurnOn(self) -> Bool:
         ...
 
-    def Use(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def UnFreeze(self) -> Bool:
+        ...
+
+    def Unlink(self, child: B_PyEntity) -> Bool:
+        ...
+
+    def UnlinkChildren(self) -> Bool:
+        ...
+
+    def Use(self) -> Bool:
         ...
 
 
