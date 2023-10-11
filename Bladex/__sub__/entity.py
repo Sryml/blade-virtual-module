@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-# import Bladex
-from . import inventory
-from . import b_object
-from .b_types import *
-
 import typing
+
+# import Bladex
+from . import b_object, inventory
+from .b_types import *
 
 # Entity.init_entity_properties
 
@@ -1060,7 +1059,7 @@ class B_Entity_Person(B_Entity):
         self.NoAllowedAreaFunc: Optional[Callable[[str], Any]]
         self.__OnFloor: bool
         self.OnHitFunc: Optional[Callable[[str, str], Any]]
-        self.OnStepFunc: Optional[Callable[[Unknown], Any]]
+        self.OnStepFunc: Optional[Callable[[str], Any]]
         self.Orientation: Quaternion
         self.PartialLevel: Int
         self.__PrevAnimName: str

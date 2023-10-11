@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from .b_types import *
 
 
@@ -193,150 +194,150 @@ class B_PyInventory:
         """"""
         ...
 
-    def GetMaxNumberObjectsAt(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetMaxNumberObjectsAt(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetNumberObjectsAt(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetNumberObjectsAt(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetObject(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetObject(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetQuiver(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetQuiver(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetRightBack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetRightBack(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetSelectedKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetSelectedKey(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetSelectedObject(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetSelectedObject(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetSelectedQuiver(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetSelectedQuiver(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetSelectedShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetSelectedShield(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetSelectedWeapon(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetSelectedWeapon(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetShield(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetSpecialKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetSpecialKey(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetTablet(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetTablet(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def GetWeapon(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def GetWeapon(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def IsKeySelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def IsKeySelected(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def IsObjectSelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def IsObjectSelected(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def IsQuiverSelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def IsQuiverSelected(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def IsShieldSelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def IsShieldSelected(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def IsWeaponSelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def IsWeaponSelected(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkBack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkBack(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkLeft(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkLeft(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkLeftBack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkLeftBack(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkLeftHand(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkLeftHand(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkLeftHand2(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkLeftHand2(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkRight(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkRight(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkRightBack(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkRightBack(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def LinkRightHand(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def LinkRightHand(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveBow(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveBow(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveKey(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveMagicShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveMagicShield(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveObject(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveObject(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveQuiver(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveQuiver(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveShield(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveShield(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveSpecialKey(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveSpecialKey(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveTablet(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveTablet(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def RemoveWeapon(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def RemoveWeapon(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...
 
-    def SetCurrentQuiver(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
+    def SetCurrentQuiver(self, *args: todo, **kwargs: todo) -> todo:
         """"""
         ...

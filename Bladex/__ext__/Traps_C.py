@@ -1,92 +1,94 @@
 # Module 'Traps_C'
+from __future__ import annotations
+
 import Bladex.__sub__.b_types as __bt
 
 
-def AddAllObjects(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def AddAllObjects(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """SearchSector()
     Funcion para buscar una habitacion"""
     ...
 
 
-def AddAllPersons(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def AddAllPersons(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """SearchSector()
     Funcion para buscar una habitacion"""
     ...
 
 
-def AddName(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def AddName(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """SearchSector()
     Funcion para buscar una habitacion"""
     ...
 
 
-def AddSector(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def AddSector(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """InitSector()
     Funcion para inicializar"""
     ...
 
 
-def AddSplineNode(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def AddSplineNode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """AddSplineNode(spline,pos,tang_i,tang_f)
     Funcion para añadir un nodo al spline"""
     ...
 
 
-def ClearSpline(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def ClearSpline(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """ClearSpline()
     Funcion para borrar los nodos del spline"""
     ...
 
 
-def CloseSpline(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CloseSpline(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """CloseSpline()
     Funcion para cerrar la spline"""
     ...
 
 
-def CreateSpline(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def CreateSpline(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """CreateSpline()
     Funcion para crear una spline"""
     ...
 
 
-def DeleteMaxPath(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def DeleteMaxPath(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """GetSplinePos(spline,time)
     Funcion para obtener la posicion de una spline"""
     ...
 
 
-def GetMaxPathPosition(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetMaxPathPosition(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """GetSplinePos(spline,time)
     Funcion para obtener la posicion de una spline"""
     ...
 
 
-def GetSplinePos(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def GetSplinePos(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """GetSplinePos(spline,time)
     Funcion para obtener la posicion de una spline"""
     ...
 
 
-def InitSector(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def InitSector(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """AddSector()
     Funcion para añadir una nueva habitacion"""
     ...
 
 
-def IsValidEntity(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def IsValidEntity(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """SearchSector()
     Funcion para buscar una habitacion"""
     ...
 
 
-def LoadMaxPath(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def LoadMaxPath(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """GetSplinePos(spline,time)
     Funcion para obtener la posicion de una spline"""
     ...
 
 
-def Prueba(*args: __bt.Unknown, **kwargs: __bt.Unknown) -> __bt.Unknown:
+def Prueba(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     """ClonarFlecha()
     Funcion para clonar una flecha clavada con el nombre original"""
     ...

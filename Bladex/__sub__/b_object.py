@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .b_types import *
 from . import entity
+from .b_types import *
 
 
 class B_PyMaterial:
