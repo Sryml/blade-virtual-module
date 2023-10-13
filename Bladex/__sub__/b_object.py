@@ -31,7 +31,47 @@ class B_PyRoute:
 
 class B_PySector:
     def __init__(self) -> None:
-        pass
+        self.ActionArea: int
+        self.Active: Bool
+        self.ActiveSurface: Vector3
+        self.BreakInfo: Tuple[Tuple[str, Vector3], ...]
+        self.__Index: int
+        self.__nSurfaces: int
+        self.OnEnter: Optional[Callable[[int, str], Any]]
+        self.OnHit: Optional[
+            Callable[
+                [
+                    int,
+                    str,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    str,
+                ],
+                Any,
+            ]
+        ]
+        self.OnLeave: Optional[Callable[[int, str], Any]]
+        self.OnWalkOn: Optional[Callable[[int, str], Any]]
+        self.OnWalkOut: Optional[Callable[[int, str], Any]]
+        self.TooSteep: Bool
+        self.TooSteepAngle: float
+
+    @property
+    def Index(self):
+        """*read only*"""
+        return self.__Index
+
+    @property
+    def nSurfaces(self):
+        """*read only*"""
+        return self.__nSurfaces
 
     def DoBreak(
         self,
