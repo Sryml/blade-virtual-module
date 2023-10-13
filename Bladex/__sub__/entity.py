@@ -146,7 +146,11 @@ class B_Entity:
 
     # Methods
     def Abs2RelPoint(
-        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+        self,
+        x: float,
+        y: float,
+        z: float,
+        node_name: Union[NodeType, str_, NULL] = NULL(0),
     ) -> Vector3:
         ...
 
@@ -156,7 +160,11 @@ class B_Entity:
 
     @overload
     def Abs2RelVector(
-        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+        self,
+        x: float,
+        y: float,
+        z: float,
+        node_name: Union[NodeType, str_, NULL] = NULL(0),
     ) -> Vector3:
         ...
 
@@ -230,10 +238,18 @@ class B_Entity:
     def DoActionWI(
         self,
         action_name: str,
-        interpolation_type: int,
-        time: float,
-        unknown: float = 0.0,
+        interpolation_type: Literal[0, 1, 2, 3, 4, 5],
+        tran_time: float,
+        start_timeline: float = 0.0,
     ) -> int:
+        """
+        InterpWithOff = 0\n
+        InterpWithOutOff = 1\n
+        InertialIntrp = 2\n
+        FixedRFootIntep = 3\n
+        FixedLFootIntep = 4\n
+        FixedFootAutoInterp = 5
+        """
         ...
 
     def ExcludeHitFor(self, entity: B_PyEntity) -> Bool:
@@ -266,8 +282,13 @@ class B_Entity:
         axis_x: float,
         axis_y: float,
         axis_z: float,
-        unknown: int = 1,
-    ) -> Tuple:
+        ref: Bool = 1,
+    ) -> Vector3:
+        """
+        :ref:
+            1 - World coordinate\n
+            0 - Entity's own coordinate
+        """
         ...
 
     def GetEnemyName(self) -> str:
@@ -369,7 +390,28 @@ class B_Entity:
     def LookAtPerson(self, person_name: str) -> Bool:
         ...
 
+    @overload
+    def MessageEvent(
+        self,
+        message_type: Literal[0x7, 0x8, 0xD, 0xE, 0xF],
+        unknown1: Literal[0],
+        unknown2: Literal[0],
+    ) -> int:
+        ...
+
+    @overload
     def MessageEvent(self, message_type: int, unknown1: int, unknown2: int) -> int:
+        ...
+
+    def MessageEvent(self, message_type: int, unknown1: int, unknown2: int) -> int:
+        """
+        :message_type:
+            MESSAGE_START_WEAPON = 7\n
+            MESSAGE_STOP_WEAPON = 8\n
+            MESSAGE_SETSTATICWEPONMODE = 13\n
+            MESSAGE_START_TRAIL = 14\n
+            MESSAGE_STOP_TRAIL = 15
+        """
         ...
 
     def Move(self, x: float, y: float, z: float, unknown: int = 1) -> Bool:
@@ -384,11 +426,23 @@ class B_Entity:
     def QuickFace(self, angle: float) -> Bool:
         ...
 
+    @overload
+    def RaiseEvent(self, event_name: Literal["Interrupt"]) -> int:
+        ...
+
+    @overload
+    def RaiseEvent(self, event_name: str) -> int:
+        ...
+
     def RaiseEvent(self, event_name: str) -> int:
         ...
 
     def Rel2AbsPoint(
-        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+        self,
+        x: float,
+        y: float,
+        z: float,
+        node_name: Union[NodeType, str_, NULL] = NULL(0),
     ) -> Vector3:
         ...
 
@@ -398,7 +452,11 @@ class B_Entity:
 
     @overload
     def Rel2AbsVector(
-        self, x: float, y: float, z: float, node_name: Union[str, NULL] = NULL(0)
+        self,
+        x: float,
+        y: float,
+        z: float,
+        node_name: Union[NodeType, str_, NULL] = NULL(0),
     ) -> Vector3:
         ...
 
@@ -481,12 +539,26 @@ class B_Entity:
         self,
         anm_name: str,
         wuea: Literal[0, 1, 2],
-        mod_y: int,
-        solf: int,
-        copy_rot: int,
-        bng_mov: int,
-        headf: int,
+        mod_y: Bool,
+        solf: Bool,
+        copy_rot: Bool,
+        bng_mov: Literal[0, 1, 2, 3, 4, 5],
+        headf: Literal[0, 1, 2, 3],
     ) -> Bool:
+        """
+        :bng_mov:
+            BM_IDC = 0\n
+            BM_NONE = 1\n
+            BM_XYZ = 2\n
+            BM_XZ = 3\n
+            BM_2ANM = 4\n
+            BM_SCRIPT = 5
+        :headf:
+            HEADF_ENG = 0\n
+            HEADF_ANM = 1\n
+            HEADF_ANM2SEE = 2\n
+            HEADF_ANM2ENG = 3
+        """
         ...
 
     def SetAuraActive(self, is_active: int) -> Bool:
@@ -558,7 +630,7 @@ class B_Entity:
         ...
 
     def SetOrientation(
-        self, quat1: float, quat2: float, quat3: float, quat4: float, unknown: int = 1
+        self, w: float, x: float, y: float, z: float, unknown: int = 1
     ) -> Bool:
         ...
 
@@ -574,13 +646,27 @@ class B_Entity:
     def SetTmpAnmFlags(
         self,
         wuea: Literal[0, 1, 2],
-        mod_y: int,
-        solf: int,
-        copy_rot: int,
-        bng_mov: int,
-        headf: int,
-        unknown: int = 1,
+        mod_y: Bool,
+        solf: Bool,
+        copy_rot: Bool,
+        bng_mov: Literal[0, 1, 2, 3, 4, 5],
+        headf: Literal[0, 1, 2, 3],
+        unknown: Bool = 1,
     ) -> Bool:
+        """
+        :bng_mov:
+            BM_IDC = 0\n
+            BM_NONE = 1\n
+            BM_XYZ = 2\n
+            BM_XZ = 3\n
+            BM_2ANM = 4\n
+            BM_SCRIPT = 5
+        :headf:
+            HEADF_ENG = 0\n
+            HEADF_ANM = 1\n
+            HEADF_ANM2SEE = 2\n
+            HEADF_ANM2ENG = 3
+        """
         ...
 
     def SetTravellingView(self, s_type: int, t_type: int) -> Bool:

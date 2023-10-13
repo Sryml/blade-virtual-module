@@ -100,39 +100,39 @@ class B_PyInventory:
         """*read only*"""
         return self.__Owner
 
-    def AddBow(self, obj_name: str, unknown: int = 0) -> int:
+    def AddBow(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddKey(self, obj_name: str, unknown: int = 0) -> int:
+    def AddKey(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddMagicShield(self, obj_name: str, unknown: int = 0) -> int:
+    def AddMagicShield(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddObject(self, obj_name: str, unknown: int = 0) -> int:
+    def AddObject(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddQuiver(self, obj_name: str, unknown: int = 0) -> int:
+    def AddQuiver(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddShield(self, obj_name: str, unknown: int = 0) -> int:
+    def AddShield(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddSpecialKey(self, obj_name: str, unknown: int = 0) -> int:
+    def AddSpecialKey(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddTablet(self, obj_name: str, unknown: int = 0) -> int:
+    def AddTablet(self, obj_name: str, unknown: int = 0) -> Bool:
         """"""
         ...
 
-    def AddWeapon(self, weapon_name: str, flag: Literal[0, 1, 2, 3] = 0) -> int:
+    def AddWeapon(self, weapon_name: str, flag: Literal[0, 1, 2, 3] = 0) -> Bool:
         """
         :flag:
             W_FLAG_1H = 0  # One handed _whatever_ weapon\n
@@ -142,7 +142,7 @@ class B_PyInventory:
         """
         ...
 
-    def CarringObject(self, obj_name: str) -> int:
+    def CarringObject(self, obj_name: str) -> Bool:
         """"""
         ...
 
@@ -194,150 +194,166 @@ class B_PyInventory:
         """"""
         ...
 
-    def GetMaxNumberObjectsAt(self, *args: todo, **kwargs: todo) -> todo:
+    def GetMaxNumberObjectsAt(self, index: int) -> int:
         """"""
         ...
 
-    def GetNumberObjectsAt(self, *args: todo, **kwargs: todo) -> todo:
+    def GetNumberObjectsAt(self, index: int) -> int:
         """"""
         ...
 
-    def GetObject(self, *args: todo, **kwargs: todo) -> todo:
+    def GetObject(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def GetQuiver(self, *args: todo, **kwargs: todo) -> todo:
+    def GetQuiver(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def GetRightBack(self, *args: todo, **kwargs: todo) -> todo:
+    def GetRightBack(self) -> str:
         """"""
         ...
 
-    def GetSelectedKey(self, *args: todo, **kwargs: todo) -> todo:
+    def GetSelectedKey(self) -> str:
         """"""
         ...
 
-    def GetSelectedObject(self, *args: todo, **kwargs: todo) -> todo:
+    def GetSelectedObject(self) -> str:
         """"""
         ...
 
-    def GetSelectedQuiver(self, *args: todo, **kwargs: todo) -> todo:
+    def GetSelectedQuiver(self) -> str:
         """"""
         ...
 
-    def GetSelectedShield(self, *args: todo, **kwargs: todo) -> todo:
+    def GetSelectedShield(self) -> str:
         """"""
         ...
 
-    def GetSelectedWeapon(self, *args: todo, **kwargs: todo) -> todo:
+    def GetSelectedWeapon(self) -> str:
         """"""
         ...
 
-    def GetShield(self, *args: todo, **kwargs: todo) -> todo:
+    def GetShield(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def GetSpecialKey(self, *args: todo, **kwargs: todo) -> todo:
+    def GetSpecialKey(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def GetTablet(self, *args: todo, **kwargs: todo) -> todo:
+    def GetTablet(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def GetWeapon(self, *args: todo, **kwargs: todo) -> todo:
+    def GetWeapon(self, obj: Union[int, str]) -> str:
         """"""
         ...
 
-    def IsKeySelected(self, *args: todo, **kwargs: todo) -> todo:
+    def IsKeySelected(self, index: int) -> Bool:
         """"""
         ...
 
-    def IsObjectSelected(self, *args: todo, **kwargs: todo) -> todo:
+    def IsObjectSelected(self, index: int) -> Bool:
         """"""
         ...
 
-    def IsQuiverSelected(self, *args: todo, **kwargs: todo) -> todo:
+    def IsQuiverSelected(self, index: int) -> Bool:
         """"""
         ...
 
-    def IsShieldSelected(self, *args: todo, **kwargs: todo) -> todo:
+    def IsShieldSelected(self, index: int) -> Bool:
         """"""
         ...
 
-    def IsWeaponSelected(self, *args: todo, **kwargs: todo) -> todo:
+    def IsWeaponSelected(self, index: int) -> Bool:
         """"""
         ...
 
-    def LinkBack(self, *args: todo, **kwargs: todo) -> todo:
+    def LinkBack(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkLeft(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkLeftBack(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkLeftHand(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkLeftHand2(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkRight(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkRightBack(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def LinkRightHand(self, obj_name: str) -> Bool:
+        """
+        :obj_name: To unlink use "None"
+        """
+        ...
+
+    def RemoveBow(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkLeft(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveKey(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkLeftBack(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveMagicShield(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkLeftHand(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveObject(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkLeftHand2(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveQuiver(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkRight(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveShield(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkRightBack(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveSpecialKey(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def LinkRightHand(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveTablet(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def RemoveBow(self, *args: todo, **kwargs: todo) -> todo:
+    def RemoveWeapon(self, obj_name: str) -> Bool:
         """"""
         ...
 
-    def RemoveKey(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveMagicShield(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveObject(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveQuiver(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveShield(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveSpecialKey(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveTablet(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def RemoveWeapon(self, *args: todo, **kwargs: todo) -> todo:
-        """"""
-        ...
-
-    def SetCurrentQuiver(self, *args: todo, **kwargs: todo) -> todo:
+    def SetCurrentQuiver(self, obj_name: str) -> Bool:
         """"""
         ...

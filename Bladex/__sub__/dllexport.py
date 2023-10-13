@@ -21,8 +21,30 @@ def AddActionStepSound(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def AddAnimFlags(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """AddAnimFlags(string,wuea,mdf_y,solf,copy_rot,bng_mov,head_f)"""
+def AddAnimFlags(
+    anm_name: str,
+    wuea: __t.Literal[0, 1, 2],
+    mod_y: __bt.Bool,
+    solf: __bt.Bool,
+    copy_rot: __bt.Bool,
+    bng_mov: __t.Literal[0, 1, 2, 3, 4, 5],
+    headf: __t.Literal[0, 1, 2, 3],
+) -> __bt.Bool:
+    """
+    AddAnimFlags(string,wuea,mdf_y,solf,copy_rot,bng_mov,head_f)\n
+    :bng_mov:
+        BM_IDC = 0\n
+        BM_NONE = 1\n
+        BM_XYZ = 2\n
+        BM_XZ = 3\n
+        BM_2ANM = 4\n
+        BM_SCRIPT = 5
+    :headf:
+        HEADF_ENG = 0\n
+        HEADF_ANM = 1\n
+        HEADF_ANM2SEE = 2\n
+        HEADF_ANM2ENG = 3
+    """
     ...
 
 
@@ -279,7 +301,7 @@ def CheckPyErrors(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def CleanArea(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def CleanArea(x: float, y: float, z: float, distance: float) -> __t.Literal[1]:
     """CleanArea(x,y,z,distance)
       Limpia una zona esferica con centro en 'x,y,z'
     y distancia 'distance' de sangre."""
@@ -625,7 +647,7 @@ def CreateSpark(
     z_spark_dir: float,
     angle: float,
     normal_velocity: __bt.Int,
-    unknown2: float,
+    unknown1: float,
     YGravity: __bt.Int,
     scale: float,
     r1: int,
@@ -639,8 +661,9 @@ def CreateSpark(
     DeathTime: float,
     isglow: __bt.Bool,
 ) -> __entity.B_Entity_Spark:
-    """CreateSpark(string name,double x,double y,double z,)
-    Crea un efecto de chispas."""
+    """CreateSpark(string name,double x,double y,double z,)\n
+    Crea un efecto de chispas.\n
+    :unknown1: Reference = 100"""
     ...
 
 
@@ -699,8 +722,8 @@ def EnableProfiler(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def ExeMusicEvent(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """ """
+def ExeMusicEvent(unknown1: int, unknown2: Bool = 0) -> int:
+    """e.g: ExeMusicEvent(-1)"""
     ...
 
 
@@ -734,7 +757,7 @@ def GetAfterFrameFuncName(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def GetAnimationDuration(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetAnimationDuration(anm_name: str) -> float:
     """GetAnimationDuration (string sampled animation name )
     Resturns the duration in seconds of the full animation disregarding interpolation.
     """
@@ -916,7 +939,7 @@ def GetObjectEntitiesVisibleFrom(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.
     ...
 
 
-def GetPTime(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetPTime() -> float:
     """GetPTime()
     real timer"""
     ...
@@ -1434,7 +1457,7 @@ def SaveSSConfig(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def SaveScreenShot(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SaveScreenShot(file_name: str, width: int, height: int) -> __t.Literal[1]:
     """SaveScreenShot(filename,width,height)
     Acaso necesita descripcion?"""
     ...
@@ -1780,31 +1803,31 @@ def YSSInfo(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def nEntities(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nEntities() -> int:
     """int nEntities(void)
     Devuelve el nº de entidades en el mapa."""
     ...
 
 
-def nMaterials(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nMaterials() -> int:
     """nMaterials(void)
     Devuelve el nº de materiales."""
     ...
 
 
-def nSectors(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nSectors() -> int:
     """int nEntities(void)
     Devuelve el nº de sectors en el mapa."""
     ...
 
 
-def nSounds(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nSounds() -> int:
     """int nSounds(void)
     Devuelve el nº de sonidos en el mapa."""
     ...
 
 
-def nTriggerSectors(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nTriggerSectors() -> int:
     """int nTriggerSectors(void)
     Desvincula el número de triggersectors en el mapa."""
     ...

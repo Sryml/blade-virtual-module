@@ -82,7 +82,7 @@ class B_PyChar:
         weapon_kind: str = "1H",
     ) -> Bool:
         """
-        :param keys Modifiers:
+        :keys Modifiers:
             R+L - Simultaneous press\n
             !F - Should not be pressed\n
             &F - Should be already pressed
@@ -93,7 +93,7 @@ class B_PyChar:
     def AssignTrail(
         self,
         attack_name: str,
-        unknown: str,
+        unknown: Literal[""],
         trail_name: Literal[
             "EstelaAmarilla1", "EstelaAzul1", "EstelaGris1", "EstelaRoja1"
         ],

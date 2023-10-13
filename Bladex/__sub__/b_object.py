@@ -39,6 +39,9 @@ class B_PySector:
         pos: Vector3,
         unknown: Vector3,
     ) -> Bool:
+        """
+        :unknown: Reference = (0.0, 0.0, 0.0)
+        """
         ...
 
     def GetSelfLight(self, surface_index: int) -> float:
@@ -134,6 +137,9 @@ class B_PySound:
         f_unknown3: float,
         f_unknown4: float,
     ) -> Literal[1]:
+        """
+        e.g: SetPitchVar(1, -8000, 8000, 0, 0)
+        """
         ...
 
     def Stop(self) -> Bool:
