@@ -10,13 +10,13 @@ from . import character as __character
 from . import entity as __entity
 
 
-def ActivateInput(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def ActivateInput() -> int:
     """ActivateInput()
     Reactivate the input for the main player."""
     ...
 
 
-def AddActionStepSound(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddActionStepSound(table: str, action: str, step_sound_table: str) -> int:
     """AddActionStepSound(table,action,step_sound_table)"""
     ...
 
@@ -48,37 +48,74 @@ def AddAnimFlags(
     ...
 
 
-def AddAnmEvent(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddAnmEvent(anm_name: str, event_name: str, event_frame: float) -> int:
     """AnmAddEvent(anm_name,event_name,event_frame)"""
     ...
 
 
-def AddAnmLRelease(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddAnmLRelease(anm_name: str, anm_frame: float) -> int:
     """"""
     ...
 
 
-def AddAnmLStep(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddAnmLStep(anm_name: str, anm_frame: float) -> int:
     """"""
     ...
 
 
-def AddAnmRRelease(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddAnmRRelease(anm_name: str, anm_frame: float) -> int:
     """"""
     ...
 
 
-def AddAnmRStep(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddAnmRStep(anm_name: str, anm_frame: float) -> int:
     """"""
     ...
 
 
-def AddBipedAction(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+@__t.overload
+def AddBipedAction(
+    biped_name: str,
+    action_name: str,
+    anm_name: str,
+    anm_frame_start: float,
+    anm_frame_end: float,
+    i_unknown: int,
+) -> int:
     """"""
     ...
 
 
-def AddBoundFunc(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+@__t.overload
+def AddBipedAction(
+    biped_name: str,
+    action_name: str,
+    anm_name: str,
+    s_unknown: str,
+    anm_frame_start: float,
+    anm_frame_end: float,
+    i_unknown: int,
+) -> int:
+    """"""
+    ...
+
+
+def AddBipedAction(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
+    """"""
+    ...
+
+
+@__t.overload
+def AddBoundFunc(action_name: str, proc: __t.Callable[[], __t.Any]) -> int:
+    ...
+
+
+@__t.overload
+def AddBoundFunc(action_name: str, proc: str) -> int:
+    ...
+
+
+def AddBoundFunc(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
     """AddBoundFunc(string key,proc)
      Asigna el procedimiento pr al suceso key.
     AddBoundFunc(string key,string predproc)
@@ -88,59 +125,128 @@ def AddBoundFunc(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
     ...
 
 
-def AddCombustionDataFor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """AddCombustionDataFor(object_kind,upper_treshol,lower_treshold,flame_height,flame_size,speed,livetime)"""
+def AddCombustionDataFor(
+    object_kind: str,
+    fire_kind: __t.Union[__bt.str_, __bt.ParticleType],
+    upper_treshol: float,
+    lower_treshold: float,
+    flame_height: float,
+    flame_size: float,
+    speed: float,
+    livetime: float,
+) -> int:
+    """AddCombustionDataFor(object_kind,upper_treshol,lower_treshold,flame_height,flame_size,speed,livetime)\n
+    :livetime: 144000 - It will be extinct in 40 hours!
+    """
     ...
 
 
-def AddFloorCTolerance(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddFloorCTolerance(anm_name: str, tolerance: float) -> __t.Literal[1]:
     """AddFloorCTolerance(anm_name,float)"""
     ...
 
 
-def AddGhostSector(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddGhostSector(
+    ghost_sector_name: str,
+    group_name: str,
+    floor_height: float,
+    roof_height: float,
+    points: list,
+) -> int:
     """AddGhostSector(string GhostName,string GroupName,float FloorHeight,float RoofHeight,List points)
     Crea."""
     ...
 
 
-def AddInputAction(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddInputAction(action_name: str, npi: __bt.Bool) -> int:
     """AddInputAction(string action_name,int npi)
     Crea una acción nueva."""
     ...
 
 
-def AddMaterialStepSound(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddMaterialStepSound(table: str, material: str, step_sound: str) -> int:
     """AddMaterialStepSound(table,material,step_sound)"""
     ...
 
 
-def AddMusicEventADPCM(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddMusicEventADPCM(
+    event_name: str,
+    file: str,
+    f_in: float,
+    f_out: float,
+    volume: float,
+    priority: float,
+    background: __bt.Bool,
+    loop: int,
+    unknown: int = 0,
+) -> int:
     """AddMusicEventADPCM( lpszEventName, lpszFile, dFIn, fVolume, dFOut, fPriority, bBackGround, iNext )"""
     ...
 
 
-def AddMusicEventCD(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddMusicEventCD(
+    event_name: str,
+    track: int,
+    f_in: float,
+    f_out: float,
+    volume: float,
+    priority: float,
+    background: __bt.Bool,
+    loop: int,
+) -> int:
     """AddMusicEventCD(lpszEventName, iTrack, dFIn, dFOut, fVolume, fPriority, bBackGround, iNext)"""
     ...
 
 
-def AddMusicEventMP3(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddMusicEventMP3(
+    event_name: str,
+    file: str,
+    f_in: float,
+    f_out: float,
+    volume: float,
+    priority: float,
+    background: __bt.Bool,
+    loop: int,
+    unknown: int = 0,
+) -> int:
     """AddMusicEventMP3( lpszEventName, lpszFile, dFIn, fVolume, dFOut, fPriority, bBackGround, iNext )"""
     ...
 
 
-def AddMusicEventWAV(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddMusicEventWAV(
+    event_name: str,
+    file: str,
+    f_in: float,
+    f_out: float,
+    volume: float,
+    priority: float,
+    background: __bt.Bool,
+    loop: int,
+    opened: int = 0,
+) -> int:
     """AddMusicEventWAV( lpszEventName, lpszFile, dFIn, fVolume, dFOut, fPriority, bBackGround, iNext, [opened])"""
     ...
 
 
-def AddParticleGType(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
+def AddParticleGType(
+    type_name: str,
+    bitmap_name: str,
+    particle_type: __t.Literal[0, 1, 2, 3],
+    duration: int,
+) -> int:
+    """
+    :particle_type:
+        B_PARTICLE_GTYPE_COPY = 0\n
+        B_PARTICLE_GTYPE_BLEND = 1\n
+        B_PARTICLE_GTYPE_ADD = 2\n
+        B_PARTICLE_GTYPE_MUL = 3\n
+    """
     ...
 
 
-def AddScheduledFunc(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def AddScheduledFunc(
+    time: float, func: __t.Callable, func_args: tuple, name: str = "Unnamed"
+) -> int:
     """AddScheduledFunc(double time,Func,Args)
     Llama a la funcion Func con los argumentos Args en el tiempo time"""
     ...
