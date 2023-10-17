@@ -855,7 +855,7 @@ def GetEntity(
     ...
 
 
-def GetEntity(arg: __t.Union[str, int]) -> __t.Any:
+def GetEntity(arg: __t.Any) -> __t.Any:
     """GetEntity(int n)
      Crea una entidad de Python que referencia a la entidad Blade de índice n.
     GetEntity(string name)

@@ -21,18 +21,42 @@ class B_Entity:
         self.AttackList: Optional[list]
         self.__CanUse: Bool
         self.ContinuousDamage: int
-        self.DamageFunc: Optional[Callable]
+        self.DamageFunc: Optional[
+            Callable[[str, str, str, str, int, int, float, float, float, Bool], Any]
+        ]
         self.Data: Any = None
-        self.FrameFunc: Optional[Callable] = None
+        self.FrameFunc: Optional[Callable[[str, float], Any]] = None
         self.GlowSizeDist: int
         self.GlowTestZ: Bool
-        self.HearFunc: Optional[Callable]
-        self.HitFunc: Optional[Callable]
-        self.HitShieldFunc: Optional[Callable]
+        self.HearFunc: Optional[Callable[[str, str, float, float, float, float], Any]]
+        self.HitFunc: Optional[
+            Callable[
+                [
+                    str,
+                    str,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                    float,
+                ],
+                Any,
+            ]
+        ]
+        self.HitShieldFunc: Optional[
+            Callable[[str, str, float, float, float, float, float, float, int], Any]
+        ]
         self.__InAttack: Bool
         self.__InDestructorAttack: Bool
         self.__InWorld: Bool
-        self.InflictHitFunc: Optional[Callable]
+        self.InflictHitFunc: Optional[Callable[[str, str, float, float, float], Any]]
         self.Intensity: float
         self.InternalState: Unknown
         self.__Kind: str
@@ -46,17 +70,17 @@ class B_Entity:
         self.Position: Vector3
         self.Precission: float
         self.Reflects: int
-        self.SeeFunc: Optional[Callable]
+        self.SeeFunc: Optional[Callable[[str], Any]]
         self.SendSectorMsgs: Bool
         self.SendTriggerSectorMsgs: Bool
         self.SizeFactor: float
         self.Static: Bool
         self.StaticWeaponMode: int
-        self.StickFunc: Optional[Callable]
+        self.StickFunc: Optional[Callable[[str, str], Any]]
         self.__SubscribedLists: List[str]
-        self.TimerFunc: Optional[Callable]
+        self.TimerFunc: Optional[Callable[[str, float], Any]]
         self.TrailMode: int
-        self.UseFunc: Optional[Callable]
+        self.UseFunc: Optional[Callable[[str, Literal[0, 2, 4]], Any]]
         self.Weapon: Bool
         self.WeaponMode: int
 
