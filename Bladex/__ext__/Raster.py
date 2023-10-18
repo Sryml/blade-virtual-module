@@ -1,325 +1,400 @@
 # Module 'Raster'
 from __future__ import annotations
 
+import typing as __t
+
 import Bladex.__sub__.b_types as __bt
 
 
-def BmpHandle(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def BmpHandle(bmp_name: str) -> int:
     """"""
     ...
 
 
-def BmpName(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def BmpName(bmp_handle: int) -> str:
     """"""
     ...
 
 
-def ClassIdName(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def ClassIdName() -> str:
     """"""
     ...
 
 
-def Cls(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def Cls(r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def DrawBitmap(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def DrawBitmap(bmp_handle: int, w: int, h: int) -> None:
     """"""
     ...
 
 
-def DrawImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+@__t.overload
+def DrawImage(w: int, h: int, color_channel: str, align: str, image_data: int) -> None:
     """"""
     ...
 
 
-def FullScreen(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+@__t.overload
+def DrawImage(
+    w: int,
+    h: int,
+    color_channel: __t.Literal["RGB", "BGR"],
+    align: __t.Literal[
+        "Cover",
+        "Native",
+        "Normal",
+        "ScaledCentered",
+        "ScaledCentered2",
+        "Stretch",
+        "UpsideDown",
+    ],
+    image_data: int,
+) -> None:
     """"""
     ...
 
 
-def GetAlpha(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def DrawImage(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
     """"""
     ...
 
 
-def GetBrightness(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def FullScreen() -> __bt.Bool:
     """"""
     ...
 
 
-def GetClipActive(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetAlpha() -> float:
     """"""
     ...
 
 
-def GetClipWindow(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetBrightness() -> float:
     """"""
     ...
 
 
-def GetContrast(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetClipActive() -> __bt.Bool:
     """"""
     ...
 
 
-def GetCurrentMode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetClipWindow() -> __t.Tuple[int, int, int, int]:
+    """
+    :return: (x, y, w, h)
+    """
+    ...
+
+
+def GetContrast() -> float:
     """"""
     ...
 
 
-def GetDomeColor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetCurrentMode() -> __t.Tuple[int, int, int, int, int]:
+    """
+    :return: (depth, w, h, flags, frequency)
+    """
+    ...
+
+
+def GetDomeColor() -> __bt.RGBColor:
     """"""
     ...
 
 
-def GetGammaCorrection(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetGammaCorrection() -> float:
     """"""
     ...
 
 
-def GetImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetImage(
+    x: int,
+    y: int,
+    w: int,
+    h: int,
+    color_channel: __t.Union[__t.Literal["RGB", "BGR"], __bt.str_],
+    align: __t.Literal[
+        "Cover",
+        "Native",
+        "Normal",
+        "ScaledCentered",
+        "ScaledCentered2",
+        "Stretch",
+        "UpsideDown",
+    ],
+    image_size: int,
+    image_data: int,
+) -> __bt.Bool:
     """"""
     ...
 
 
-def GetPosition(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetPosition() -> __bt.Vector2:
     """"""
     ...
 
 
-def GetRasterParameter(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetRasterParameter(parameter: str) -> str:
     """"""
     ...
 
 
-def GetSize(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetSize() -> __t.Tuple[int, int]:
+    """
+    :return: (w, h)
+    """
+    ...
+
+
+def GetTextAlpha() -> float:
     """"""
     ...
 
 
-def GetTextAlpha(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetTextBlur() -> __t.Tuple[int, int, int, int]:
+    """
+    :return: (blurLeft, blurTop, blurRight, blurBottom)
+    """
+    ...
+
+
+def GetTextBlurAlpha() -> float:
     """"""
     ...
 
 
-def GetTextBlur(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetTextMode() -> int:
     """"""
     ...
 
 
-def GetTextBlurAlpha(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetTextScale() -> __t.Tuple[float, float]:
+    """
+    :return: (scale_x, scale_y)
+    """
+    ...
+
+
+def GetTextShadow() -> __t.Tuple[int, int]:
+    """
+    :return: (x_shadow, y_shadow)
+    """
+    ...
+
+
+def GetTextureInfo(index: int) -> __t.Tuple[int, int, int]:
+    """
+    :return: (w, h, depth)
+    """
+    ...
+
+
+def GetVideoModeDscr(mode_index: int) -> __t.Tuple[int, int, int, int, int]:
+    """
+    :return: (depth, w, h, flags, frequency)
+    """
+    ...
+
+
+def GetWindowSize() -> __t.Tuple[int, int]:
+    """
+    :return: (w, h)
+    """
+    ...
+
+
+def Line(x1: int, y1: int, x2: int, y2: int) -> None:
     """"""
     ...
 
 
-def GetTextMode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def LineTo(x: int, y: int) -> None:
     """"""
     ...
 
 
-def GetTextScale(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def Rectangle(x1: int, y1: int, x2: int, y2: int) -> None:
     """"""
     ...
 
 
-def GetTextShadow(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def RemoveBackgroundImage() -> None:
     """"""
     ...
 
 
-def GetTextureInfo(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetAlpha(alpha: float) -> None:
     """"""
     ...
 
 
-def GetVideoModeDscr(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetBackgroundImage(
+    w: int,
+    h: int,
+    color_channel: __t.Literal["RGB"],
+    is_normal: __t.Literal["Normal"],
+    align: __t.Literal[
+        "Cover",
+        "Stretch",
+        "ScaledCentered",
+        "VerticalStretch",
+    ],
+    image_data: int,
+) -> None:
     """"""
     ...
 
 
-def GetWindowSize(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetBrightness(v: float) -> None:
     """"""
     ...
 
 
-def Line(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetClipActive(active: int) -> None:
     """"""
     ...
 
 
-def LineTo(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetClipWindow(x: int, y: int, w: int, h: int) -> None:
     """"""
     ...
 
 
-def Rectangle(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetContrast(v: float) -> None:
     """"""
     ...
 
 
-def RemoveBackgroundImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetDomeColor(r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def SetAlpha(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetFillColor(r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def SetBackgroundImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetFlags(flags: int) -> None:
     """"""
     ...
 
 
-def SetBrightness(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetFont(font_pointer: int) -> None:
     """"""
     ...
 
 
-def SetClipActive(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetGammaCorrection(v: float) -> None:
     """"""
     ...
 
 
-def SetClipWindow(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetPenColor(r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def SetContrast(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetPosition(x: int, y: int) -> None:
     """"""
     ...
 
 
-def SetDomeColor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetRasterParameter(parameter: str, value: str) -> __bt.Bool:
     """"""
     ...
 
 
-def SetFillColor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextAlpha(v: float) -> None:
     """"""
     ...
 
 
-def SetFlags(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextBlur(blurLeft: int, blurTop: int, blurRight: int, blurBottom: int) -> None:
     """"""
     ...
 
 
-def SetFont(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextBlurAlpha(v: float) -> None:
     """"""
     ...
 
 
-def SetGammaCorrection(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextBlurColor(r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def SetPenColor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextColor(r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def SetPosition(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextMode(mode: int) -> None:
+    """SetTextMode(3)"""
+    ...
+
+
+def SetTextScale(scale_x: float, scale_y: float) -> None:
     """"""
     ...
 
 
-def SetRasterParameter(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetTextShadow(x_shadow: int, y_shadow: int) -> None:
     """"""
     ...
 
 
-def SetTextAlpha(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetVideoMode(mode: int) -> __bt.Bool:
     """"""
     ...
 
 
-def SetTextBlur(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetVideoSettings(gamma: float, contrast: float, brightness: float) -> None:
     """"""
     ...
 
 
-def SetTextBlurAlpha(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SetWindowSize(w: int = -1, h: int = -1) -> __bt.Bool:
     """"""
     ...
 
 
-def SetTextBlurColor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SolidRectangle(x1: int, y1: int, x2: int, y2: int) -> None:
     """"""
     ...
 
 
-def SetTextColor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SwapBuffers() -> None:
     """"""
     ...
 
 
-def SetTextMode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def SysWrite(x: int, y: int, text: str, r: int, g: int, b: int) -> None:
     """"""
     ...
 
 
-def SetTextScale(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def UnifyRenderBuffers() -> None:
     """"""
     ...
 
 
-def SetTextShadow(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def WriteText(text: str) -> __bt.Bool:
     """"""
     ...
 
 
-def SetVideoMode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nTextures() -> int:
     """"""
     ...
 
 
-def SetVideoSettings(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def SetWindowSize(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def SolidRectangle(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def SwapBuffers(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def SysWrite(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def UnifyRenderBuffers(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def WriteText(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def nTextures(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
-    """"""
-    ...
-
-
-def nVideoModes(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def nVideoModes() -> int:
     """"""
     ...
 
@@ -328,21 +403,21 @@ def nVideoModes(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
 # reissue
 
 
-def DrawResizeImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def DrawResizeImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def GetScaledCenteredSizeFactor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetScaledCenteredSizeFactor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def GetUnscaledSize(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def GetUnscaledSize(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def ResetScale(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.todo:
+def ResetScale(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...

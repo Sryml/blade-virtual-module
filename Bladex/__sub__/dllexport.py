@@ -363,50 +363,50 @@ def BodInspector() -> str:
     ...
 
 
-def CDCallBack(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDCallBack(func: __t.Callable) -> __bt.Bool:
     """int CDCallBack(func f)
     Establece la función CD."""
     ...
 
 
-def CDLenght(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDLenght() -> int:
     """int CDLenght()
     Devuelve la duración del CD en milisegundos."""
     ...
 
 
-def CDPause(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDPause() -> __bt.Bool:
     """int CDPause()
     Detiene el CD."""
     ...
 
 
-def CDPlayTrack(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDPlayTrack(ntrack: int) -> __bt.Bool:
     """PlayCDTrack(int ntrack)
     Reproduce la pista ntrack del CD.
     Si ntrack==1 reproduce todo el CD."""
     ...
 
 
-def CDPresent(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDPresent() -> __bt.Bool:
     """int CDPresent()
     Indica si está el CD."""
     ...
 
 
-def CDStop(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDStop() -> __bt.Bool:
     """int CDStop()
     Detiene el CD."""
     ...
 
 
-def CDTrackLenght(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDTrackLenght(ntrack: int) -> int:
     """CDTrackLenght(int ntrack)
     Devuelve la duración en milisegundos de la pista ntrack."""
     ...
 
 
-def CDnTracks(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def CDnTracks() -> int:
     """int nCDTracks()
     Devuelve el número de pistas del CD."""
     ...
@@ -1236,7 +1236,7 @@ def GetTriggerSectorFloorHeight(trigger_sector_name: str) -> int:
 
 def GetTriggerSectorFunc(
     trigger_sector_name: str, func_type: __t.Literal["OnEnter", "OnLeave"]
-) -> __t.Callable:
+) -> __t.Callable[[str, str], __t.Any]:
     """GetTriggerSectorFunc(string TriggerSectorName,string FuncType)
     Devuelve la funcion asociada al evento FuncType del triggersector TriggerSectorName.
     """
@@ -1914,78 +1914,80 @@ def SetTimeSpeed(speed: float) -> __t.Literal[1]:
     ...
 
 
-def SetTriggerSectorData(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetTriggerSectorData(trigger_sector_name: str, data: __t.Any) -> __bt.Bool:
     """SetTriggerSectorData(string TriggerSectorName,Data)
     Asigna el objeto Python Data al campo Data del triggersector TriggerSectorName."""
     ...
 
 
-def SetTriggerSectorFunc(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetTriggerSectorFunc(
+    trigger_sector_name: str, func: __t.Callable[[str, str], __t.Any]
+) -> __bt.Bool:
     """SetTriggerSectorFunc(string TriggerSectorName,string FuncType,Func)
     Asigna la funcion Func al evento FuncType del triggersector TriggerSectorName."""
     ...
 
 
-def SetTurnSpeed(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetTurnSpeed(race_name: str, new_speed: float) -> __t.Literal[1]:
     """SetTurnSpeed(string name_raza,float new_speed )
     Cambia la velocidad de giro de una raza . En radianes."""
     ...
 
 
-def ShowActionAreas(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def ShowActionAreas(action_areas_bit_mask: int) -> __bt.Bool:
     """"""
     ...
 
 
-def ShowSounds(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def ShowSounds(sh: int) -> __bt.Bool:
     """ShowSounds(int sh)
     Establece si se debe mostrar un objeto para indicar donde estan los sonido ambiente.
     """
     ...
 
 
-def ShutDownSoundChannels(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def ShutDownSoundChannels() -> __bt.Bool:
     """ShutDownSoundChannels ()
     Guess...;) .n"""
     ...
 
 
-def SoundSystemActive(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SoundSystemActive() -> __bt.Bool:
     """SoundSystemActive ()
     Tells if the sound system if active or not ."""
     ...
 
 
-def StartProfile(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def StartProfile() -> __bt.Bool:
     """bool StartProfile(void)
     Tiene que estar activado el profiler interno.
     Reinicia sesión."""
     ...
 
 
-def StopTime(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def StopTime() -> None:
     """StopTime(void)
     Detiene el tiempo del juego."""
     ...
 
 
-def TakeSnapShot(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def TakeSnapShot() -> __t.Literal[1]:
     """Takes a snapshot"""
     ...
 
 
-def UnBindAll(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def UnBindAll() -> None:
     """UnBindAll()
     Borra la configuración de teclado."""
     ...
 
 
-def WriteText(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def WriteText(x: float, y: float, text: str) -> __bt.Bool:
     """"""
     ...
 
 
-def YSSInfo(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def YSSInfo() -> __bt.Bool:
     """YSSInfo()"""
     ...
 
