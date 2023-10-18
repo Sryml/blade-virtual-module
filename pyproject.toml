@@ -1,5 +1,29 @@
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
+
+[project]
+name = "Bladex"
+version = "1.0.0"
+authors = [{ name = "Sryml", email = "sryml@hotmail.com" }]
+description = "Blade of Darkness virtual python module for code completion"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Topic :: Text Editors :: Integrated Development Environments (IDE)",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/Sryml/blade-virtual-module"
+"Bug Tracker" = "https://github.com/Sryml/blade-virtual-module/issues"
+
+
+#######
+
 [tool.ruff]
 #select = []
-ignore = ["F4","E5"]
-
-
+ignore = ["F4", "E5"]
