@@ -783,7 +783,7 @@ class B_Entity_(B_Entity):
         self.Alpha: float
         self.CastShadows: Bool
         self.ExclusionGroup: Bool
-        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.__ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
         self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.__LightColor: Tuple
@@ -801,6 +801,21 @@ class B_Entity_(B_Entity):
         self.Solid: Bool
         self.__nFires: int
         self.__nLights: int
+
+    @property
+    def ExclusionMask(self):
+        """
+        EX_PERSON = 1\n
+        EX_FLOOR = 2\n
+        EX_CAMERA = 4\n
+        EX_PARTICLES = 8\n
+        EX_EYE = 32
+        """
+        return self.__ExclusionMask
+
+    @ExclusionMask.setter
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+        ...
 
     @property
     def FireParticleType(self):
@@ -876,7 +891,7 @@ class B_Entity_Actor(B_Entity):
         self.Alpha: float
         self.Animation: str
         self.CastShadows: Bool
-        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.__ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
         self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frame: int
@@ -897,6 +912,21 @@ class B_Entity_Actor(B_Entity):
         self.Solid: Bool
         self.__nFires: int
         self.__nLights: int
+
+    @property
+    def ExclusionMask(self):
+        """
+        EX_PERSON = 1\n
+        EX_FLOOR = 2\n
+        EX_CAMERA = 4\n
+        EX_PARTICLES = 8\n
+        EX_EYE = 32
+        """
+        return self.__ExclusionMask
+
+    @ExclusionMask.setter
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+        ...
 
     @property
     def FireParticleType(self):
@@ -1386,7 +1416,7 @@ class B_Entity_Physic(B_Entity):
         self.AngularVelocity: Vector3
         self.CastShadows: Bool
         self.ExclusionGroup: Bool
-        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.__ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
         self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frozen: Bool
@@ -1409,6 +1439,21 @@ class B_Entity_Physic(B_Entity):
         self.Velocity: Vector3
         self.__nFires: int
         self.__nLights: int
+
+    @property
+    def ExclusionMask(self):
+        """
+        EX_PERSON = 1\n
+        EX_FLOOR = 2\n
+        EX_CAMERA = 4\n
+        EX_PARTICLES = 8\n
+        EX_EYE = 32
+        """
+        return self.__ExclusionMask
+
+    @ExclusionMask.setter
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+        ...
 
     @property
     def FireParticleType(self):
@@ -1609,7 +1654,7 @@ class B_Entity_Weapon(B_Entity):
         self.CastShadows: Bool
         self.Cone: float
         self.ExclusionGroup: Bool
-        self.ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
+        self.__ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
         self.__FireParticleType: Optional[str] = None
         self.FiresIntensity: List[int] = []
         self.Frozen: Bool
@@ -1636,6 +1681,21 @@ class B_Entity_Weapon(B_Entity):
         self.Velocity: Vector3
         self.__nFires: int
         self.__nLights: int
+
+    @property
+    def ExclusionMask(self):
+        """
+        EX_PERSON = 1\n
+        EX_FLOOR = 2\n
+        EX_CAMERA = 4\n
+        EX_PARTICLES = 8\n
+        EX_EYE = 32
+        """
+        return self.__ExclusionMask
+
+    @ExclusionMask.setter
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+        ...
 
     @property
     def FireParticleType(self):
