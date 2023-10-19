@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Bladex"
-version = "1.0.0"
+version = "1.0.2"
 authors = [{ name = "Sryml", email = "sryml@hotmail.com" }]
 description = "Blade of Darkness virtual python module for code completion"
 readme = "README.md"

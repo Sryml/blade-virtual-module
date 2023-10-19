@@ -15,7 +15,7 @@
 
 This python package is used to provide code completion and type hints in the IDE (e.g VSCode).
 
-<img src="./demo1.gif" width="800" />
+<img src="https://github.com/Sryml/blade-virtual-module/blob/main/demo1.gif" width="800" />
 
 ## 🌟 Requirements
 
