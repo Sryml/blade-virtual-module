@@ -14,16 +14,22 @@ from typing import (
     overload,
 )
 
-Int = Union[int, float]
+# Any_ = Union[Any, None]
 Bool = Union[bool, Literal[0, 1]]
-Vector2 = Tuple[float, float]
-Vector3 = Tuple[float, float, float]
+Int = Union[int, float]
 Quaternion = Tuple[float, float, float, float]
+Radian = float
 RGBColor = Tuple[int, int, int]
 RGBNormalized = Tuple[float, float, float]
-# Any_ = Union[Any, None]
-Unknown = str_ = todo = Any
-Radian = float
+Vector2 = Tuple[float, float]
+Vector3 = Tuple[float, float, float]
+
+Unknown = Any
+str_ = Any
+todo = Any
+# Unknown = Union[Any, Any]
+# str_ = Union[Any, Any]
+# todo = Union[Any, Any]
 NULL = typing.NewType("NULL", int)
 
 NodeType = Literal[

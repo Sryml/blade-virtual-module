@@ -1,6 +1,7 @@
-# [build-system]
-# requires = ["hatchling"]
-# build-backend = "hatchling.build"
+# python -m build
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "Bladex"
@@ -23,6 +24,10 @@ classifiers = [
 
 
 #######
+
+[tool.mypy]
+# warn_no_return = false
+disable_error_code = "empty-body, misc"
 
 [tool.ruff]
 #select = []

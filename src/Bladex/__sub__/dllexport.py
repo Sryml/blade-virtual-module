@@ -475,7 +475,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Aura:
-    ...
+    return __entity.B_Entity_Aura()
 
 
 @__t.overload
@@ -488,7 +488,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Camera:
-    ...
+    return __entity.B_Entity_Camera()
 
 
 @__t.overload
@@ -501,7 +501,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_ElectricBolt:
-    ...
+    return __entity.B_Entity_ElectricBolt()
 
 
 @__t.overload
@@ -514,7 +514,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Fire:
-    ...
+    return __entity.B_Entity_Fire()
 
 
 @__t.overload
@@ -527,7 +527,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Lava:
-    ...
+    return __entity.B_Entity_Lava()
 
 
 @__t.overload
@@ -540,7 +540,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Magic_Missile:
-    ...
+    return __entity.B_Entity_Magic_Missile()
 
 
 @__t.overload
@@ -553,7 +553,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Particle:
-    ...
+    return __entity.B_Entity_Particle()
 
 
 @__t.overload
@@ -571,8 +571,8 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
-) -> B_Entity_Particle_System:
-    ...
+) -> __entity.B_Entity_Particle_System:
+    return __entity.B_Entity_Particle_System()
 
 
 @__t.overload
@@ -585,7 +585,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Pool:
-    ...
+    return __entity.B_Entity_Pool()
 
 
 @__t.overload
@@ -598,7 +598,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Sliding_Area:
-    ...
+    return __entity.B_Entity_Sliding_Area()
 
 
 @__t.overload
@@ -611,7 +611,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Sound:
-    ...
+    return __entity.B_Entity_Sound()
 
 
 @__t.overload
@@ -624,7 +624,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Spot:
-    ...
+    return __entity.B_Entity_Spot()
 
 
 @__t.overload
@@ -637,7 +637,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_Water:
-    ...
+    return __entity.B_Entity_Water()
 
 
 @__t.overload
@@ -650,7 +650,7 @@ def CreateEntity(
     parent_class: __t.Literal["Actor"],
     mesh_name: str = "",
 ) -> __entity.B_Entity_Actor:
-    ...
+    return __entity.B_Entity_Actor()
 
 
 @__t.overload
@@ -663,7 +663,7 @@ def CreateEntity(
     parent_class: __t.Literal["Person"],
     mesh_name: str = "",
 ) -> __entity.B_Entity_Person:
-    ...
+    return __entity.B_Entity_Person()
 
 
 @__t.overload
@@ -676,7 +676,7 @@ def CreateEntity(
     parent_class: __t.Literal["Arrow", "Weapon"],
     mesh_name: str = "",
 ) -> __entity.B_Entity_Weapon:
-    ...
+    return __entity.B_Entity_Weapon()
 
 
 @__t.overload
@@ -689,7 +689,7 @@ def CreateEntity(
     parent_class: __t.Literal["Physic"],
     mesh_name: str = "",
 ) -> __entity.B_Entity_Physic:
-    ...
+    return __entity.B_Entity_Physic()
 
 
 @__t.overload
@@ -702,7 +702,7 @@ def CreateEntity(
     parent_class: str = "",
     mesh_name: str = "",
 ) -> __entity.B_Entity_:
-    ...
+    return __entity.B_Entity_()
 
 
 @__t.overload
@@ -714,8 +714,8 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["", "Actor", "Arrow", "Person", "Physic", "Weapon"] = "",
     mesh_name: str = "",
-):
-    ...
+) -> __entity.B_Entity_:
+    return __entity.B_Entity_()
 
 
 def CreateEntity(
@@ -743,19 +743,19 @@ def CreateFCAnimation(file: str, internal_name: str, n_armonics: int) -> int:
 def CreateMaterial(name: str) -> __b_object.B_PyMaterial:
     """CreateMaterial(string name)
     Crea un nuevo material con nombre name."""
-    ...
+    return __b_object.B_PyMaterial()
 
 
 def CreateRoute() -> __b_object.B_PyRoute:
     """CreateRoute()
     Crea una ruta vacía nueva."""
-    ...
+    return __b_object.B_PyRoute()
 
 
 def CreateSound(file_name: str, sound_name: str) -> __b_object.B_PySound:
     """CreateSound(string filename,string soundname)
     Crea un sonido a partir del filename y con nombre name."""
-    ...
+    return __b_object.B_PySound()
 
 
 def CreateSpark(
@@ -785,7 +785,7 @@ def CreateSpark(
     """CreateSpark(string name,double x,double y,double z,)\n
     Crea un efecto de chispas.\n
     :unknown1: Reference = 100"""
-    ...
+    return __entity.B_Entity_Spark()
 
 
 def CreateTimer(timer_name: str, period: float) -> __bt.Bool:
@@ -914,7 +914,7 @@ def GetBloodLevel() -> __bt.Bool:
 def GetCharType(name: str, short_name: str) -> __character.B_PyChar:
     """GetCharType(Barbarian,Bar)
     Crea un CharType , o raza de personaje."""
-    ...
+    return __character.B_PyChar()
 
 
 def GetCombos(person_name: str) -> __t.List:
@@ -967,19 +967,19 @@ def GetEntitiesVisibleFrom(
 
 @__t.overload
 def GetEntity(arg: __t.Literal["Player1"]) -> __entity.B_Entity_Person:
-    ...
+    return __entity.B_Entity_Person()
 
 
 @__t.overload
 def GetEntity(arg: __t.Literal["Camera"]) -> __entity.B_Entity_Camera:
-    ...
+    return __entity.B_Entity_Camera()
 
 
 @__t.overload
 def GetEntity(
     arg: __t.Union[str, int, __t.Literal["Camera", "Player1"]]
 ) -> __entity.B_PyEntity:
-    ...
+    return __entity.B_PyEntity()
 
 
 def GetEntity(arg: __t.Any) -> __t.Any:
@@ -993,7 +993,7 @@ def GetEntity(arg: __t.Any) -> __t.Any:
 def GetGhostSectorSound(gs_name: str) -> __b_object.B_PySound:
     """GetGhostSectorSound(string gsname)
     Devuelve el sonido ambiente perteneciente al sector fantasma de nombre gsname."""
-    ...
+    return __b_object.B_PySound()
 
 
 def GetInputMode(device: str) -> str:
@@ -1012,7 +1012,7 @@ def GetMaterial(x: __t.Union[str, int]) -> __b_object.B_PyMaterial:
      Crea un objeto Python que referencia al material Blade de índice n.
     GetMaterial(string name)
      Crea un objeto Python que referencia al material Blade de nombre name."""
-    ...
+    return __b_object.B_PyMaterial()
 
 
 def GetMenuTgapFunc() -> __bt.Unknown:
@@ -1136,12 +1136,12 @@ def GetScreenXY(ent_pos: __bt.Vector3) -> __bt.Vector2:
 
 @__t.overload
 def GetSector(index: int) -> __b_object.B_PySector:
-    ...
+    return __b_object.B_PySector()
 
 
 @__t.overload
 def GetSector(x: float, y: float, z: float) -> __b_object.B_PySector:
-    ...
+    return __b_object.B_PySector()
 
 
 def GetSector(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
@@ -1155,7 +1155,7 @@ def GetSector(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
 
 def GetSound(sound_name: str) -> __b_object.B_PySound:
     """GetSound(name)"""
-    ...
+    return __b_object.B_PySound()
 
 
 def GetSoundFileName(sound_idx: int) -> str:
@@ -1218,7 +1218,7 @@ def GetTimerInfo(timer_idx: int) -> tuple:
 def GetTrailType(name: str) -> __b_object.B_PyTrail:
     """GetTrailType(esteraCorta)
     Crea un TrailType , o tipo de estelas."""
-    ...
+    return __b_object.B_PyTrail()
 
 
 def GetTriggerSectorData(trigger_sector_name: str) -> __t.Any:

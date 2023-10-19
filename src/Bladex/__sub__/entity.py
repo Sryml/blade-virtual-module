@@ -322,7 +322,7 @@ class B_Entity:
         ...
 
     def GetInventory(self) -> inventory.B_PyInventory:
-        ...
+        return inventory.B_PyInventory()
 
     def GetInventoryEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
@@ -337,7 +337,7 @@ class B_Entity:
         ...
 
     def GetParticleEntity(self) -> B_Entity_Particle:
-        ...
+        return B_Entity_Particle()
 
     def GetWoundedZone(self, zone: int) -> Bool:
         ...
@@ -700,7 +700,7 @@ class B_Entity:
         ...
 
     def SeverLimb(self, limb: int) -> B_Entity_Weapon:
-        ...
+        return B_Entity_Weapon()
 
     def SlideTo(
         self, final_displacement: float, initial_velocity: float, acceleration: float
