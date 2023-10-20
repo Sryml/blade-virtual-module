@@ -1,10 +1,10 @@
-<div style="display: flex;align-items: center;justify-content: flex-end;">
-  Language:
-  <a style="display: flex;align-items: center;" title="English" href="javascript:void(0);">
-    <img alt="🇺🇸" width="35" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
+<div align="left">
+  <b>Language:</b><br />
+  <a title="English" href="#">
+    <img alt="🇺🇸" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
   </a>
-  <a style="display: flex;align-items: center;" title="中文" href="README_CN.md">
-    <img alt="🇨🇳" width="35" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg" />
+  <a title="中文" href="README_CN.md">
+    <img alt="🇨🇳" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg" />
   </a>
 </div>
 
