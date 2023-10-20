@@ -1,9 +1,20 @@
+<div style="display: flex;align-items: center;justify-content: flex-end;">
+  Language:
+  <a style="display: flex;align-items: center;" title="English" href="javascript:void(0);">
+    <img alt="🇺🇸" width="35" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
+  </a>
+  <a style="display: flex;align-items: center;" title="中文" href="README_CN.md">
+    <img alt="🇨🇳" width="35" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg" />
+  </a>
+</div>
+
 <h1 align="center">Blade Virtual Module</h1>
 
 <div align="center">
-<a href="https://github.com/Sryml/blade-virtual-module/releases" target="_blank">
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/sryml/blade-virtual-module?style=social">
-</a>
+  <a href="https://github.com/Sryml/blade-virtual-module/releases" target="_blank">
+    <img alt="GitHub release (latest by date)"
+      src="https://img.shields.io/github/v/release/sryml/blade-virtual-module?style=social">
+  </a>
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/sryml/blade-virtual-module?style=social">
 
@@ -11,9 +22,10 @@
 
 <br>
 
-### ✨ Blade of Darkness virtual python module for code completion
+### ✨ Blade of Darkness Virtual Python Module for Code Completion and Type Hints
 
-This python package is used to provide code completion and type hints in the IDE (e.g VSCode).
+This Python package provides code completion and type hints for C/C++ extension modules in IDEs like VSCode.  
+It effectively enhances developers' coding efficiency and accuracy.
 
 <img src="https://github.com/Sryml/blade-virtual-module/blob/main/demo1.gif" width="800" />
 
@@ -21,17 +33,20 @@ This python package is used to provide code completion and type hints in the IDE
 
 - Python version >= 3.8
 
-## 📖 Install
+## 📖 Installation
 
-```batch
-pip install Bladex
-```
+1. Install the `Bladex` package from the command line.
+   ```batch
+   pip install Bladex
+   ```
+2. Install the `Python` and `Pylance` extensions in VSCode.
+3. Right-click on the project root directory in VSCode and open folder settings.  
+   Search for `python.analysis.typeCheckingMode` and set it to `basic`.
 
-#### Code completion for other modules (such as Raster) requires manually adding paths (vscode configuration):
+#### For code completion with other modules (e.g Raster), you need to add the path manually:
 
-1. Create the folder `.vscode` in the game root directory
-2. Create the file `.vscode/settings.json`
-3. Copy the following content into the file and modify the python path
+1. Create a file named `.vscode/settings.json` in the project's root directory.
+2. Add the following content to the file and modify the Python installation path:
 
 ```json
 {
@@ -44,11 +59,14 @@ pip install Bladex
 }
 ```
 
-The `Python39` folder is the python version used by this project. If the version you are using is not py3.9, you will need to modify the path. You can use `pip show Bladex` to view the installation location of the package.
+The `Python39` folder represents the Python version used in this project. If you have a different version installed, you should modify the path accordingly.
+You can use `pip show Bladex` to check the package's installation location.
 
-## 🐞 Issues
+_The `settings.json` file follows JSON syntax, ensure that your edits are correct._
 
-To report bugs/discuss functions, please use [issues](https://github.com/Sryml/blade-virtual-module/issues).
+## 💡 Issues
+
+To report bugs or discuss features, please use [Issues](https://github.com/Sryml/blade-virtual-module/issues) section.
 
 ## 📄 Reference
 
@@ -59,3 +77,4 @@ To report bugs/discuss functions, please use [issues](https://github.com/Sryml/b
 - Rebel Act Studios, Fire Falcom, General Arcade
 - SNEG
 - smartblade
+- OpenAI's ChatGPT
