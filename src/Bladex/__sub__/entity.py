@@ -14,7 +14,7 @@ __RasterMode = Literal[
 
 
 class B_Entity:
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         self.Actor: Bool
         self.AngVel: float
         self.Arrow: Bool
@@ -85,86 +85,86 @@ class B_Entity:
         self.WeaponMode: int
 
     # @property
-    # def AngVel(self):
+    # def AngVel(self, /):
     #     """*read only*"""
     #     return self.__AngVel
 
     @property
-    def CanUse(self):
+    def CanUse(self, /):
         """*read only*"""
         return self.__CanUse
 
     @property
-    def InAttack(self):
+    def InAttack(self, /):
         """*read only*"""
         return self.__InAttack
 
     @property
-    def InDestructorAttack(self):
+    def InDestructorAttack(self, /):
         """*read only*"""
         return self.__InDestructorAttack
 
     @property
-    def InWorld(self):
+    def InWorld(self, /):
         """*read only*"""
         return self.__InWorld
 
     # @property
-    # def Intensity(self):
+    # def Intensity(self, /):
     #     """*read only*"""
     #     return self.__Intensity
 
     # @property
-    # def InternalState(self):
+    # def InternalState(self, /):
     #     """*read only*"""
     #     return self.__InternalState
 
     @property
-    def Kind(self):
+    def Kind(self, /):
         """*read only*"""
         return self.__Kind
 
     @property
-    def Material(self):
+    def Material(self, /):
         """*read only*"""
         return self.__Material
 
     @property
-    def Name(self):
+    def Name(self, /):
         """Modifying this variable is not recommended."""
         return self.__Name
 
     @Name.setter
-    def Name(self, value: str):
+    def Name(self, value: str, /):
         self.__Name = value
 
     @property
-    def Object(self):
+    def Object(self, /):
         """*read only*"""
         return self.__Object
 
     @property
-    def Parent(self):
+    def Parent(self, /):
         """*read only*"""
         return self.__Parent
 
     @property
-    def Physic(self):
+    def Physic(self, /):
         """*read only*"""
         return self.__Physic
 
     # @property
-    # def Precission(self):
+    # def Precission(self, /):
     #     """*read only*"""
     #     return self.__Precission
 
     # @property
-    # def SizeFactor(self):
+    # def SizeFactor(self, /):
     #     """*read only*"""
     #     return self.__SizeFactor
 
     @property
-    def SubscribedLists(self):
+    def SubscribedLists(self, /):
         """*read only*"""
         return self.__SubscribedLists
 
@@ -179,7 +179,7 @@ class B_Entity:
         ...
 
     @overload
-    def Abs2RelVector(self, entity: B_PyEntity) -> Vector3:
+    def Abs2RelVector(self, entity: B_PyEntity, /) -> Vector3:
         ...
 
     @overload
@@ -196,67 +196,69 @@ class B_Entity:
         ...
 
     def AddAnimSound(
-        self, animation: str, sound: b_object.B_PySound, time: float
+        self, animation: str, sound: b_object.B_PySound, time: float, /
     ) -> Bool:
         ...
 
-    def AddAnmEventFunc(self, anm_event: str, func: Callable[[str, str], Any]) -> Bool:
+    def AddAnmEventFunc(
+        self, anm_event: str, func: Callable[[str, str], Any], /
+    ) -> Bool:
         ...
 
-    def AddCameraEvent(self, frame: int, func: Callable[[str, int], Any]) -> Bool:
+    def AddCameraEvent(self, frame: int, func: Callable[[str, int], Any], /) -> Bool:
         ...
 
     def AddCameraNode(
-        self, node: int, time: float, x: float, y: float, z: float
+        self, node: int, time: float, x: float, y: float, z: float, /
     ) -> Bool:
         ...
 
-    def AddEventSound(self, event_name: str, sound: b_object.B_PySound) -> Bool:
+    def AddEventSound(self, event_name: str, sound: b_object.B_PySound, /) -> Bool:
         ...
 
-    def AddPathNode(self, time: float, x: float, y: float, z: float) -> Bool:
+    def AddPathNode(self, time: float, x: float, y: float, z: float, /) -> Bool:
         ...
 
-    def AddWatchAnim(self, anm_name: str) -> Bool:
+    def AddWatchAnim(self, anm_name: str, /) -> Bool:
         ...
 
-    def CameraClearPath(self, node: int) -> Bool:
+    def CameraClearPath(self, node: int, /) -> Bool:
         ...
 
-    def CameraStartPath(self, node: int) -> Bool:
+    def CameraStartPath(self, node: int, /) -> Bool:
         ...
 
-    def CanGoTo(self, x: float, y: float, z: float) -> Bool:
+    def CanGoTo(self, x: float, y: float, z: float, /) -> Bool:
         ...
 
-    def CanISee(self, entity: B_PyEntity) -> Bool:
+    def CanISee(self, entity: B_PyEntity, /) -> Bool:
         ...
 
-    def CanISeeFrom(self, entity: B_PyEntity, x: float, y: float, z: float) -> Bool:
+    def CanISeeFrom(self, entity: B_PyEntity, x: float, y: float, z: float, /) -> Bool:
         ...
 
-    def CatchOnFire(self, x: float, y: float, z: float) -> Bool:
+    def CatchOnFire(self, x: float, y: float, z: float, /) -> Bool:
         ...
 
-    def Chase(self, enemy: B_PyEntity, action_area: Int) -> Bool:
+    def Chase(self, enemy: B_PyEntity, action_area: Int, /) -> Bool:
         ...
 
-    def CheckAnimCol(self, anm_name: str, obj: B_PyEntity, unknown: int) -> int:
+    def CheckAnimCol(self, anm_name: str, obj: B_PyEntity, unknown: int, /) -> int:
         ...
 
-    def ClearAnmEventFuncs(self) -> Bool:
+    def ClearAnmEventFuncs(self, /) -> Bool:
         ...
 
-    def ClearPath(self) -> Bool:
+    def ClearPath(self, /) -> Bool:
         ...
 
-    def Cut(self) -> Bool:
+    def Cut(self, /) -> Bool:
         ...
 
-    def DelAnmEventFunc(self, anm_event: str) -> Bool:
+    def DelAnmEventFunc(self, anm_event: str, /) -> Bool:
         ...
 
-    def DoAction(self, action_name: str) -> int:
+    def DoAction(self, action_name: str, /) -> int:
         ...
 
     def DoActionWI(
@@ -265,6 +267,7 @@ class B_Entity:
         interpolation_type: Literal[0, 1, 2, 3, 4, 5],
         tran_time: float,
         start_timeline: float = 0.0,
+        /,
     ) -> int:
         """
         InterpWithOff = 0\n
@@ -276,28 +279,28 @@ class B_Entity:
         """
         ...
 
-    def ExcludeHitFor(self, entity: B_PyEntity) -> Bool:
+    def ExcludeHitFor(self, entity: B_PyEntity, /) -> Bool:
         ...
 
-    def ExcludeHitInAnimationFor(self, entity: B_PyEntity) -> Bool:
+    def ExcludeHitInAnimationFor(self, entity: B_PyEntity, /) -> Bool:
         ...
 
-    def Face(self, angle: float) -> Bool:
+    def Face(self, angle: float, /) -> Bool:
         ...
 
-    def Fly(self, velocity_x: float, velocity_y: float, velocity_z: float) -> Bool:
+    def Fly(self, velocity_x: float, velocity_y: float, velocity_z: float, /) -> Bool:
         ...
 
-    def Freeze(self) -> Bool:
+    def Freeze(self, /) -> Bool:
         ...
 
-    def GetActionMode(self) -> int:
+    def GetActionMode(self, /) -> int:
         ...
 
-    def GetChild(self, index: int) -> str:
+    def GetChild(self, index: int, /) -> str:
         ...
 
-    def GetCombatants(self) -> List:
+    def GetCombatants(self, /) -> List:
         ...
 
     def GetDummyAxis(
@@ -307,6 +310,7 @@ class B_Entity:
         axis_y: float,
         axis_z: float,
         ref: Bool = 1,
+        /,
     ) -> Vector3:
         """
         :ref:
@@ -315,13 +319,13 @@ class B_Entity:
         """
         ...
 
-    def GetEnemyName(self) -> str:
+    def GetEnemyName(self, /) -> str:
         ...
 
-    def GetGroupMembers(self) -> Union[List, Literal[0]]:
+    def GetGroupMembers(self, /) -> Union[List, Literal[0]]:
         ...
 
-    def GetInventory(self) -> inventory.B_PyInventory:
+    def GetInventory(self, /) -> inventory.B_PyInventory:
         return inventory.B_PyInventory()
 
     def GetInventoryEntity(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
@@ -330,88 +334,88 @@ class B_Entity:
     def GetInventorySelected(self, *args: Unknown, **kwargs: Unknown) -> Unknown:
         ...
 
-    def GetNChildren(self) -> int:
+    def GetNChildren(self, /) -> int:
         ...
 
-    def GetNodeIndex(self, node_name: str) -> int:
+    def GetNodeIndex(self, node_name: str, /) -> int:
         ...
 
-    def GetParticleEntity(self) -> B_Entity_Particle:
+    def GetParticleEntity(self, /) -> B_Entity_Particle:
         return B_Entity_Particle()
 
-    def GetWoundedZone(self, zone: int) -> Bool:
+    def GetWoundedZone(self, zone: int, /) -> Bool:
         ...
 
-    def GoTo(self, x: float, y: float, z: float) -> Bool:
+    def GoTo(self, x: float, y: float, z: float, /) -> Bool:
         ...
 
-    def GoToPath(self, i_unknown: int, f_unknown: float) -> Bool:
+    def GoToPath(self, i_unknown: int, f_unknown: float, /) -> Bool:
         ...
 
-    def GotAnmType(self, anm_name: str) -> Bool:
+    def GotAnmType(self, anm_name: str, /) -> Bool:
         ...
 
-    def GraspPos(self, anchor_name: str) -> Vector3:
+    def GraspPos(self, anchor_name: str, /) -> Vector3:
         ...
 
-    def Impulse(self, x: float, y: float, z: float) -> Bool:
+    def Impulse(self, x: float, y: float, z: float, /) -> Bool:
         ...
 
     def ImpulseC(
-        self, x: float, y: float, z: float, dx: float, dy: float, dz: float
+        self, x: float, y: float, z: float, dx: float, dy: float, dz: float, /
     ) -> int:
         ...
 
-    def InsideActionArea(self, action_area: int) -> Bool:
+    def InsideActionArea(self, action_area: int, /) -> Bool:
         ...
 
-    def InterruptCombat(self) -> Bool:
+    def InterruptCombat(self, /) -> Bool:
         ...
 
-    def IsValid(self) -> Bool:
+    def IsValid(self, /) -> Bool:
         ...
 
-    def LaunchAnimation(self, anm_name: str) -> Bool:
+    def LaunchAnimation(self, anm_name: str, /) -> Bool:
         ...
 
-    def LaunchAnimation2(self, anm_name1: str, anm_name2: str) -> Bool:
+    def LaunchAnimation2(self, anm_name1: str, anm_name2: str, /) -> Bool:
         ...
 
-    def LaunchAnmType(self, anm_type: str, index: int = 0) -> Bool:
+    def LaunchAnmType(self, anm_type: str, index: int = 0, /) -> Bool:
         ...
 
-    def LaunchBayRoute(self) -> Bool:
+    def LaunchBayRoute(self, /) -> Bool:
         ...
 
-    def LaunchWatch(self) -> Bool:
+    def LaunchWatch(self, /) -> Bool:
         ...
 
-    def Link(self, child: B_PyEntity) -> Bool:
+    def Link(self, child: B_PyEntity, /) -> Bool:
         ...
 
     def LinkAnchors(
-        self, entity_anchor: str, child: B_PyEntity, child_anchor: str
+        self, entity_anchor: str, child: B_PyEntity, child_anchor: str, /
     ) -> Bool:
         ...
 
-    def LinkToNode(self, child: B_PyEntity, node: int) -> Bool:
+    def LinkToNode(self, child: B_PyEntity, node: int, /) -> Bool:
         ...
 
     @overload
-    def LookAt(self, obj_name: str) -> Bool:
+    def LookAt(self, obj_name: str, /) -> Bool:
         ...
 
     @overload
-    def LookAt(self, x: float, y: float, z: float) -> Bool:
+    def LookAt(self, x: float, y: float, z: float, /) -> Bool:
         ...
 
     def LookAt(self, *args: Any, **kwargs: Any) -> Bool:
         ...
 
-    def LookAtEntity(self, ent_name: str) -> Bool:
+    def LookAtEntity(self, ent_name: str, /) -> Bool:
         ...
 
-    def LookAtPerson(self, person_name: str) -> Bool:
+    def LookAtPerson(self, person_name: str, /) -> Bool:
         ...
 
     @overload
@@ -420,14 +424,15 @@ class B_Entity:
         message_type: Literal[0x7, 0x8, 0xD, 0xE, 0xF],
         unknown1: Literal[0],
         unknown2: Literal[0],
+        /,
     ) -> int:
         ...
 
     @overload
-    def MessageEvent(self, message_type: int, unknown1: int, unknown2: int) -> int:
+    def MessageEvent(self, message_type: int, unknown1: int, unknown2: int, /) -> int:
         ...
 
-    def MessageEvent(self, message_type: int, unknown1: int, unknown2: int) -> int:
+    def MessageEvent(self, message_type: int, unknown1: int, unknown2: int, /) -> int:
         """
         :message_type:
             MESSAGE_START_WEAPON = 7\n
@@ -438,27 +443,27 @@ class B_Entity:
         """
         ...
 
-    def Move(self, x: float, y: float, z: float, unknown: int = 1) -> Bool:
+    def Move(self, x: float, y: float, z: float, unknown: int = 1, /) -> Bool:
         ...
 
-    def PlaySound(self, cycles: int = -1) -> Bool:
+    def PlaySound(self, cycles: int = -1, /) -> Bool:
         ...
 
-    def PutToWorld(self) -> Bool:
+    def PutToWorld(self, /) -> Bool:
         ...
 
-    def QuickFace(self, angle: float) -> Bool:
-        ...
-
-    @overload
-    def RaiseEvent(self, event_name: Literal["Interrupt"]) -> int:
+    def QuickFace(self, angle: float, /) -> Bool:
         ...
 
     @overload
-    def RaiseEvent(self, event_name: str) -> int:
+    def RaiseEvent(self, event_name: Literal["Interrupt"], /) -> int:
         ...
 
-    def RaiseEvent(self, event_name: str) -> int:
+    @overload
+    def RaiseEvent(self, event_name: str, /) -> int:
+        ...
+
+    def RaiseEvent(self, event_name: str, /) -> int:
         ...
 
     def Rel2AbsPoint(
@@ -471,7 +476,7 @@ class B_Entity:
         ...
 
     @overload
-    def Rel2AbsVector(self, entity: B_PyEntity) -> Vector3:
+    def Rel2AbsVector(self, entity: B_PyEntity, /) -> Vector3:
         ...
 
     @overload
@@ -487,34 +492,34 @@ class B_Entity:
     def Rel2AbsVector(self, *args: Any, **kwargs: Any) -> Vector3:
         ...
 
-    def RemoveCameraEvent(self, frame: int) -> Bool:
+    def RemoveCameraEvent(self, frame: int, /) -> Bool:
         ...
 
-    def RemoveFromInvent(self, obj_name: str) -> Bool:
+    def RemoveFromInvent(self, obj_name: str, /) -> Bool:
         ...
 
-    def RemoveFromInventLeft(self) -> Bool:
+    def RemoveFromInventLeft(self, /) -> Bool:
         ...
 
-    def RemoveFromInventLeft2(self) -> Bool:
+    def RemoveFromInventLeft2(self, /) -> Bool:
         ...
 
-    def RemoveFromInventRight(self) -> Bool:
+    def RemoveFromInventRight(self, /) -> Bool:
         ...
 
-    def RemoveFromList(self, timer_name: str) -> Bool:
+    def RemoveFromList(self, timer_name: str, /) -> Bool:
         ...
 
-    def RemoveFromWorld(self) -> Literal[1]:
+    def RemoveFromWorld(self, /) -> Literal[1]:
         ...
 
-    def RemoveFromWorldWithChilds(self) -> Literal[1]:
+    def RemoveFromWorldWithChilds(self, /) -> Literal[1]:
         ...
 
-    def ResetChase(self) -> Bool:
+    def ResetChase(self, /) -> Bool:
         ...
 
-    def ResetWounds(self) -> Bool:
+    def ResetWounds(self, /) -> Bool:
         ...
 
     def Rotate(
@@ -524,6 +529,7 @@ class B_Entity:
         axis_z: float,
         angle: float,
         unknown: int = 1,
+        /,
     ) -> Bool:
         ...
 
@@ -537,6 +543,7 @@ class B_Entity:
         axis_z: float,
         angle: float,
         unknown: int = 1,
+        /,
     ) -> Bool:
         ...
 
@@ -550,13 +557,14 @@ class B_Entity:
         axis_z: float,
         angle: float,
         unknown: int = 1,
+        /,
     ) -> Bool:
         ...
 
-    def SQDistance2(self, entity: B_PyEntity) -> float:
+    def SQDistance2(self, entity: B_PyEntity, /) -> float:
         ...
 
-    def SetActiveEnemy(self, entity: B_PyEntity) -> Bool:
+    def SetActiveEnemy(self, entity: B_PyEntity, /) -> Bool:
         ...
 
     def SetAnmFlags(
@@ -568,6 +576,7 @@ class B_Entity:
         copy_rot: Bool,
         bng_mov: Literal[0, 1, 2, 3, 4, 5],
         headf: Literal[0, 1, 2, 3],
+        /,
     ) -> Bool:
         """
         :bng_mov:
@@ -585,7 +594,7 @@ class B_Entity:
         """
         ...
 
-    def SetAuraActive(self, is_active: int) -> Bool:
+    def SetAuraActive(self, is_active: int, /) -> Bool:
         ...
 
     def SetAuraGradient(
@@ -601,6 +610,7 @@ class B_Entity:
         b2: float,
         alpha2: float,
         ending_point: float,
+        /,
     ) -> Bool:
         ...
 
@@ -612,59 +622,60 @@ class B_Entity:
         hide_front_faces: int,
         hide_back_faces: int,
         alpha_mode: int,
+        /,
     ) -> Bool:
         ...
 
     def SetCameraEndTangentNode(
-        self, node: int, node_index: int, tang_x: float, tang_y: float, tang_z: float
+        self, node: int, node_index: int, tang_x: float, tang_y: float, tang_z: float, /
     ) -> Bool:
         ...
 
     def SetCameraStartTangentNode(
-        self, node: int, node_index: int, tang_x: float, tang_y: float, tang_z: float
+        self, node: int, node_index: int, tang_x: float, tang_y: float, tang_z: float, /
     ) -> Bool:
         ...
 
-    def SetEnemy(self, enemy: B_PyEntity) -> Bool:
+    def SetEnemy(self, enemy: B_PyEntity, /) -> Bool:
         ...
 
-    def SetMaxCamera(self, cam_file_name: str, start: int, end: int) -> Bool:
+    def SetMaxCamera(self, cam_file_name: str, start: int, end: int, /) -> Bool:
         ...
 
-    def SetMesh(self, mesh_name: str) -> Bool:
+    def SetMesh(self, mesh_name: str, /) -> Bool:
         ...
 
-    def SetNextAttack(self, attack: str) -> int:
+    def SetNextAttack(self, attack: str, /) -> int:
         ...
 
     def SetNodeEndTangent(
-        self, unknown1: int, unknown2: float, unknown3: float, unknown4: float
+        self, unknown1: int, unknown2: float, unknown3: float, unknown4: float, /
     ) -> Bool:
         ...
 
     def SetNodeStartTangent(
-        self, unknown1: int, unknown2: float, unknown3: float, unknown4: float
+        self, unknown1: int, unknown2: float, unknown3: float, unknown4: float, /
     ) -> Bool:
         ...
 
-    def SetObjectSound(self, sound_name: str) -> Bool:
+    def SetObjectSound(self, sound_name: str, /) -> Bool:
         ...
 
-    def SetOnFloor(self) -> int:
+    def SetOnFloor(self, /) -> int:
         ...
 
     def SetOrientation(
-        self, w: float, x: float, y: float, z: float, unknown: int = 1
+        self, w: float, x: float, y: float, z: float, unknown: int = 1, /
     ) -> Bool:
         ...
 
-    def SetPersonView(self, person_name: str) -> Bool:
+    def SetPersonView(self, person_name: str, /) -> Bool:
         ...
 
-    def SetPosition(self, x: float, y: float, z: float, unknown: int = 1) -> Bool:
+    def SetPosition(self, x: float, y: float, z: float, unknown: int = 1, /) -> Bool:
         ...
 
-    def SetSound(self, file_name: str) -> Bool:
+    def SetSound(self, file_name: str, /) -> Bool:
         ...
 
     def SetTmpAnmFlags(
@@ -676,6 +687,7 @@ class B_Entity:
         bng_mov: Literal[0, 1, 2, 3, 4, 5],
         headf: Literal[0, 1, 2, 3],
         unknown: Bool = 1,
+        /,
     ) -> Bool:
         """
         :bng_mov:
@@ -693,91 +705,91 @@ class B_Entity:
         """
         ...
 
-    def SetTravellingView(self, s_type: int, t_type: int) -> Bool:
+    def SetTravellingView(self, s_type: int, t_type: int, /) -> Bool:
         ...
 
-    def SetWoundedZone(self, zone: int, is_active: int) -> Bool:
+    def SetWoundedZone(self, zone: int, is_active: int, /) -> Bool:
         ...
 
-    def SeverLimb(self, limb: int) -> B_Entity_Weapon:
+    def SeverLimb(self, limb: int, /) -> B_Entity_Weapon:
         return B_Entity_Weapon()
 
     def SlideTo(
-        self, final_displacement: float, initial_velocity: float, acceleration: float
+        self, final_displacement: float, initial_velocity: float, acceleration: float, /
     ) -> Bool:
         ...
 
-    def StartGrabbing(self) -> Bool:
+    def StartGrabbing(self, /) -> Bool:
         ...
 
-    def StartLooking(self, x: float, y: float, z: float) -> Bool:
+    def StartLooking(self, x: float, y: float, z: float, /) -> Bool:
         ...
 
-    def StartPath(self, node: int) -> Bool:
+    def StartPath(self, node: int, /) -> Bool:
         ...
 
-    def Stop(self) -> Bool:
+    def Stop(self, /) -> Bool:
         ...
 
-    def StopGrabbing(self) -> Bool:
+    def StopGrabbing(self, /) -> Bool:
         ...
 
-    def StopLooking(self) -> Bool:
+    def StopLooking(self, /) -> Bool:
         ...
 
-    def StopSound(self) -> Bool:
+    def StopSound(self, /) -> Bool:
         ...
 
     @overload
     def SubscribeToList(
-        self, name: Literal["Pin", "Listeners", "Timer60", "Timer30", "Timer15"]
+        self, name: Literal["Pin", "Listeners", "Timer60", "Timer30", "Timer15"], /
     ) -> Bool:
         ...
 
     @overload
-    def SubscribeToList(self, name: str) -> Bool:
+    def SubscribeToList(self, name: str, /) -> Bool:
         ...
 
-    def SubscribeToList(self, name: str) -> Bool:
+    def SubscribeToList(self, name: str, /) -> Bool:
         ...
 
-    def SwitchTo1H(self) -> Bool:
+    def SwitchTo1H(self, /) -> Bool:
         ...
 
-    def SwitchToBow(self) -> Bool:
+    def SwitchToBow(self, /) -> Bool:
         ...
 
     def TestPos(
-        self, x: float, y: float, z: float, action_area: int, max_fall: float
+        self, x: float, y: float, z: float, action_area: int, max_fall: float, /
     ) -> int:
         ...
 
     def TestPosInOwnBox(
-        self, x: float, y: float, z: float, box_size: float = 1.0
+        self, x: float, y: float, z: float, box_size: float = 1.0, /
     ) -> int:
         ...
 
-    def TurnOff(self) -> Bool:
+    def TurnOff(self, /) -> Bool:
         ...
 
-    def TurnOn(self) -> Bool:
+    def TurnOn(self, /) -> Bool:
         ...
 
-    def UnFreeze(self) -> Bool:
+    def UnFreeze(self, /) -> Bool:
         ...
 
-    def Unlink(self, child: B_PyEntity) -> Bool:
+    def Unlink(self, child: B_PyEntity, /) -> Bool:
         ...
 
-    def UnlinkChildren(self) -> Bool:
+    def UnlinkChildren(self, /) -> Bool:
         ...
 
-    def Use(self) -> Bool:
+    def Use(self, /) -> Bool:
         ...
 
 
 class B_Entity_(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Alpha: float
@@ -803,7 +815,7 @@ class B_Entity_(B_Entity):
         self.__nLights: int
 
     @property
-    def ExclusionMask(self):
+    def ExclusionMask(self, /):
         """
         EX_PERSON = 1\n
         EX_FLOOR = 2\n
@@ -814,36 +826,36 @@ class B_Entity_(B_Entity):
         return self.__ExclusionMask
 
     @ExclusionMask.setter
-    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]], /):
         ...
 
     @property
-    def FireParticleType(self):
+    def FireParticleType(self, /):
         """*read only*"""
         return self.__FireParticleType
 
     @property
-    def LightColor(self):
+    def LightColor(self, /):
         """*read only*"""
         return self.__LightColor
 
     @property
-    def LightGlow(self):
+    def LightGlow(self, /):
         """*read only*"""
         return self.__LightGlow
 
     @property
-    def LightIntensity(self):
+    def LightIntensity(self, /):
         """*read only*"""
         return self.__LightIntensity
 
     @property
-    def LightPrecission(self):
+    def LightPrecission(self, /):
         """*read only*"""
         return self.__LightPrecission
 
     @property
-    def RasterMode(self):
+    def RasterMode(self, /):
         """*write only*\n
         Use `RasterModeZ`/`RasterModeAlpha` to get.\n
         Default:`Full`, `BlendingAlpha`
@@ -851,14 +863,11 @@ class B_Entity_(B_Entity):
         return AttributeError
 
     @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
+    def RasterMode(self, value: __RasterMode, /):
         ...
 
     @property
-    def RasterModeAlpha(self):
+    def RasterModeAlpha(self, /):
         """*read only*\n
         Default:`None`\n
         Use `RasterMode` to set this value.
@@ -866,7 +875,7 @@ class B_Entity_(B_Entity):
         return self.__RasterModeAlpha
 
     @property
-    def RasterModeZ(self):
+    def RasterModeZ(self, /):
         """*read only*\n
         Default:`"Full"`\n
         Use `RasterMode` to set this value.
@@ -874,18 +883,18 @@ class B_Entity_(B_Entity):
         return self.__RasterModeZ
 
     @property
-    def nFires(self):
+    def nFires(self, /):
         """*read only*"""
         return self.__nFires
 
     @property
-    def nLights(self):
+    def nLights(self, /):
         """*read only*"""
         return self.__nLights
 
 
 class B_Entity_Actor(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Alpha: float
@@ -914,7 +923,7 @@ class B_Entity_Actor(B_Entity):
         self.__nLights: int
 
     @property
-    def ExclusionMask(self):
+    def ExclusionMask(self, /):
         """
         EX_PERSON = 1\n
         EX_FLOOR = 2\n
@@ -925,36 +934,36 @@ class B_Entity_Actor(B_Entity):
         return self.__ExclusionMask
 
     @ExclusionMask.setter
-    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]], /):
         ...
 
     @property
-    def FireParticleType(self):
+    def FireParticleType(self, /):
         """*read only*"""
         return self.__FireParticleType
 
     @property
-    def LightColor(self):
+    def LightColor(self, /):
         """*read only*"""
         return self.__LightColor
 
     @property
-    def LightGlow(self):
+    def LightGlow(self, /):
         """*read only*"""
         return self.__LightGlow
 
     @property
-    def LightIntensity(self):
+    def LightIntensity(self, /):
         """*read only*"""
         return self.__LightIntensity
 
     @property
-    def LightPrecission(self):
+    def LightPrecission(self, /):
         """*read only*"""
         return self.__LightPrecission
 
     @property
-    def RasterMode(self):
+    def RasterMode(self, /):
         """*write only*\n
         Use `RasterModeZ`/`RasterModeAlpha` to get.\n
         Default:`Full`, `BlendingAlpha`
@@ -962,14 +971,11 @@ class B_Entity_Actor(B_Entity):
         return AttributeError
 
     @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
+    def RasterMode(self, value: __RasterMode, /):
         ...
 
     @property
-    def RasterModeAlpha(self):
+    def RasterModeAlpha(self, /):
         """*read only*\n
         Default:`None`\n
         Use `RasterMode` to set this value.
@@ -977,7 +983,7 @@ class B_Entity_Actor(B_Entity):
         return self.__RasterModeAlpha
 
     @property
-    def RasterModeZ(self):
+    def RasterModeZ(self, /):
         """*read only*\n
         Default:`"Full"`\n
         Use `RasterMode` to set this value.
@@ -985,25 +991,25 @@ class B_Entity_Actor(B_Entity):
         return self.__RasterModeZ
 
     @property
-    def nFires(self):
+    def nFires(self, /):
         """*read only*"""
         return self.__nFires
 
     @property
-    def nLights(self):
+    def nLights(self, /):
         """*read only*"""
         return self.__nLights
 
 
 class B_Entity_Aura(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Scale: float
 
 
 class B_Entity_Camera(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.ChangeNodeFunc: Union[Callable[[str, int, int], Any], Literal[""]]
@@ -1022,7 +1028,7 @@ class B_Entity_Camera(B_Entity):
 
 
 class B_Entity_ElectricBolt(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Active: Bool
@@ -1040,20 +1046,20 @@ class B_Entity_ElectricBolt(B_Entity):
 
 
 class B_Entity_Fire(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.__FireParticleType: Optional[str] = None
         self.Scale: float
 
     @property
-    def FireParticleType(self):
+    def FireParticleType(self, /):
         """*read only*"""
         return self.__FireParticleType
 
 
 class B_Entity_Lava(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Scale: float
@@ -1064,7 +1070,7 @@ class B_Entity_Lava(B_Entity):
 
 
 class B_Entity_Magic_Missile(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.CastShadows: Bool
@@ -1081,7 +1087,7 @@ class B_Entity_Magic_Missile(B_Entity):
 
 
 class B_Entity_Particle(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.DeathTime: float
@@ -1095,7 +1101,7 @@ class B_Entity_Particle(B_Entity):
 
 
 class B_Entity_Particle_System(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.D: Vector3
@@ -1121,7 +1127,7 @@ class B_Entity_Particle_System(B_Entity):
 
 
 class B_Entity_Person(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Accuracy: float
@@ -1230,138 +1236,138 @@ class B_Entity_Person(B_Entity):
         self.Wuea: Literal[0, 1, 2]
 
     @property
-    def ActiveEnemy(self):
+    def ActiveEnemy(self, /):
         """*read only*"""
         return self.__ActiveEnemy
 
     @property
-    def AimVector(self):
+    def AimVector(self, /):
         """*read only*"""
         return self.__AimVector
 
     @property
-    def AnimFullName(self):
+    def AnimFullName(self, /):
         """*read only*"""
         return self.__AnimFullName
 
     @property
-    def AnimName(self):
+    def AnimName(self, /):
         """*read only*"""
         return self.__AnimName
 
     @property
-    def AnmPos(self):
+    def AnmPos(self, /):
         """*read only*"""
         return self.__AnmPos
 
     @property
-    def AstarState(self):
+    def AstarState(self, /):
         """*read only*\n
         non-player attribute"""
         return self.__AstarState
 
     @property
-    def BayRoute(self):
+    def BayRoute(self, /):
         """*read only*"""
         return self.__BayRoute
 
     @property
-    def CharType(self):
+    def CharType(self, /):
         """*read only*"""
         return self.__CharType
 
     @property
-    def CharTypeExt(self):
+    def CharTypeExt(self, /):
         """*read only*"""
         return self.__CharTypeExt
 
     @property
-    def CurrentAreas(self):
+    def CurrentAreas(self, /):
         """*read only*"""
         return self.__CurrentAreas
 
     @property
-    def DefenceNeeded(self):
+    def DefenceNeeded(self, /):
         """*read only*"""
         return self.__DefenceNeeded
 
     @property
-    def Dist2Floor(self):
+    def Dist2Floor(self, /):
         """*read only*"""
         return self.__Dist2Floor
 
     @property
-    def EnemyLastSeen(self):
+    def EnemyLastSeen(self, /):
         """*read only*"""
         return self.__EnemyLastSeen
 
     @property
-    def InCombat(self):
+    def InCombat(self, /):
         """*read only*"""
         return self.__InCombat
 
     @property
-    def InvLeft(self):
+    def InvLeft(self, /):
         """*read only*"""
         return self.__InvLeft
 
     @property
-    def InvLeft2(self):
+    def InvLeft2(self, /):
         """*read only*"""
         return self.__InvLeft2
 
     @property
-    def InvLeftBack(self):
+    def InvLeftBack(self, /):
         """*read only*"""
         return self.__InvLeftBack
 
     @property
-    def InvRight(self):
+    def InvRight(self, /):
         """*read only*"""
         return self.__InvRight
 
     @property
-    def InvRightBack(self):
+    def InvRightBack(self, /):
         """*read only*"""
         return self.__InvRightBack
 
     @property
-    def LastSound(self):
+    def LastSound(self, /):
         """*read only*"""
         return self.__LastSound
 
     @property
-    def LastSoundPosition(self):
+    def LastSoundPosition(self, /):
         """*read only*"""
         return self.__LastSoundPosition
 
     @property
-    def MeleeActive(self):
+    def MeleeActive(self, /):
         """*read only*"""
         return self.__MeleeActive
 
     @property
-    def MutilationsMask(self):
+    def MutilationsMask(self, /):
         """*read only*"""
         return self.__MutilationsMask
 
     @property
-    def OnFloor(self):
+    def OnFloor(self, /):
         """*read only*"""
         return self.__OnFloor
 
     @property
-    def PrevAnimName(self):
+    def PrevAnimName(self, /):
         """*read only*"""
         return self.__PrevAnimName
 
     @property
-    def RangeActive(self):
+    def RangeActive(self, /):
         """*read only*"""
         return self.__RangeActive
 
     @property
-    def RasterMode(self):
+    def RasterMode(self, /):
         """*write only*\n
         Use `RasterModeZ`/`RasterModeAlpha` to get.\n
         Default:`Full`, `BlendingAlpha`
@@ -1369,14 +1375,11 @@ class B_Entity_Person(B_Entity):
         return AttributeError
 
     @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
+    def RasterMode(self, value: __RasterMode, /):
         ...
 
     @property
-    def RasterModeAlpha(self):
+    def RasterModeAlpha(self, /):
         """*read only*\n
         Default:`None`\n
         Use `RasterMode` to set this value.
@@ -1384,7 +1387,7 @@ class B_Entity_Person(B_Entity):
         return self.__RasterModeAlpha
 
     @property
-    def RasterModeZ(self):
+    def RasterModeZ(self, /):
         """*read only*\n
         Default:`"Full"`\n
         Use `RasterMode` to set this value.
@@ -1392,24 +1395,24 @@ class B_Entity_Person(B_Entity):
         return self.__RasterModeZ
 
     @property
-    def RouteType(self):
+    def RouteType(self, /):
         """*read only*\n
         non-player attribute"""
         return self.__RouteType
 
     @property
-    def Will1aaTo2aa(self):
+    def Will1aaTo2aa(self, /):
         """*read only*"""
         return self.__Will1aaTo2aa
 
     @property
-    def WillCrashInFloor(self):
+    def WillCrashInFloor(self, /):
         """*read only*"""
         return self.__WillCrashInFloor
 
 
 class B_Entity_Physic(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Alpha: float
@@ -1441,7 +1444,7 @@ class B_Entity_Physic(B_Entity):
         self.__nLights: int
 
     @property
-    def ExclusionMask(self):
+    def ExclusionMask(self, /):
         """
         EX_PERSON = 1\n
         EX_FLOOR = 2\n
@@ -1452,36 +1455,36 @@ class B_Entity_Physic(B_Entity):
         return self.__ExclusionMask
 
     @ExclusionMask.setter
-    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]], /):
         ...
 
     @property
-    def FireParticleType(self):
+    def FireParticleType(self, /):
         """*read only*"""
         return self.__FireParticleType
 
     @property
-    def LightColor(self):
+    def LightColor(self, /):
         """*read only*"""
         return self.__LightColor
 
     @property
-    def LightGlow(self):
+    def LightGlow(self, /):
         """*read only*"""
         return self.__LightGlow
 
     @property
-    def LightIntensity(self):
+    def LightIntensity(self, /):
         """*read only*"""
         return self.__LightIntensity
 
     @property
-    def LightPrecission(self):
+    def LightPrecission(self, /):
         """*read only*"""
         return self.__LightPrecission
 
     @property
-    def RasterMode(self):
+    def RasterMode(self, /):
         """*write only*\n
         Use `RasterModeZ`/`RasterModeAlpha` to get.\n
         Default:`Full`, `BlendingAlpha`
@@ -1489,14 +1492,11 @@ class B_Entity_Physic(B_Entity):
         return AttributeError
 
     @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
+    def RasterMode(self, value: __RasterMode, /):
         ...
 
     @property
-    def RasterModeAlpha(self):
+    def RasterModeAlpha(self, /):
         """*read only*\n
         Default:`None`\n
         Use `RasterMode` to set this value.
@@ -1504,7 +1504,7 @@ class B_Entity_Physic(B_Entity):
         return self.__RasterModeAlpha
 
     @property
-    def RasterModeZ(self):
+    def RasterModeZ(self, /):
         """*read only*\n
         Default:`"Full"`\n
         Use `RasterMode` to set this value.
@@ -1512,23 +1512,23 @@ class B_Entity_Physic(B_Entity):
         return self.__RasterModeZ
 
     @property
-    def TestHit(self):
+    def TestHit(self, /):
         """*read only*"""
         return self.__TestHit
 
     @property
-    def nFires(self):
+    def nFires(self, /):
         """*read only*"""
         return self.__nFires
 
     @property
-    def nLights(self):
+    def nLights(self, /):
         """*read only*"""
         return self.__nLights
 
 
 class B_Entity_Pool(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Color: RGBColor
@@ -1538,7 +1538,7 @@ class B_Entity_Pool(B_Entity):
 
 
 class B_Entity_Sliding_Area(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.A_D: float
@@ -1551,13 +1551,13 @@ class B_Entity_Sliding_Area(B_Entity):
         self.V_D: float
 
     @property
-    def IsStopped(self):
+    def IsStopped(self, /):
         """*read only*"""
         return self.__IsStopped
 
 
 class B_Entity_Sound(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.BaseVolume: float
@@ -1569,13 +1569,13 @@ class B_Entity_Sound(B_Entity):
         self.Volume: float
 
     @property
-    def Playing(self):
+    def Playing(self, /):
         """*read only*"""
         return self.__Playing
 
 
 class B_Entity_Spark(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.__RasterModeAlpha: Literal[
@@ -1585,7 +1585,7 @@ class B_Entity_Spark(B_Entity):
         self.Scale: float
 
     @property
-    def RasterMode(self):
+    def RasterMode(self, /):
         """*write only*\n
         Use `RasterModeZ`/`RasterModeAlpha` to get.\n
         Default:`Full`, `BlendingAlpha`
@@ -1593,14 +1593,11 @@ class B_Entity_Spark(B_Entity):
         return AttributeError
 
     @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
+    def RasterMode(self, value: __RasterMode, /):
         ...
 
     @property
-    def RasterModeAlpha(self):
+    def RasterModeAlpha(self, /):
         """*read only*\n
         Default:`None`\n
         Use `RasterMode` to set this value.
@@ -1608,7 +1605,7 @@ class B_Entity_Spark(B_Entity):
         return self.__RasterModeAlpha
 
     @property
-    def RasterModeZ(self):
+    def RasterModeZ(self, /):
         """*read only*\n
         Default:`"Full"`\n
         Use `RasterMode` to set this value.
@@ -1617,7 +1614,7 @@ class B_Entity_Spark(B_Entity):
 
 
 class B_Entity_Spot(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.CastShadows: Bool
@@ -1629,13 +1626,13 @@ class B_Entity_Spot(B_Entity):
         self.Visible: Bool
 
     @property
-    def FlickPeriod(self):
+    def FlickPeriod(self, /):
         """B_ENTITYEXT_SPOT_FLICKPERIOD -> Not implemented"""
         return self.__FlickPeriod
 
 
 class B_Entity_Water(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Color: RGBColor
@@ -1646,7 +1643,7 @@ class B_Entity_Water(B_Entity):
 
 
 class B_Entity_Weapon(B_Entity):
-    def __init__(self) -> None:
+    def __init__(self, /) -> None:
         super().__init__()
 
         self.Alpha: float
@@ -1683,7 +1680,7 @@ class B_Entity_Weapon(B_Entity):
         self.__nLights: int
 
     @property
-    def ExclusionMask(self):
+    def ExclusionMask(self, /):
         """
         EX_PERSON = 1\n
         EX_FLOOR = 2\n
@@ -1694,36 +1691,36 @@ class B_Entity_Weapon(B_Entity):
         return self.__ExclusionMask
 
     @ExclusionMask.setter
-    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]]):
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]], /):
         ...
 
     @property
-    def FireParticleType(self):
+    def FireParticleType(self, /):
         """*read only*"""
         return self.__FireParticleType
 
     @property
-    def LightColor(self):
+    def LightColor(self, /):
         """*read only*"""
         return self.__LightColor
 
     @property
-    def LightGlow(self):
+    def LightGlow(self, /):
         """*read only*"""
         return self.__LightGlow
 
     @property
-    def LightIntensity(self):
+    def LightIntensity(self, /):
         """*read only*"""
         return self.__LightIntensity
 
     @property
-    def LightPrecission(self):
+    def LightPrecission(self, /):
         """*read only*"""
         return self.__LightPrecission
 
     @property
-    def RasterMode(self):
+    def RasterMode(self, /):
         """*write only*\n
         Use `RasterModeZ`/`RasterModeAlpha` to get.\n
         Default:`Full`, `BlendingAlpha`
@@ -1731,14 +1728,11 @@ class B_Entity_Weapon(B_Entity):
         return AttributeError
 
     @RasterMode.setter
-    def RasterMode(
-        self,
-        value: __RasterMode,
-    ):
+    def RasterMode(self, value: __RasterMode, /):
         ...
 
     @property
-    def RasterModeAlpha(self):
+    def RasterModeAlpha(self, /):
         """*read only*\n
         Default:`None`\n
         Use `RasterMode` to set this value.
@@ -1746,7 +1740,7 @@ class B_Entity_Weapon(B_Entity):
         return self.__RasterModeAlpha
 
     @property
-    def RasterModeZ(self):
+    def RasterModeZ(self, /):
         """*read only*\n
         Default:`"Full"`\n
         Use `RasterMode` to set this value.
@@ -1754,17 +1748,17 @@ class B_Entity_Weapon(B_Entity):
         return self.__RasterModeZ
 
     @property
-    def TestHit(self):
+    def TestHit(self, /):
         """*read only*"""
         return self.__TestHit
 
     @property
-    def nFires(self):
+    def nFires(self, /):
         """*read only*"""
         return self.__nFires
 
     @property
-    def nLights(self):
+    def nLights(self, /):
         """*read only*"""
         return self.__nLights
 

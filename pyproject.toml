@@ -1,15 +1,21 @@
 # python -m build
+# python -m twine upload --repository testpypi dist/*
+# python -m twine upload dist/*
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "Bladex"
-version = "1.0.2"
+# version = "1.0.2"
+dynamic = ["version"]
 authors = [{ name = "Sryml", email = "sryml@hotmail.com" }]
-description = "Blade of Darkness virtual python module for code completion"
+description = "The Blade of Darkness virtual Python module for code completion and type hints"
 readme = "README.md"
 requires-python = ">=3.8"
+keywords = ["Blade of Darkness", "code completion", "type hints"]
 classifiers = [
     "Topic :: Text Editors :: Integrated Development Environments (IDE)",
     "License :: OSI Approved :: MIT License",
@@ -17,11 +23,15 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 
-
 [project.urls]
 "Homepage" = "https://github.com/Sryml/blade-virtual-module"
 "Bug Tracker" = "https://github.com/Sryml/blade-virtual-module/issues"
 
+[tool.setuptools.dynamic]
+version = { attr = "Bladex.__VERSION" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 #######
 

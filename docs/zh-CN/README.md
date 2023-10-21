@@ -1,6 +1,6 @@
 <div align="left">
   <b>语言:</b><br />
-  <a title="English" href="README.md">
+  <a title="English" href="https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/README.md">
     <img alt="🇺🇸" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
   </a>
   <a title="中文" href="#">
@@ -26,7 +26,7 @@
 
 此 Python 包在 IDE（例如 VSCode）中提供 C/C++扩展模块的代码补全和类型提示，能够有效提高开发人员的编码效率和准确率。
 
-<img src="https://github.com/Sryml/blade-virtual-module/blob/main/demo1.gif" width="800" />
+<img src="https://github.com/Sryml/blade-virtual-module/blob/main/demo1.gif?raw=true" width="800" />
 
 ## 🌟 需求
 
@@ -41,6 +41,12 @@
 2. 在 VSCode 中安装`Python`和`Pylance`扩展
 3. 在 VSCode 工作区中右键项目根目录并打开文件夹设置  
    搜索设置`python.analysis.typeCheckingMode`然后将其设置为`basic`即可
+
+**要更新包可运行:**
+
+```batch
+pip install --upgrade Bladex
+```
 
 #### 对于其它模块的代码补全(例如 Raster)需手动添加路径:
 
@@ -62,6 +68,10 @@
 可以使用`pip show Bladex`查看包的安装位置。
 
 _`settings.json`文件遵循 json 语法，确保你的编辑是正确的_
+
+## 📃 变更日志
+
+参阅 [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/docs/zh-CN/ChangeLog.md)
 
 ## 💡 问题
 

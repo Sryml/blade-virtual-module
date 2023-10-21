@@ -3,7 +3,7 @@
   <a title="English" href="#">
     <img alt="🇺🇸" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
   </a>
-  <a title="中文" href="README_CN.md">
+  <a title="中文" href="https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/docs/zh-CN/README.md">
     <img alt="🇨🇳" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg" />
   </a>
 </div>
@@ -27,7 +27,7 @@
 This Python package provides code completion and type hints for C/C++ extension modules in IDEs like VSCode.  
 It effectively enhances developers' coding efficiency and accuracy.
 
-<img src="https://github.com/Sryml/blade-virtual-module/blob/main/demo1.gif" width="800" />
+<img src="https://github.com/Sryml/blade-virtual-module/blob/main/demo1.gif?raw=true" width="800" />
 
 ## 🌟 Requirements
 
@@ -42,6 +42,12 @@ It effectively enhances developers' coding efficiency and accuracy.
 2. Install the `Python` and `Pylance` extensions in VSCode.
 3. Right-click on the project root directory in VSCode and open folder settings.  
    Search for `python.analysis.typeCheckingMode` and set it to `basic`.
+
+**To update the package run:**
+
+```batch
+pip install --upgrade Bladex
+```
 
 #### For code completion with other modules (e.g Raster), you need to add the path manually:
 
@@ -63,6 +69,10 @@ The `Python39` folder represents the Python version used in this project. If you
 You can use `pip show Bladex` to check the package's installation location.
 
 _The `settings.json` file follows JSON syntax, ensure that your edits are correct._
+
+## 📃 Change log
+
+See [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/ChangeLog.md)
 
 ## 💡 Issues
 

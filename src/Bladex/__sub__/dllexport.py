@@ -16,7 +16,7 @@ def ActivateInput() -> int:
     ...
 
 
-def AddActionStepSound(table: str, action: str, step_sound_table: str) -> int:
+def AddActionStepSound(table: str, action: str, step_sound_table: str, /) -> int:
     """AddActionStepSound(table,action,step_sound_table)"""
     ...
 
@@ -29,6 +29,7 @@ def AddAnimFlags(
     copy_rot: __bt.Bool,
     bng_mov: __t.Literal[0, 1, 2, 3, 4, 5],
     headf: __t.Literal[0, 1, 2, 3],
+    /,
 ) -> __bt.Bool:
     """
     AddAnimFlags(string,wuea,mdf_y,solf,copy_rot,bng_mov,head_f)\n
@@ -48,27 +49,27 @@ def AddAnimFlags(
     ...
 
 
-def AddAnmEvent(anm_name: str, event_name: str, event_frame: float) -> int:
+def AddAnmEvent(anm_name: str, event_name: str, event_frame: float, /) -> int:
     """AnmAddEvent(anm_name,event_name,event_frame)"""
     ...
 
 
-def AddAnmLRelease(anm_name: str, anm_frame: float) -> int:
+def AddAnmLRelease(anm_name: str, anm_frame: float, /) -> int:
     """"""
     ...
 
 
-def AddAnmLStep(anm_name: str, anm_frame: float) -> int:
+def AddAnmLStep(anm_name: str, anm_frame: float, /) -> int:
     """"""
     ...
 
 
-def AddAnmRRelease(anm_name: str, anm_frame: float) -> int:
+def AddAnmRRelease(anm_name: str, anm_frame: float, /) -> int:
     """"""
     ...
 
 
-def AddAnmRStep(anm_name: str, anm_frame: float) -> int:
+def AddAnmRStep(anm_name: str, anm_frame: float, /) -> int:
     """"""
     ...
 
@@ -81,6 +82,7 @@ def AddBipedAction(
     anm_frame_start: float,
     anm_frame_end: float,
     i_unknown: int,
+    /,
 ) -> int:
     """"""
     ...
@@ -95,6 +97,7 @@ def AddBipedAction(
     anm_frame_start: float,
     anm_frame_end: float,
     i_unknown: int,
+    /,
 ) -> int:
     """"""
     ...
@@ -106,12 +109,12 @@ def AddBipedAction(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
 
 
 @__t.overload
-def AddBoundFunc(action_name: str, proc: __t.Callable[[], __t.Any]) -> int:
+def AddBoundFunc(action_name: str, proc: __t.Callable[[], __t.Any], /) -> int:
     ...
 
 
 @__t.overload
-def AddBoundFunc(action_name: str, proc: str) -> int:
+def AddBoundFunc(action_name: str, proc: str, /) -> int:
     ...
 
 
@@ -134,6 +137,7 @@ def AddCombustionDataFor(
     flame_size: float,
     speed: float,
     livetime: float,
+    /,
 ) -> int:
     """AddCombustionDataFor(object_kind,upper_treshol,lower_treshold,flame_height,flame_size,speed,livetime)\n
     :livetime: 144000 - It will be extinct in 40 hours!
@@ -141,7 +145,7 @@ def AddCombustionDataFor(
     ...
 
 
-def AddFloorCTolerance(anm_name: str, tolerance: float) -> __t.Literal[1]:
+def AddFloorCTolerance(anm_name: str, tolerance: float, /) -> __t.Literal[1]:
     """AddFloorCTolerance(anm_name,float)"""
     ...
 
@@ -152,19 +156,20 @@ def AddGhostSector(
     floor_height: float,
     roof_height: float,
     points: list,
+    /,
 ) -> int:
     """AddGhostSector(string GhostName,string GroupName,float FloorHeight,float RoofHeight,List points)
     Crea."""
     ...
 
 
-def AddInputAction(action_name: str, npi: __bt.Bool) -> int:
+def AddInputAction(action_name: str, npi: __bt.Bool, /) -> int:
     """AddInputAction(string action_name,int npi)
     Crea una acción nueva."""
     ...
 
 
-def AddMaterialStepSound(table: str, material: str, step_sound: str) -> int:
+def AddMaterialStepSound(table: str, material: str, step_sound: str, /) -> int:
     """AddMaterialStepSound(table,material,step_sound)"""
     ...
 
@@ -179,6 +184,7 @@ def AddMusicEventADPCM(
     background: __bt.Bool,
     loop: int,
     unknown: int = 0,
+    /,
 ) -> int:
     """AddMusicEventADPCM( lpszEventName, lpszFile, dFIn, fVolume, dFOut, fPriority, bBackGround, iNext )"""
     ...
@@ -193,6 +199,7 @@ def AddMusicEventCD(
     priority: float,
     background: __bt.Bool,
     loop: int,
+    /,
 ) -> int:
     """AddMusicEventCD(lpszEventName, iTrack, dFIn, dFOut, fVolume, fPriority, bBackGround, iNext)"""
     ...
@@ -208,6 +215,7 @@ def AddMusicEventMP3(
     background: __bt.Bool,
     loop: int,
     unknown: int = 0,
+    /,
 ) -> int:
     """AddMusicEventMP3( lpszEventName, lpszFile, dFIn, fVolume, dFOut, fPriority, bBackGround, iNext )"""
     ...
@@ -223,6 +231,7 @@ def AddMusicEventWAV(
     background: __bt.Bool,
     loop: int,
     opened: int = 0,
+    /,
 ) -> int:
     """AddMusicEventWAV( lpszEventName, lpszFile, dFIn, fVolume, dFOut, fPriority, bBackGround, iNext, [opened])"""
     ...
@@ -233,6 +242,7 @@ def AddParticleGType(
     bitmap_name: str,
     particle_type: __t.Literal[0, 1, 2, 3],
     duration: int,
+    /,
 ) -> int:
     """
     :particle_type:
@@ -245,30 +255,30 @@ def AddParticleGType(
 
 
 def AddScheduledFunc(
-    time: float, func: __t.Callable, func_args: tuple, name: str = "Unnamed"
+    time: float, func: __t.Callable, func_args: tuple, name: str = "Unnamed", /
 ) -> int:
     """AddScheduledFunc(double time,Func,Args)
     Llama a la funcion Func con los argumentos Args en el tiempo time"""
     ...
 
 
-def AddStepSound(name: str, sound: __b_object.B_PySound) -> int:
+def AddStepSound(name: str, sound: __b_object.B_PySound, /) -> int:
     """AddStepSound(name,sound)"""
     ...
 
 
-def AddStopTests(anm_name: str) -> __t.Literal[1]:
+def AddStopTests(anm_name: str, /) -> __t.Literal[1]:
     """AnmStopTests(anm_name)"""
     ...
 
 
-def AddTextureMaterial(texture: str, material: str) -> int:
+def AddTextureMaterial(texture: str, material: str, /) -> int:
     """AddTextureMaterial(texture,material)"""
     ...
 
 
 def AddTranTime(
-    biped_name: str, next_anm: str, prev_anm: str, time: float, unknown: int = 1
+    biped_name: str, next_anm: str, prev_anm: str, time: float, unknown: int = 1, /
 ) -> int:
     """AddTranTime (string biped_name,string next_anm , string prev_anm , double time )
     Al pasar de animacion prev_anm a next_anm la transicion dura t segs . 0 si no transicion .
@@ -282,13 +292,14 @@ def AddTriggerSector(
     floor_height: float,
     roof_height: float,
     points: list,
+    /,
 ) -> int:
     """AddTriggerSector(string TriggerSectorName,string GroupName,float FloorHeight,float RoofHeight,List points)
     Crea."""
     ...
 
 
-def AddWatchAnim(anm: str) -> __bt.Bool:
+def AddWatchAnim(anm: str, /) -> __bt.Bool:
     """AddWatchAnim(string)
      Establece esa animacion como una de las incluidas en modo watch.
     NOTA : NO es ejecutada por defecto por ningun personaje , para eso hay otra funcion !.
@@ -296,38 +307,40 @@ def AddWatchAnim(anm: str) -> __bt.Bool:
     ...
 
 
-def AnmAddEvent(anm_name: str, event_name: str, event_frame: float) -> __t.Literal[1]:
+def AnmAddEvent(
+    anm_name: str, event_name: str, event_frame: float, /
+) -> __t.Literal[1]:
     """AnmAddEvent(anm_name,event_name,event_frame)
     Declara en la animacion de nombre anm_name un evento de nombre event_name en el frame event_frame
     """
     ...
 
 
-def AnmClearEvents(anm_name: str) -> __t.Literal[1]:
+def AnmClearEvents(anm_name: str, /) -> __t.Literal[1]:
     """AnmClearEvents(anm_name)
     Borra en la animacion de nombre anm_name todos los eventos"""
     ...
 
 
-def AnmDelEvent(anm_name: str, event_name: str) -> __t.Literal[1]:
+def AnmDelEvent(anm_name: str, event_name: str, /) -> __t.Literal[1]:
     """AnmDelEvent(anm_name,event_name)
     Borra en la animacion de nombre anm_name el evento de nombre event_name"""
     ...
 
 
-def AnmGetEventFrame(anm_name: str, event_name: str) -> float:
+def AnmGetEventFrame(anm_name: str, event_name: str, /) -> float:
     """AnmGetEventFrame(anm_name,event_name)
     Devuelve en la animacion de nombre anm_name frame del evento de nombre event_name y si no existe devuelve -1
     """
     ...
 
 
-def AnmTypeLSteps(ent_name: str, anm_name: str) -> __bt.Bool:
+def AnmTypeLSteps(ent_name: str, anm_name: str, /) -> __bt.Bool:
     """"""
     ...
 
 
-def AnmTypeRSteps(ent_name: str, anm_name: str) -> __bt.Bool:
+def AnmTypeRSteps(ent_name: str, anm_name: str, /) -> __bt.Bool:
     """"""
     ...
 
@@ -337,6 +350,7 @@ def AssocKey(
     input_device: __t.Literal["Keyboard", "Mouse", "Gamepad"],
     key: str,
     on_press: __bt.Bool = 1,
+    /,
 ) -> __bt.Bool:
     """bool AssocKey(string action,string input_device,string key[,int press])
     Asocia la acción action con la tecla key del dispositivo input_device"""
@@ -351,7 +365,7 @@ def BeginLoadGame() -> None:
 
 
 def Bind2(
-    action_name1: str, action_name2: str, new_action: str, time_window: int
+    action_name1: str, action_name2: str, new_action: str, time_window: int, /
 ) -> __bt.Bool:
     """Bind2(void)
     Associate a combination of 2 Actions keys to a new Action, time window settings."""
@@ -363,7 +377,7 @@ def BodInspector() -> str:
     ...
 
 
-def CDCallBack(func: __t.Callable) -> __bt.Bool:
+def CDCallBack(func: __t.Callable, /) -> __bt.Bool:
     """int CDCallBack(func f)
     Establece la función CD."""
     ...
@@ -381,7 +395,7 @@ def CDPause() -> __bt.Bool:
     ...
 
 
-def CDPlayTrack(ntrack: int) -> __bt.Bool:
+def CDPlayTrack(ntrack: int, /) -> __bt.Bool:
     """PlayCDTrack(int ntrack)
     Reproduce la pista ntrack del CD.
     Si ntrack==1 reproduce todo el CD."""
@@ -400,7 +414,7 @@ def CDStop() -> __bt.Bool:
     ...
 
 
-def CDTrackLenght(ntrack: int) -> int:
+def CDTrackLenght(ntrack: int, /) -> int:
     """CDTrackLenght(int ntrack)
     Devuelve la duración en milisegundos de la pista ntrack."""
     ...
@@ -422,39 +436,39 @@ def CheckPyErrors() -> __bt.Bool:
     ...
 
 
-def CleanArea(x: float, y: float, z: float, distance: float) -> __t.Literal[1]:
+def CleanArea(x: float, y: float, z: float, distance: float, /) -> __t.Literal[1]:
     """CleanArea(x,y,z,distance)
       Limpia una zona esferica con centro en 'x,y,z'
     y distancia 'distance' de sangre."""
     ...
 
 
-def CloseDebugChannel(channel_name: str) -> __bt.Bool:
+def CloseDebugChannel(channel_name: str, /) -> __bt.Bool:
     """bool CloseDebugChannel(string channel_name)
     Cierra el canal de depuración de nombre channel_name."""
     ...
 
 
-def CloseLevel(statement: str, map_name: str) -> None:
+def CloseLevel(statement: str, map_name: str, /) -> None:
     """CloseLevel([string statement])
     Cierra el nivel actual y ejecuta la instrucción statement."""
     ...
 
 
-def CloseProfileSection(section: int) -> __bt.Bool:
+def CloseProfileSection(section: int, /) -> __bt.Bool:
     """bool CloseProfileSection(int section)
     Tiene que estar activado el profiler interno.
     Cierra la sección i."""
     ...
 
 
-def CreateBipedData(biped_name: str, kind: str) -> int:
+def CreateBipedData(biped_name: str, kind: str, /) -> int:
     """"""
     ...
 
 
 def CreateDFCAnimation(
-    file1: str, file2: str, internal_name: str, n_armonics: int
+    file1: str, file2: str, internal_name: str, n_armonics: int, /
 ) -> int:
     """CreateDFCAnmimation(str File1,str File2,str InternalName,int n_armonics)"""
     ...
@@ -474,6 +488,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Aura:
     return __entity.B_Entity_Aura()
 
@@ -487,6 +502,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Camera:
     return __entity.B_Entity_Camera()
 
@@ -500,6 +516,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_ElectricBolt:
     return __entity.B_Entity_ElectricBolt()
 
@@ -513,6 +530,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Fire:
     return __entity.B_Entity_Fire()
 
@@ -526,6 +544,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Lava:
     return __entity.B_Entity_Lava()
 
@@ -539,6 +558,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Magic_Missile:
     return __entity.B_Entity_Magic_Missile()
 
@@ -552,6 +572,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Particle:
     return __entity.B_Entity_Particle()
 
@@ -571,6 +592,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Particle_System:
     return __entity.B_Entity_Particle_System()
 
@@ -584,6 +606,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Pool:
     return __entity.B_Entity_Pool()
 
@@ -597,6 +620,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Sliding_Area:
     return __entity.B_Entity_Sliding_Area()
 
@@ -610,6 +634,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Sound:
     return __entity.B_Entity_Sound()
 
@@ -623,6 +648,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Spot:
     return __entity.B_Entity_Spot()
 
@@ -636,6 +662,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Water:
     return __entity.B_Entity_Water()
 
@@ -649,6 +676,7 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Actor"],
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Actor:
     return __entity.B_Entity_Actor()
 
@@ -662,6 +690,7 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Person"],
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Person:
     return __entity.B_Entity_Person()
 
@@ -675,6 +704,7 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Arrow", "Weapon"],
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Weapon:
     return __entity.B_Entity_Weapon()
 
@@ -688,6 +718,7 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["Physic"],
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_Physic:
     return __entity.B_Entity_Physic()
 
@@ -701,6 +732,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_:
     return __entity.B_Entity_()
 
@@ -714,6 +746,7 @@ def CreateEntity(
     z: float,
     parent_class: __t.Literal["", "Actor", "Arrow", "Person", "Physic", "Weapon"] = "",
     mesh_name: str = "",
+    /,
 ) -> __entity.B_Entity_:
     return __entity.B_Entity_()
 
@@ -726,6 +759,7 @@ def CreateEntity(
     z: float,
     parent_class: str = "",
     mesh_name: str = "",
+    /,
 ) -> __t.Any:
     """CreateEntity(string name,string kind,double x,double y,double z)\n
     Crea una entidad nueva."""
@@ -735,12 +769,12 @@ def CreateEntity(
 # CreateEntity <<<
 
 
-def CreateFCAnimation(file: str, internal_name: str, n_armonics: int) -> int:
+def CreateFCAnimation(file: str, internal_name: str, n_armonics: int, /) -> int:
     """CreateFCAnmimation(str File,str InternalName,int n_armonics)"""
     ...
 
 
-def CreateMaterial(name: str) -> __b_object.B_PyMaterial:
+def CreateMaterial(name: str, /) -> __b_object.B_PyMaterial:
     """CreateMaterial(string name)
     Crea un nuevo material con nombre name."""
     return __b_object.B_PyMaterial()
@@ -752,7 +786,7 @@ def CreateRoute() -> __b_object.B_PyRoute:
     return __b_object.B_PyRoute()
 
 
-def CreateSound(file_name: str, sound_name: str) -> __b_object.B_PySound:
+def CreateSound(file_name: str, sound_name: str, /) -> __b_object.B_PySound:
     """CreateSound(string filename,string soundname)
     Crea un sonido a partir del filename y con nombre name."""
     return __b_object.B_PySound()
@@ -781,6 +815,7 @@ def CreateSpark(
     Time2Live: float,
     DeathTime: float,
     isglow: __bt.Bool,
+    /,
 ) -> __entity.B_Entity_Spark:
     """CreateSpark(string name,double x,double y,double z,)\n
     Crea un efecto de chispas.\n
@@ -788,7 +823,7 @@ def CreateSpark(
     return __entity.B_Entity_Spark()
 
 
-def CreateTimer(timer_name: str, period: float) -> __bt.Bool:
+def CreateTimer(timer_name: str, period: float, /) -> __bt.Bool:
     """CreateTimer(string TimerName,double period)
     Crea un Timer de nombre TimerName con periodo period."""
     ...
@@ -800,13 +835,13 @@ def DeactivateInput() -> int:
     ...
 
 
-def DeleteEntity(arg: __t.Union[str, __entity.B_PyEntity]) -> __bt.Bool:
+def DeleteEntity(arg: __t.Union[str, __entity.B_PyEntity], /) -> __bt.Bool:
     """DeleteEntity(string name/object entity)
     Delete existing object.  Use with care.  Subscribe to Pin if unsure."""
     ...
 
 
-def DeleteStringValue(v: str) -> __bt.Bool:
+def DeleteStringValue(v: str, /) -> __bt.Bool:
     """string DeleteStringValue(string variable)
     Elimina variable."""
     ...
@@ -826,14 +861,14 @@ def DoneLoadGame() -> None:
 
 
 def DrawBOD(
-    bodname: str, x: int, y: int, w: int, h: int, scale: float, i_unknown: int
+    bodname: str, x: int, y: int, w: int, h: int, scale: float, i_unknown: int, /
 ) -> __bt.Bool:
     """DrawBOD(string BODName,int x,int y,int ancho,int alto)
     Dibuja el BOD de nombre BODName en el rectángulo x,y,ancho,alto."""
     ...
 
 
-def DumpMemoryLeaks(file_name: str) -> __bt.Bool:
+def DumpMemoryLeaks(file_name: str, /) -> __bt.Bool:
     """bool DumpMemoryLeaks(string filename)
     Dumps cuurent memory allocations to filename."""
     ...
@@ -845,12 +880,12 @@ def EnableProfiler() -> __bt.Bool:
     ...
 
 
-def ExeMusicEvent(event_idx: int, unknown2: __bt.Bool = 0) -> int:
+def ExeMusicEvent(event_idx: int, unknown2: __bt.Bool = 0, /) -> int:
     """e.g: ExeMusicEvent(-1)"""
     ...
 
 
-def ExportWorld(file_name: str) -> __bt.Bool:
+def ExportWorld(file_name: str, /) -> __bt.Bool:
     """ExportWorld ()
     Export the world to owner Max format."""
     ...
@@ -868,19 +903,19 @@ def GetAecGap() -> float:
     ...
 
 
-def GetAfterFrameFunc(name: str) -> __t.Callable:
+def GetAfterFrameFunc(name: str, /) -> __t.Callable:
     """GetAfterFrameFunc(name)
     Devuelve la función AfterFrame de nombre name."""
     ...
 
 
-def GetAfterFrameFuncName(index: int) -> __t.Union[str, None]:
+def GetAfterFrameFuncName(index: int, /) -> __t.Union[str, None]:
     """string GetAfterFrameFuncName(int idx)
     Devuelve el nombre de la función AfterFrame del sistema de índice idx."""
     ...
 
 
-def GetAnimationDuration(anm_name: str) -> float:
+def GetAnimationDuration(anm_name: str, /) -> float:
     """GetAnimationDuration (string sampled animation name )
     Resturns the duration in seconds of the full animation disregarding interpolation.
     """
@@ -911,13 +946,13 @@ def GetBloodLevel() -> __bt.Bool:
     ...
 
 
-def GetCharType(name: str, short_name: str) -> __character.B_PyChar:
+def GetCharType(name: str, short_name: str, /) -> __character.B_PyChar:
     """GetCharType(Barbarian,Bar)
     Crea un CharType , o raza de personaje."""
     return __character.B_PyChar()
 
 
-def GetCombos(person_name: str) -> __t.List:
+def GetCombos(person_name: str, /) -> __t.List:
     """tuple GetCombos(blah blah BLAH!)"""
     ...
 
@@ -946,43 +981,43 @@ def GetEAXOverride() -> __bt.Bool:
 
 
 def GetEnemiesVisibleFrom(
-    center: __bt.Vector3, radius: float, direction: __bt.Vector3, angle: float
+    center: __bt.Vector3, radius: float, direction: __bt.Vector3, angle: float, /
 ) -> tuple:
     """tuple GetEnemiesVisibleFrom(tuple center,double radius,tuple direction,double angle)"""
     ...
 
 
-def GetEntitiesAt(x: float, y: float, z: float, radius: float) -> tuple:
+def GetEntitiesAt(x: float, y: float, z: float, radius: float, /) -> tuple:
     """tuple GetEntitiesAt(double x,double y,double z,double radius)
     Obtiene las entidades que están en un radio radius de la posición (x,y,z)"""
     ...
 
 
 def GetEntitiesVisibleFrom(
-    center: __bt.Vector3, radius: float, direction: __bt.Vector3, angle: float
+    center: __bt.Vector3, radius: float, direction: __bt.Vector3, angle: float, /
 ) -> tuple:
     """tuple GetEntitiesVisibleFrom(tuple center,double radius,tuple direction,double angle)"""
     ...
 
 
 @__t.overload
-def GetEntity(arg: __t.Literal["Player1"]) -> __entity.B_Entity_Person:
+def GetEntity(arg: __t.Literal["Player1"], /) -> __entity.B_Entity_Person:
     return __entity.B_Entity_Person()
 
 
 @__t.overload
-def GetEntity(arg: __t.Literal["Camera"]) -> __entity.B_Entity_Camera:
+def GetEntity(arg: __t.Literal["Camera"], /) -> __entity.B_Entity_Camera:
     return __entity.B_Entity_Camera()
 
 
 @__t.overload
 def GetEntity(
-    arg: __t.Union[str, int, __t.Literal["Camera", "Player1"]]
+    arg: __t.Union[str, int, __t.Literal["Camera", "Player1"]], /
 ) -> __entity.B_PyEntity:
     return __entity.B_PyEntity()
 
 
-def GetEntity(arg: __t.Any) -> __t.Any:
+def GetEntity(arg: __t.Any, /) -> __t.Any:
     """GetEntity(int n)
      Crea una entidad de Python que referencia a la entidad Blade de índice n.
     GetEntity(string name)
@@ -990,13 +1025,13 @@ def GetEntity(arg: __t.Any) -> __t.Any:
     ...
 
 
-def GetGhostSectorSound(gs_name: str) -> __b_object.B_PySound:
+def GetGhostSectorSound(gs_name: str, /) -> __b_object.B_PySound:
     """GetGhostSectorSound(string gsname)
     Devuelve el sonido ambiente perteneciente al sector fantasma de nombre gsname."""
     return __b_object.B_PySound()
 
 
-def GetInputMode(device: str) -> str:
+def GetInputMode(device: str, /) -> str:
     """string GetInputMode(string device)
     Obtiene el modo del dispositivo device."""
     ...
@@ -1007,7 +1042,7 @@ def GetLastPlayerCType() -> str:
     ...
 
 
-def GetMaterial(x: __t.Union[str, int]) -> __b_object.B_PyMaterial:
+def GetMaterial(x: __t.Union[str, int], /) -> __b_object.B_PyMaterial:
     """GetMaterial(int n)
      Crea un objeto Python que referencia al material Blade de índice n.
     GetMaterial(string name)
@@ -1021,7 +1056,7 @@ def GetMenuTgapFunc() -> __bt.Unknown:
     ...
 
 
-def GetModelPos(person_name: str) -> __bt.Vector3:
+def GetModelPos(person_name: str, /) -> __bt.Vector3:
     """GetModelPos(string Person)
     Devuelve la posicion del modelo 3D del Person especificado"""
     ...
@@ -1033,14 +1068,14 @@ def GetMouseState() -> __t.Tuple[int, float, float]:
     ...
 
 
-def GetMusicEvent(event_name: str) -> int:
+def GetMusicEvent(event_name: str, /) -> int:
     """GetMusicEvent(lpszEventName)\n
     :return: event_idx
     """
     ...
 
 
-def GetMusicEventPriority(event_idx: int) -> float:
+def GetMusicEventPriority(event_idx: int, /) -> float:
     """ """
     ...
 
@@ -1064,7 +1099,7 @@ def GetNewExclusionGroupId() -> __bt.Unknown:
 
 
 def GetObjectEntitiesVisibleFrom(
-    center: __bt.Vector3, radius: float, direction: __bt.Vector3, angle: float
+    center: __bt.Vector3, radius: float, direction: __bt.Vector3, angle: float, /
 ) -> tuple:
     """tuple GetObjectEntitiesVisibleFrom(tuple center,double radius,tuple direction,double angle)"""
     ...
@@ -1076,14 +1111,14 @@ def GetPTime() -> float:
     ...
 
 
-def GetParticleGType(index: int) -> __t.Tuple[str, str, int, int]:
+def GetParticleGType(index: int, /) -> __t.Tuple[str, str, int, int]:
     """Preguntar a Angel\n
     :return: tuple(type_name, bitmap_name, particle_type, duration)
     """
     ...
 
 
-def GetParticleGVal(type: str, index: int) -> __t.Tuple[int, int, int, float, float]:
+def GetParticleGVal(type: str, index: int, /) -> __t.Tuple[int, int, int, float, float]:
     """Preguntar a Angel\n
     :return: tuple(r, g, b, a, size)
     """
@@ -1114,7 +1149,7 @@ def GetSaveInfo() -> __t.Tuple[int, __t.Tuple[int]]:
     ...
 
 
-def GetScheduledFunc(index: int) -> tuple:
+def GetScheduledFunc(index: int, /) -> tuple:
     """(func,arg,name,time) GetScheduledFunc(int index)
     Devuelve una tupla con la función, los argumentos, el nombre y cuando se ejecuta."""
     ...
@@ -1127,7 +1162,7 @@ def GetScreenRect() -> tuple:
     ...
 
 
-def GetScreenXY(ent_pos: __bt.Vector3) -> __bt.Vector2:
+def GetScreenXY(ent_pos: __bt.Vector3, /) -> __bt.Vector2:
     """
     :return: (screen_x, screen_y)
     """
@@ -1135,12 +1170,12 @@ def GetScreenXY(ent_pos: __bt.Vector3) -> __bt.Vector2:
 
 
 @__t.overload
-def GetSector(index: int) -> __b_object.B_PySector:
+def GetSector(index: int, /) -> __b_object.B_PySector:
     return __b_object.B_PySector()
 
 
 @__t.overload
-def GetSector(x: float, y: float, z: float) -> __b_object.B_PySector:
+def GetSector(x: float, y: float, z: float, /) -> __b_object.B_PySector:
     return __b_object.B_PySector()
 
 
@@ -1153,18 +1188,18 @@ def GetSector(*args: __t.Any, **kwargs: __t.Any) -> __t.Any:
     ...
 
 
-def GetSound(sound_name: str) -> __b_object.B_PySound:
+def GetSound(sound_name: str, /) -> __b_object.B_PySound:
     """GetSound(name)"""
     return __b_object.B_PySound()
 
 
-def GetSoundFileName(sound_idx: int) -> str:
+def GetSoundFileName(sound_idx: int, /) -> str:
     """string GetSoundFileName(int idx)
     Devuelve el archivo del sonido idx."""
     ...
 
 
-def GetSoundName(sound_idx: int) -> str:
+def GetSoundName(sound_idx: int, /) -> str:
     """string GetSoundName(int idx)
     Devuelve el nombre del sonido idx."""
     ...
@@ -1181,13 +1216,13 @@ def GetSpeakerConfig() -> int:
     ...
 
 
-def GetStringValue(key: str) -> str:
+def GetStringValue(key: str, /) -> str:
     """string GetStringValue(string variable)
     Devuelve el valor de variable, None si no esta definida."""
     ...
 
 
-def GetTextWH(text: str) -> __t.Tuple[float, float]:
+def GetTextWH(text: str, /) -> __t.Tuple[float, float]:
     """"""
     ...
 
@@ -1198,7 +1233,7 @@ def GetTime() -> float:
     ...
 
 
-def GetTimeActionHeld(action_name: str) -> float:
+def GetTimeActionHeld(action_name: str, /) -> float:
     """Return the amount of milliseconds a key has been hald down, or zero if it is currently considered released"""
     ...
 
@@ -1209,33 +1244,33 @@ def GetTimeSpeed() -> float:
     ...
 
 
-def GetTimerInfo(timer_idx: int) -> tuple:
+def GetTimerInfo(timer_idx: int, /) -> tuple:
     """(name,period) GetTimerInfo(int iTimer)
     Devuelve información sobre el timer de índice iTimer."""
     ...
 
 
-def GetTrailType(name: str) -> __b_object.B_PyTrail:
+def GetTrailType(name: str, /) -> __b_object.B_PyTrail:
     """GetTrailType(esteraCorta)
     Crea un TrailType , o tipo de estelas."""
     return __b_object.B_PyTrail()
 
 
-def GetTriggerSectorData(trigger_sector_name: str) -> __t.Any:
+def GetTriggerSectorData(trigger_sector_name: str, /) -> __t.Any:
     """GetTriggerSectorFunc(string TriggerSectorName)
     Devuelve el objeto Python asociado al campo Data del triggersector TriggerSectorName.
     """
     ...
 
 
-def GetTriggerSectorFloorHeight(trigger_sector_name: str) -> int:
+def GetTriggerSectorFloorHeight(trigger_sector_name: str, /) -> int:
     """GetTriggerSectorFloorHeight(string TriggerSectorName)
     Devuelve la altura del suelo asociada al trigersector TriggerSectorName."""
     ...
 
 
 def GetTriggerSectorFunc(
-    trigger_sector_name: str, func_type: __t.Literal["OnEnter", "OnLeave"]
+    trigger_sector_name: str, func_type: __t.Literal["OnEnter", "OnLeave"], /
 ) -> __t.Callable[[str, str], __t.Any]:
     """GetTriggerSectorFunc(string TriggerSectorName,string FuncType)
     Devuelve la funcion asociada al evento FuncType del triggersector TriggerSectorName.
@@ -1243,31 +1278,31 @@ def GetTriggerSectorFunc(
     ...
 
 
-def GetTriggerSectorGroup(trigger_sector_name: str) -> str:
+def GetTriggerSectorGroup(trigger_sector_name: str, /) -> str:
     """GetTriggerSectorGroup(string TriggerSectorName)
     Devuelve el grupo asociado al trigersector TriggerSectorName."""
     ...
 
 
-def GetTriggerSectorName(index: int) -> str:
+def GetTriggerSectorName(index: int, /) -> str:
     """string GetTriggerSectorName(int idx)
     Devuelve el triggersector de índice idx, None si no existe."""
     ...
 
 
-def GetTriggerSectorPoints(trigger_sector_name: str) -> list:
+def GetTriggerSectorPoints(trigger_sector_name: str, /) -> list:
     """GetTriggerSectorPoints(string TriggerSectorName)
     Devuelve los puntos asociados al trigersector TriggerSectorName."""
     ...
 
 
-def GetTriggerSectorRoofHeight(trigger_sector_name: str) -> int:
+def GetTriggerSectorRoofHeight(trigger_sector_name: str, /) -> int:
     """GetTriggerSectorRoofHeight(string TriggerSectorName)
     Devuelve la altura del techo asociada al trigersector TriggerSectorName."""
     ...
 
 
-def GetWeaponCombos(person_name: str, weapon_kind: str) -> list:
+def GetWeaponCombos(person_name: str, weapon_kind: str, /) -> list:
     """tuple GetWeaponCombos(blah blah BLAH!)"""
     ...
 
@@ -1309,32 +1344,32 @@ def GetnTimers() -> int:
     ...
 
 
-def GiveAnims(race_name: str) -> __bt.Bool:
+def GiveAnims(race_name: str, /) -> __bt.Bool:
     """GiveAnims(race_name). Da las anims de la raza en cuestion"""
     ...
 
 
-def GoToTime(time: float) -> __bt.Bool:
+def GoToTime(time: float, /) -> __bt.Bool:
     """bool SetClockTime(float time)
     Establece el tiempo del juego en segundos...."""
     ...
 
 
-def HeapCheckAllAllocations(i: int) -> __t.Literal[1]:
+def HeapCheckAllAllocations(i: int, /) -> __t.Literal[1]:
     """HeapCheckAllAllocations(integer)
     Sets the Heap Checking to be performed on every allocation.  Functions only in debug.
     """
     ...
 
 
-def HeapCheckDelayFree(i: int) -> __t.Literal[1]:
+def HeapCheckDelayFree(i: int, /) -> __t.Literal[1]:
     """HeapCheckDelayFree(integer)
     Simulates low memory conditions by delaying freeing until program termination.  Functions only in debug.
     """
     ...
 
 
-def HeapCheckLeaks(i: int) -> __t.Literal[1]:
+def HeapCheckLeaks(i: int, /) -> __t.Literal[1]:
     """HeapCheckSystemMemory(integer)
     Enables leak checking on program termination.  Functions only in debug."""
     ...
@@ -1346,19 +1381,19 @@ def HeapCheckSetMark() -> __bt.Bool:
     ...
 
 
-def HeapCheckSystemMemory(i: int) -> __t.Literal[1]:
+def HeapCheckSystemMemory(i: int, /) -> __t.Literal[1]:
     """HeapCheckSystemMemory(integer)
     Includes memory used in runtime libraries for checking.  Functions only in debug."""
     ...
 
 
-def Input(text: str) -> str:
+def Input(text: str, /) -> str:
     """Input(string texto)
     Crea una ventana de introducción de datos."""
     ...
 
 
-def InsideActionArea(action_area: int, x: float, y: float, z: float) -> __bt.Bool:
+def InsideActionArea(action_area: int, x: float, y: float, z: float, /) -> __bt.Bool:
     """InsideActionArea(int AA,double x,double y,double z)
     ....blah blah !"""
     ...
@@ -1370,73 +1405,73 @@ def KillMusic() -> __bt.Bool:
     ...
 
 
-def LoadAnmRaceData(file_name: str) -> __bt.Bool:
+def LoadAnmRaceData(file_name: str, /) -> __bt.Bool:
     """bool LoadAnmRaceData(string filename,string race)
     Carga las animaciones de la raza en el archivo filename."""
     ...
 
 
-def LoadAnmSoundData(file_name: str) -> __bt.Bool:
+def LoadAnmSoundData(file_name: str, /) -> __bt.Bool:
     """bool LoadAnmSoundData(string filename,string race)
     Carga la información de sonido de las animaciones de la raza en el archivo filename.
     """
     ...
 
 
-def LoadCombustionData(file_name: str) -> __bt.Bool:
+def LoadCombustionData(file_name: str, /) -> __bt.Bool:
     """bool LoadCombustionData(string filename)
     Carga los datos de los combustion data del archivo filename."""
     ...
 
 
-def LoadEntitiesData(file_name: str) -> __bt.Bool:
+def LoadEntitiesData(file_name: str, /) -> __bt.Bool:
     """bool LoadEntitiesData(string filename)
     Carga los datos de las entidades del archivo filename."""
     ...
 
 
-def LoadLevel(dir_name: str) -> None:
+def LoadLevel(dir_name: str, /) -> None:
     """LoadLevel(string dir_name)
     Lee de disco el nivel en el directorio dir_name."""
     ...
 
 
-def LoadMusicState(file_name: str) -> __bt.Bool:
+def LoadMusicState(file_name: str, /) -> __bt.Bool:
     """loadMusicState(filename)"""
     ...
 
 
-def LoadParticleSystemsData(file_name: str) -> __bt.Bool:
+def LoadParticleSystemsData(file_name: str, /) -> __bt.Bool:
     """bool LoadParticleSystemsData(string filename)
     Carga los datos de los sistemas de partículas del archivo filename."""
     ...
 
 
 def LoadSampledAnimation(
-    file: str, anm_name: str, type: int = 0, race_name: str = "", interp: int = 20
+    file: str, anm_name: str, type: int = 0, race_name: str = "", interp: int = 20, /
 ) -> __bt.Bool:
     """LoadSampledAnm(str File,str InternalName,int Type)"""
     ...
 
 
-def LoadSoundDataBase(file_name: str) -> __bt.Bool:
+def LoadSoundDataBase(file_name: str, /) -> __bt.Bool:
     """loadSoundDataBase(filename)"""
     ...
 
 
-def LoadWorld(file_name: str) -> __bt.Bool:
+def LoadWorld(file_name: str, /) -> __bt.Bool:
     """LoadWorld(string filename)
     Lee de disco el mapa (.bw) de nombre filename."""
     ...
 
 
-def OpenDebugChannel(channel_name: str) -> __bt.Bool:
+def OpenDebugChannel(channel_name: str, /) -> __bt.Bool:
     """bool OpenDebugChannel(string channel_name)
     Abre el canal de depuración de nombre channel_name."""
     ...
 
 
-def OpenProfileSection(section: int, comment: str = "") -> __bt.Bool:
+def OpenProfileSection(section: int, comment: str = "", /) -> __bt.Bool:
     """bool OpenProfileSection(int section[,string comment])
     Tiene que estar activado el profiler interno.
     Abre la sección i."""
@@ -1463,7 +1498,7 @@ def PerformHeapCheck() -> __t.Literal[1]:
 
 
 def PlaySound(
-    soundId: int, x: float, y: float, z: float, unknown: int = 0
+    soundId: int, x: float, y: float, z: float, unknown: int = 0, /
 ) -> __bt.Bool:
     """PlaySound(int i,double x,double y,double z)
     Reproduce el sonido i en la posición (x,y,z)."""
@@ -1476,19 +1511,19 @@ def Quit() -> __bt.Bool:
     ...
 
 
-def ReadAlphaBitMap(file_name: str, internal_name: str) -> None:
+def ReadAlphaBitMap(file_name: str, internal_name: str, /) -> None:
     """ReadAlphaBitMap(string file_name,string internal_name)
     Lee de disco una textura alpha."""
     ...
 
 
-def ReadBitMap(file_name: str, internal_name: str) -> None:
+def ReadBitMap(file_name: str, internal_name: str, /) -> None:
     """ReadBitMap(string file_name,string internal_name)
     Lee de disco una textura."""
     ...
 
 
-def ReadLevel(file_name: str) -> None:
+def ReadLevel(file_name: str, /) -> None:
     """ReadLevel(string filename)
     Lee de disco el nivel (.lvl) filename."""
     ...
@@ -1500,18 +1535,20 @@ def ReassignCombustionData() -> __t.Literal[1]:
     ...
 
 
-def RemoveAfterFrameFunc(name: str) -> __bt.Bool:
+def RemoveAfterFrameFunc(name: str, /) -> __bt.Bool:
     """GetAfterFrameFunc(name)
     Devuelve la función AfterFrame del sistema de nombre name."""
     ...
 
 
-def RemoveBipedAction(unknown1: str, unknown2: str) -> __bt.Bool:
+def RemoveBipedAction(unknown1: str, unknown2: str, /) -> __bt.Bool:
     """"""
     ...
 
 
-def RemoveBoundFunc(action_name: str, proc: __t.Union[str, __t.Callable]) -> __bt.Bool:
+def RemoveBoundFunc(
+    action_name: str, proc: __t.Union[str, __t.Callable], /
+) -> __bt.Bool:
     """RemoveBoundFunc(string key,proc)
      Quita el procedimiento pr del suceso key.
     RemoveBoundFunc(string key,string predproc)
@@ -1521,13 +1558,13 @@ def RemoveBoundFunc(action_name: str, proc: __t.Union[str, __t.Callable]) -> __b
     ...
 
 
-def RemoveInputAction(action_name: str) -> __bt.Bool:
+def RemoveInputAction(action_name: str, /) -> __bt.Bool:
     """RemoveInputAction(string action_name)
     Quita una acción existente."""
     ...
 
 
-def RemoveScheduledFunc(name: str) -> __bt.Bool:
+def RemoveScheduledFunc(name: str, /) -> __bt.Bool:
     """RemoveScheduledFunc(atring FuncName)
     Removes a previously named sceduled function.  Removes first func found with this name.
     """
@@ -1535,7 +1572,7 @@ def RemoveScheduledFunc(name: str) -> __bt.Bool:
 
 
 def RemoveTriggerSectorFunc(
-    trigger_sector_name: str, func_type: __t.Literal["OnEnter", "OnLeave"]
+    trigger_sector_name: str, func_type: __t.Literal["OnEnter", "OnLeave"], /
 ) -> __bt.Bool:
     """RemoveTriggerSectorFunc(string TriggerSectorName,string FuncType)
     Desvincula la funcion asociada al evento FuncType del triggersector TriggerSectorName.
@@ -1555,43 +1592,43 @@ def ResumeSoundSystem() -> __bt.Bool:
     ...
 
 
-def SaveAnmRaceData(file_name: str, race: str) -> __bt.Bool:
+def SaveAnmRaceData(file_name: str, race: str, /) -> __bt.Bool:
     """bool SaveAnmRaceData(string filename,string race)
     Guarda las animaciones de la raza race en el archivo filename."""
     ...
 
 
-def SaveAnmSoundData(file_name: str, race: str) -> __bt.Bool:
+def SaveAnmSoundData(file_name: str, race: str, /) -> __bt.Bool:
     """bool SaveAnmSoundData(string filename,string race)
     Guarda información de sonido de las animaciones de la raza race en el archivo filename.
     """
     ...
 
 
-def SaveCombustionData(file_name: str) -> __bt.Bool:
+def SaveCombustionData(file_name: str, /) -> __bt.Bool:
     """bool SaveCombustionData(string filename)
     Guarda los datos de los combustion  data en el archivo filename."""
     ...
 
 
-def SaveEntitiesData(file_name: str) -> __bt.Bool:
+def SaveEntitiesData(file_name: str, /) -> __bt.Bool:
     """bool SaveEntitiesData(string filename)
     Guarda los datos de las entidades en el archivo filename."""
     ...
 
 
-def SaveMusicState(file_name: str) -> __bt.Bool:
+def SaveMusicState(file_name: str, /) -> __bt.Bool:
     """saveMusicState(filename)"""
     ...
 
 
-def SaveParticleSystemsData(file_name: str) -> __bt.Bool:
+def SaveParticleSystemsData(file_name: str, /) -> __bt.Bool:
     """bool SaveParticleSystemsData(string filename)
     Guarda los datos de los sistemas de partículas en el archivo filename."""
     ...
 
 
-def SaveProfileData(file_name: str) -> __bt.Bool:
+def SaveProfileData(file_name: str, /) -> __bt.Bool:
     """bool SaveProfileData(string filename)
     Tiene que estar activado el profiler interno.
     Guarda información de los tiempos de las secciones activas en el archivo filename.
@@ -1604,13 +1641,13 @@ def SaveSSConfig() -> __bt.Bool:
     ...
 
 
-def SaveScreenShot(file_name: str, width: int, height: int) -> __t.Literal[1]:
+def SaveScreenShot(file_name: str, width: int, height: int, /) -> __t.Literal[1]:
     """SaveScreenShot(filename,width,height)
     Acaso necesita descripcion?"""
     ...
 
 
-def SaveSoundDataBase(file_name: str) -> __bt.Bool:
+def SaveSoundDataBase(file_name: str, /) -> __bt.Bool:
     """saveSoundDataBase(filename)"""
     ...
 
@@ -1621,50 +1658,54 @@ def SaveStats() -> __t.Literal[1]:
 
 
 def SetActionCameraMovement(
-    action_name: str, angle: float, start_pos: float, end_pos: float
+    action_name: str, angle: float, start_pos: float, end_pos: float, /
 ) -> __bt.Bool:
     """SetActionCameraMovement(char* action_name,double angle,double start_pos,double end_pos)
     Interpolates the camera in the given action , the given angle in the given gap"""
     ...
 
 
-def SetActionEventTable(race_name: str, action_name: str, table_name: str) -> __bt.Bool:
+def SetActionEventTable(
+    race_name: str, action_name: str, table_name: str, /
+) -> __bt.Bool:
     """"""
     ...
 
 
-def SetAecGap(aec_gap: float) -> __bt.Bool:
+def SetAecGap(aec_gap: float, /) -> __bt.Bool:
     """bool SetAutoEngageCombat(double aec_gap)
     Establece tiempo auto encaramiento."""
     ...
 
 
-def SetAfterFrameFunc(name: str, function: __t.Callable[[float], __t.Any]) -> __bt.Bool:
+def SetAfterFrameFunc(
+    name: str, function: __t.Callable[[float], __t.Any], /
+) -> __bt.Bool:
     """SetAfterFrameFunc(name,function)
     Sets a function referenced with name that is going to be called at the end of each frame.
     """
     ...
 
 
-def SetAnimationFactor(anm_name: str, new_speed_factor: float) -> __bt.Bool:
+def SetAnimationFactor(anm_name: str, new_speed_factor: float, /) -> __bt.Bool:
     """SetAnimationFactor(string mov , float new_speed_factor )
     Cambia la velocidad del movimiento dado ."""
     ...
 
 
-def SetAppMode(mode: __t.Literal["Game", "Menu", "Demo"]) -> __bt.Bool:
+def SetAppMode(mode: __t.Literal["Game", "Menu", "Demo"], /) -> __bt.Bool:
     """bool SetAppMode(string mode)
     Establece el modo de la aplicación (Game, Menu,...)."""
     ...
 
 
-def SetAutoEngageCombat(auto: __bt.Bool) -> __bt.Bool:
+def SetAutoEngageCombat(auto: __bt.Bool, /) -> __bt.Bool:
     """bool SetAutoEngageCombat(bool auto)
     Establece si se encara automaticamente los enemigos."""
     ...
 
 
-def SetAutoGenTexture(texture_name: str, effect: __t.Literal[0, 1]) -> __bt.Bool:
+def SetAutoGenTexture(texture_name: str, effect: __t.Literal[0, 1], /) -> __bt.Bool:
     """SetAutoGenTexture (string TexturName , integer TextEfecct )
     A la texture con dicho nombre se le aplica el efecto dado .\n
     :effect:
@@ -1674,13 +1715,13 @@ def SetAutoGenTexture(texture_name: str, effect: __t.Literal[0, 1]) -> __bt.Bool
     ...
 
 
-def SetBloodLevel(level: int) -> __bt.Bool:
+def SetBloodLevel(level: int, /) -> __bt.Bool:
     """bool SetBloodLevel(int level)
     Establece el nivel de sangre."""
     ...
 
 
-def SetCallCheck(check: int) -> __bt.Bool:
+def SetCallCheck(check: int, /) -> __bt.Bool:
     """SetCallCheck(int check)
      Activa/desactiva la comprobación de errores de Python en las llamadas que hace Blade.
     Devuelve el estado anterior\n
@@ -1689,55 +1730,57 @@ def SetCallCheck(check: int) -> __bt.Bool:
     ...
 
 
-def SetCombos(person_name: str, combos: __t.List[__t.Tuple[str, float]]) -> __bt.Bool:
+def SetCombos(
+    person_name: str, combos: __t.List[__t.Tuple[str, float]], /
+) -> __bt.Bool:
     """bool SetCombos(tuple combos)"""
     ...
 
 
-def SetCurrentMap(dir_map: str) -> __bt.Bool:
+def SetCurrentMap(dir_map: str, /) -> __bt.Bool:
     """bool SetCurrentMap(string dir_map)
     Establece el directorio de mapa actual."""
     ...
 
 
-def SetDefaultMass(entity_kind: str, mass: float) -> __bt.Bool:
+def SetDefaultMass(entity_kind: str, mass: float, /) -> __bt.Bool:
     """SetDefaultMass(string entity_kind,double mass)
     Establece la masa mass predefinida para las nuevas entidades de tipo kind."""
     ...
 
 
-def SetDefaultMaterial(entity_kind: str, material: str) -> __bt.Bool:
+def SetDefaultMaterial(entity_kind: str, material: str, /) -> __bt.Bool:
     """SetDefaultMaterial(string entity_kind,double material)
     Establece el material predefinido para las nuevas entidades de tipo kind."""
     ...
 
 
-def SetDrawObjectShadows(draw: int) -> __bt.Bool:
+def SetDrawObjectShadows(draw: int, /) -> __bt.Bool:
     """bool SetDrawObjectShadows(bool draw)
     Establece si se deben dibujar las sombras de los objetos/personajes."""
     ...
 
 
-def SetEAX(eax_flag: int) -> __bt.Bool:
+def SetEAX(eax_flag: int, /) -> __bt.Bool:
     """SetEAX(integer eax_flag)
     Establece la distorsion eax indicada."""
     ...
 
 
-def SetEAXOverride(v: int) -> __bt.Bool:
+def SetEAXOverride(v: int, /) -> __bt.Bool:
     """SetEAXOverride(0/1)"""
     ...
 
 
 def SetEventTableFunc(
-    event_table_name: str, event_type: str, func: __t.Callable[[str, str], __t.Any]
+    event_table_name: str, event_type: str, func: __t.Callable[[str, str], __t.Any], /
 ) -> __bt.Bool:
     """"""
     ...
 
 
 def SetEventTableFuncC(
-    event_table_name: str, event_type: str, func_c: str
+    event_table_name: str, event_type: str, func_c: str, /
 ) -> __bt.Bool:
     """"""
     ...
@@ -1751,6 +1794,7 @@ def SetGhostSectorGroupSound(
     min_dist: float = 1000.0,
     max_dist: float = 20000.0,
     scale: float = 1.0,
+    /,
 ) -> __bt.Bool:
     """SetGhostSectorGroupSound(string GroupName,string filename,double Volume,double BaseVolume,double MinDist,double MaxDist,double Scale)
     Establece el sonido del archivo filename al grupo de sectores fantasma GhostName."""
@@ -1766,20 +1810,21 @@ def SetGhostSectorSound(
     max_dist: float = 20000.0,
     v_max_dist: float = 10000.0,
     scale: float = 1.0,
+    /,
 ) -> __bt.Bool:
     """SetGhostSectorSound(string GhostName,string filename,double Volume,double BaseVolume,double MinDist,double MaxDist,double vMaxDist,double Scale)
     Establece el sonido del archivo filename al sector fantasma GhostName."""
     ...
 
 
-def SetInputMode(device: str, mode: str) -> __bt.Bool:
+def SetInputMode(device: str, mode: str, /) -> __bt.Bool:
     """bool SetInputMode(string device,string mode)
     Establece el modo del dispositivo device."""
     ...
 
 
 def SetListenerPosition(
-    mode: __t.Literal[0, 1, 2], x: float = 0.0, y: float = 0.0, z: float = 0.0
+    mode: __t.Literal[0, 1, 2], x: float = 0.0, y: float = 0.0, z: float = 0.0, /
 ) -> __bt.Bool:
     """SetListenerPosition(int modo[,double x,double y,double z])
     Cambia posicion o modo del oyente.
@@ -1789,84 +1834,84 @@ def SetListenerPosition(
     ...
 
 
-def SetMenuTgapFunc(func: __t.Callable[[], __t.Any]) -> __bt.Bool:
+def SetMenuTgapFunc(func: __t.Callable[[], __t.Any], /) -> __bt.Bool:
     """SetMenuTgapFunc(function)
     Sets a function blah blah blah..."""
     ...
 
 
-def SetMouseState(invert: int, xsens: float, ysens: float) -> __t.Literal[""]:
+def SetMouseState(invert: int, xsens: float, ysens: float, /) -> __t.Literal[""]:
     """SetMouseState(invert,xsens,ysens)"""
     ...
 
 
-def SetMusicVolume(factor: float) -> __bt.Bool:
+def SetMusicVolume(factor: float, /) -> __bt.Bool:
     """SetMusicVolume (float factor)
     Guess...;) .n"""
     ...
 
 
-def SetMutilationLevel(level: int) -> __bt.Bool:
+def SetMutilationLevel(level: int, /) -> __bt.Bool:
     """bool SetMutilationLevel(int level)
     Establece el nivel de mutilaciones."""
     ...
 
 
 def SetParticleGVal(
-    type: str, i: int, r: int, g: int, b: int, alpha: float, size: float
+    type: str, i: int, r: int, g: int, b: int, alpha: float, size: float, /
 ) -> __bt.Bool:
     """"""
     ...
 
 
-def SetRootWidget(widget: int) -> __bt.Bool:
+def SetRootWidget(widget: int, /) -> __bt.Bool:
     """SetRootWidget(widget w)
     Establece el Widget raiz."""
     ...
 
 
-def SetRunString(variable: str) -> None:
+def SetRunString(variable: str, /) -> None:
     """void SetRunString(string variable)
     Ejecuta la cadena de caracteres variable."""
     ...
 
 
-def SetSS2dChannels(num_ch: int) -> __bt.Bool:
+def SetSS2dChannels(num_ch: int, /) -> __bt.Bool:
     """SetSS2dChannels (int num_ch)
     Tells the sound system the number of 2d channels ."""
     ...
 
 
-def SetSS3dChannels(num_ch: int) -> __bt.Bool:
+def SetSS3dChannels(num_ch: int, /) -> __bt.Bool:
     """SetSS3dChannels (int num_ch)
     Tells the sound system the number of 3d channels ."""
     ...
 
 
-def SetSSFilter(filter_output: __bt.Bool) -> __bt.Bool:
+def SetSSFilter(filter_output: __bt.Bool, /) -> __bt.Bool:
     """SetSSFilter (bool)
     Tells the sound system to filter the output or not ."""
     ...
 
 
-def SetSSFrecuency(frequency: int) -> __bt.Bool:
+def SetSSFrecuency(frequency: int, /) -> __bt.Bool:
     """SetSSFrecuency (int frec)
     Tells the sound system the base frecuency to use ."""
     ...
 
 
-def SetSSQuality(quality: int) -> __bt.Bool:
+def SetSSQuality(quality: int, /) -> __bt.Bool:
     """Undoc(0-2)"""
     ...
 
 
-def SetSaveInfo(info: tuple) -> __bt.Bool:
+def SetSaveInfo(info: tuple, /) -> __bt.Bool:
     """int SetSaveInfo(tuple info)
     Establece información de estado."""
     ...
 
 
-def SetSolidMask(kind: str, mask: int) -> __bt.Bool:
+def SetSolidMask(kind: str, mask: int, /) -> __bt.Bool:
     """
     :mask:
         EX_PERSON = 1\n
@@ -1878,68 +1923,68 @@ def SetSolidMask(kind: str, mask: int) -> __bt.Bool:
     ...
 
 
-def SetSoundVolume(volume: float) -> __bt.Bool:
+def SetSoundVolume(volume: float, /) -> __bt.Bool:
     """SetSoundVolume(double Volume)
     Establece el volumen del sistema de sonido."""
     ...
 
 
-def SetSpeakerConfig(config: int) -> __bt.Bool:
+def SetSpeakerConfig(config: int, /) -> __bt.Bool:
     """Undoc(0-3)"""
     ...
 
 
-def SetStringValue(variable: str, value: str) -> __bt.Bool:
+def SetStringValue(variable: str, value: str, /) -> __bt.Bool:
     """bool SetStringValue(string variable,string value)
     Guarda la cadena de caracteres value cobn el nombre variable."""
     ...
 
 
-def SetSun(exists: __bt.Bool, x: float, y: float, z: float) -> __t.Literal[1]:
+def SetSun(exists: __bt.Bool, x: float, y: float, z: float, /) -> __t.Literal[1]:
     """SetSun(int exists,double x,double y,double z)
     Establece la posicion del sol mediante la direccion de la luz exterior. exists indica si se dibuja (1) o no (0)
     """
     ...
 
 
-def SetTime(time: float) -> __bt.Bool:
+def SetTime(time: float, /) -> __bt.Bool:
     """bool SetTime(float time)
     Establece el tiempo del juego en segundos."""
     ...
 
 
-def SetTimeSpeed(speed: float) -> __t.Literal[1]:
+def SetTimeSpeed(speed: float, /) -> __t.Literal[1]:
     """GetTimeSpeed(void)
     Devuelve la velocidad tiempo del juego."""
     ...
 
 
-def SetTriggerSectorData(trigger_sector_name: str, data: __t.Any) -> __bt.Bool:
+def SetTriggerSectorData(trigger_sector_name: str, data: __t.Any, /) -> __bt.Bool:
     """SetTriggerSectorData(string TriggerSectorName,Data)
     Asigna el objeto Python Data al campo Data del triggersector TriggerSectorName."""
     ...
 
 
 def SetTriggerSectorFunc(
-    trigger_sector_name: str, func: __t.Callable[[str, str], __t.Any]
+    trigger_sector_name: str, func: __t.Callable[[str, str], __t.Any], /
 ) -> __bt.Bool:
     """SetTriggerSectorFunc(string TriggerSectorName,string FuncType,Func)
     Asigna la funcion Func al evento FuncType del triggersector TriggerSectorName."""
     ...
 
 
-def SetTurnSpeed(race_name: str, new_speed: float) -> __t.Literal[1]:
+def SetTurnSpeed(race_name: str, new_speed: float, /) -> __t.Literal[1]:
     """SetTurnSpeed(string name_raza,float new_speed )
     Cambia la velocidad de giro de una raza . En radianes."""
     ...
 
 
-def ShowActionAreas(action_areas_bit_mask: int) -> __bt.Bool:
+def ShowActionAreas(action_areas_bit_mask: int, /) -> __bt.Bool:
     """"""
     ...
 
 
-def ShowSounds(sh: int) -> __bt.Bool:
+def ShowSounds(sh: int, /) -> __bt.Bool:
     """ShowSounds(int sh)
     Establece si se debe mostrar un objeto para indicar donde estan los sonido ambiente.
     """
@@ -1982,7 +2027,7 @@ def UnBindAll() -> None:
     ...
 
 
-def WriteText(x: float, y: float, text: str) -> __bt.Bool:
+def WriteText(x: float, y: float, text: str, /) -> __bt.Bool:
     """"""
     ...
 
@@ -2026,303 +2071,303 @@ def nTriggerSectors() -> int:
 # reissue
 
 
-def ApplyVideoSettings(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def ApplyVideoSettings(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool ApplyVideoSettings()
     Apply changed video settings"""
     ...
 
 
-def FakeInputAction(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def FakeInputAction(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     FakeInput(string action_name)"""
     ...
 
 
-def GetActiveControllerType(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetActiveControllerType(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     GetActiveControllerType()"""
     ...
 
 
-def GetActiveMonitor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetActiveMonitor(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int GetActiveMonitor()
     Get active monitor"""
     ...
 
 
-def GetAntialiasing(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetAntialiasing(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetAntialiasing()
      Get antialiasing"""
     ...
 
 
-def GetAspectRatio(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetAspectRatio(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int GetAspectRatio()
     Get aspect ratio"""
     ...
 
 
-def GetFieldOfView(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetFieldOfView(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetFieldOfView()
      Get field of view"""
     ...
 
 
-def GetHideUI(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetHideUI(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetHideUI()
      Get Hide UI"""
     ...
 
 
-def GetLastUsedController(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetLastUsedController(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     GetLastUsedController()"""
     ...
 
 
-def GetLimitFps(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetLimitFps(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def GetNumMonitor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetNumMonitor(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int GetNumMonitor()
     Get number of available monitor"""
     ...
 
 
-def GetPlayIntro(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetPlayIntro(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetPlayIntro()
     Devuelve true si se encara automaticanmente si se puede."""
     ...
 
 
-def GetResolution(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetResolution(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     string GetResolution()
     Get window resolution"""
     ...
 
 
-def GetReworkedCamera(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetReworkedCamera(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetReworkedCamera()
     Use a new non stuttering camera"""
     ...
 
 
-def GetScreenMode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetScreenMode(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int GetScreenMode()
     Get if window is in fullscreen mode"""
     ...
 
 
-def GetSubtitlesEnable(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetSubtitlesEnable(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetSubtitlesEnable()
      Get usability of subtitles"""
     ...
 
 
-def GetSupportedResolution(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetSupportedResolution(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetSupportedResolution()
     Get all supported window resolution"""
     ...
 
 
-def GetUIScaleFactor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetUIScaleFactor(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int GetUIScaleFactor()
      Get UI Scale Factor"""
     ...
 
 
-def GetUpperCaseRussian(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetUpperCaseRussian(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     GetUpperCaseRussian(string word)"""
     ...
 
 
-def GetVerticalSync(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetVerticalSync(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetVerticalSync()
     get vertical sync"""
     ...
 
 
-def GetVibration(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetVibration(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool GetVibration()
     get vibration"""
     ...
 
 
-def IsRunningOnHandheldDevice(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def IsRunningOnHandheldDevice(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     IsRunningOnHandheldDevice()
     Returns true if running on a handheld device."""
     ...
 
 
-def IsUseMsgActive(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def IsUseMsgActive(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool IsUseMsgActive()
     Is Use active this frame"""
     ...
 
 
-def PlayHaptic(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def PlayHaptic(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     PlayHaptic(hapticValue)"""
     ...
 
 
-def SetActiveMonitor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetActiveMonitor(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int SetActiveMonitor(int active_monitor)
     Set active monitor"""
     ...
 
 
-def SetAntialiasing(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetAntialiasing(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetAntialiasing(bool antialiasing)
      Set antialiasing"""
     ...
 
 
-def SetAspectRatio(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetAspectRatio(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int SetAspectRatio(char* aspect_ratio)
     set aspect ratio"""
     ...
 
 
-def SetFieldOfView(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetFieldOfView(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetFieldOfView(float field_of_view)
      Set field of view"""
     ...
 
 
-def SetGamepadChangeFunc(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetGamepadChangeFunc(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetGamepadChangeFunc(controllerType,function)"""
     ...
 
 
-def SetGamepadDisconnectFunc(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetGamepadDisconnectFunc(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetGamepadDisconnectFunc(isDisconnect,function)"""
     ...
 
 
-def SetHideUI(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetHideUI(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetHideUI(float field_of_view)
      Hide UI"""
     ...
 
 
-def SetLimitFps(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetLimitFps(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def SetMessageWidget(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetMessageWidget(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetMessageWidget(widget w)
      Establece el Widget raiz."""
     ...
 
 
-def SetPlayIntro(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetPlayIntro(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool SetPlayIntro(bool auto)
     Establece si se encara automaticamente los enemigos."""
     ...
 
 
-def SetResolution(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetResolution(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool SetResolution(int width, int height)
     Set screen resolution"""
     ...
 
 
-def SetReworkedCamera(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetReworkedCamera(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool SetReworkedCamera(bool reworked)
     Set reworked camera"""
     ...
 
 
-def SetScreenMode(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetScreenMode(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool SetScreenMode(bool windowed)
     Set screen mode"""
     ...
 
 
-def SetSubtitlesEnable(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetSubtitlesEnable(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetSubtitlesEnable(bool subtitles_enable)
      Set usability of subtitles"""
     ...
 
 
-def SetUIScaleFactor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetUIScaleFactor(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     SetUIScaleFactor(int v)
      Set UI Scale Factor"""
     ...
 
 
-def SetVerticalSync(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetVerticalSync(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     int SetVerticalSync()
     Set vertical sync"""
     ...
 
 
-def SetVibration(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def SetVibration(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool SetVibration(bool reworked)
     Set vibration"""
     ...
 
 
-def ShowCriticalWarning(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def ShowCriticalWarning(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     ShowCriticalWarning(string title,string msg)"""
     ...
 
 
-def TriggerEvent(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def TriggerEvent(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     TriggerEvent(string event_name)
     Pass the index of the achievement to be activated."""
     ...
 
 
-def TriggerEventInner(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def TriggerEventInner(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     TriggerEventInner()
     Tries to unlock complete game as (id=50..53)."""
     ...
 
 
-def TurnAround(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def TurnAround(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*
     bool TurnAround()
     Turn around"""

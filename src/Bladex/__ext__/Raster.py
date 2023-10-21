@@ -6,12 +6,12 @@ import typing as __t
 import Bladex.__sub__.b_types as __bt
 
 
-def BmpHandle(bmp_name: str) -> int:
+def BmpHandle(bmp_name: str, /) -> int:
     """"""
     ...
 
 
-def BmpName(bmp_handle: int) -> str:
+def BmpName(bmp_handle: int, /) -> str:
     """"""
     ...
 
@@ -21,18 +21,20 @@ def ClassIdName() -> str:
     ...
 
 
-def Cls(r: int, g: int, b: int) -> None:
+def Cls(r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
 
-def DrawBitmap(bmp_handle: int, w: int, h: int) -> None:
+def DrawBitmap(bmp_handle: int, w: int, h: int, /) -> None:
     """"""
     ...
 
 
 @__t.overload
-def DrawImage(w: int, h: int, color_channel: str, align: str, image_data: int) -> None:
+def DrawImage(
+    w: int, h: int, color_channel: str, align: str, image_data: int, /
+) -> None:
     """"""
     ...
 
@@ -52,6 +54,7 @@ def DrawImage(
         "UpsideDown",
     ],
     image_data: int,
+    /,
 ) -> None:
     """"""
     ...
@@ -128,6 +131,7 @@ def GetImage(
     ],
     image_size: int,
     image_data: int,
+    /,
 ) -> __bt.Bool:
     """"""
     ...
@@ -138,7 +142,7 @@ def GetPosition() -> __bt.Vector2:
     ...
 
 
-def GetRasterParameter(parameter: str) -> str:
+def GetRasterParameter(parameter: str, /) -> str:
     """"""
     ...
 
@@ -186,14 +190,14 @@ def GetTextShadow() -> __t.Tuple[int, int]:
     ...
 
 
-def GetTextureInfo(index: int) -> __t.Tuple[int, int, int]:
+def GetTextureInfo(index: int, /) -> __t.Tuple[int, int, int]:
     """
     :return: (w, h, depth)
     """
     ...
 
 
-def GetVideoModeDscr(mode_index: int) -> __t.Tuple[int, int, int, int, int]:
+def GetVideoModeDscr(mode_index: int, /) -> __t.Tuple[int, int, int, int, int]:
     """
     :return: (depth, w, h, flags, frequency)
     """
@@ -207,17 +211,17 @@ def GetWindowSize() -> __t.Tuple[int, int]:
     ...
 
 
-def Line(x1: int, y1: int, x2: int, y2: int) -> None:
+def Line(x1: int, y1: int, x2: int, y2: int, /) -> None:
     """"""
     ...
 
 
-def LineTo(x: int, y: int) -> None:
+def LineTo(x: int, y: int, /) -> None:
     """"""
     ...
 
 
-def Rectangle(x1: int, y1: int, x2: int, y2: int) -> None:
+def Rectangle(x1: int, y1: int, x2: int, y2: int, /) -> None:
     """"""
     ...
 
@@ -227,7 +231,7 @@ def RemoveBackgroundImage() -> None:
     ...
 
 
-def SetAlpha(alpha: float) -> None:
+def SetAlpha(alpha: float, /) -> None:
     """"""
     ...
 
@@ -244,127 +248,130 @@ def SetBackgroundImage(
         "VerticalStretch",
     ],
     image_data: int,
+    /,
 ) -> None:
     """"""
     ...
 
 
-def SetBrightness(v: float) -> None:
+def SetBrightness(v: float, /) -> None:
     """"""
     ...
 
 
-def SetClipActive(active: int) -> None:
+def SetClipActive(active: int, /) -> None:
     """"""
     ...
 
 
-def SetClipWindow(x: int, y: int, w: int, h: int) -> None:
+def SetClipWindow(x: int, y: int, w: int, h: int, /) -> None:
     """"""
     ...
 
 
-def SetContrast(v: float) -> None:
+def SetContrast(v: float, /) -> None:
     """"""
     ...
 
 
-def SetDomeColor(r: int, g: int, b: int) -> None:
+def SetDomeColor(r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
 
-def SetFillColor(r: int, g: int, b: int) -> None:
+def SetFillColor(r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
 
-def SetFlags(flags: int) -> None:
+def SetFlags(flags: int, /) -> None:
     """"""
     ...
 
 
-def SetFont(font_pointer: int) -> None:
+def SetFont(font_pointer: int, /) -> None:
     """"""
     ...
 
 
-def SetGammaCorrection(v: float) -> None:
+def SetGammaCorrection(v: float, /) -> None:
     """"""
     ...
 
 
-def SetPenColor(r: int, g: int, b: int) -> None:
+def SetPenColor(r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
 
-def SetPosition(x: int, y: int) -> None:
+def SetPosition(x: int, y: int, /) -> None:
     """"""
     ...
 
 
-def SetRasterParameter(parameter: str, value: str) -> __bt.Bool:
+def SetRasterParameter(parameter: str, value: str, /) -> __bt.Bool:
     """"""
     ...
 
 
-def SetTextAlpha(v: float) -> None:
+def SetTextAlpha(v: float, /) -> None:
     """"""
     ...
 
 
-def SetTextBlur(blurLeft: int, blurTop: int, blurRight: int, blurBottom: int) -> None:
+def SetTextBlur(
+    blurLeft: int, blurTop: int, blurRight: int, blurBottom: int, /
+) -> None:
     """"""
     ...
 
 
-def SetTextBlurAlpha(v: float) -> None:
+def SetTextBlurAlpha(v: float, /) -> None:
     """"""
     ...
 
 
-def SetTextBlurColor(r: int, g: int, b: int) -> None:
+def SetTextBlurColor(r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
 
-def SetTextColor(r: int, g: int, b: int) -> None:
+def SetTextColor(r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
 
-def SetTextMode(mode: int) -> None:
+def SetTextMode(mode: int, /) -> None:
     """SetTextMode(3)"""
     ...
 
 
-def SetTextScale(scale_x: float, scale_y: float) -> None:
+def SetTextScale(scale_x: float, scale_y: float, /) -> None:
     """"""
     ...
 
 
-def SetTextShadow(x_shadow: int, y_shadow: int) -> None:
+def SetTextShadow(x_shadow: int, y_shadow: int, /) -> None:
     """"""
     ...
 
 
-def SetVideoMode(mode: int) -> __bt.Bool:
+def SetVideoMode(mode: int, /) -> __bt.Bool:
     """"""
     ...
 
 
-def SetVideoSettings(gamma: float, contrast: float, brightness: float) -> None:
+def SetVideoSettings(gamma: float, contrast: float, brightness: float, /) -> None:
     """"""
     ...
 
 
-def SetWindowSize(w: int = -1, h: int = -1) -> __bt.Bool:
+def SetWindowSize(w: int = -1, h: int = -1, /) -> __bt.Bool:
     """"""
     ...
 
 
-def SolidRectangle(x1: int, y1: int, x2: int, y2: int) -> None:
+def SolidRectangle(x1: int, y1: int, x2: int, y2: int, /) -> None:
     """"""
     ...
 
@@ -374,7 +381,7 @@ def SwapBuffers() -> None:
     ...
 
 
-def SysWrite(x: int, y: int, text: str, r: int, g: int, b: int) -> None:
+def SysWrite(x: int, y: int, text: str, r: int, g: int, b: int, /) -> None:
     """"""
     ...
 
@@ -384,7 +391,7 @@ def UnifyRenderBuffers() -> None:
     ...
 
 
-def WriteText(text: str) -> __bt.Bool:
+def WriteText(text: str, /) -> __bt.Bool:
     """"""
     ...
 
@@ -403,21 +410,21 @@ def nVideoModes() -> int:
 # reissue
 
 
-def DrawResizeImage(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def DrawResizeImage(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def GetScaledCenteredSizeFactor(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetScaledCenteredSizeFactor(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def GetUnscaledSize(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def GetUnscaledSize(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
 
 
-def ResetScale(*args: __bt.todo, **kwargs: __bt.todo) -> __bt.Bool:
+def ResetScale(*args: __bt.todo) -> __bt.Bool:
     """*reissue only*"""
     ...
