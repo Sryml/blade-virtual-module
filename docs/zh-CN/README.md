@@ -69,6 +69,10 @@ pip install --upgrade Bladex
 
 _`settings.json`文件遵循 json 语法，确保你的编辑是正确的_
 
+## 📃 说明文档
+
+See [Steam Community](https://steamcommunity.com/sharedfiles/filedetails/?id=3058700530)
+
 ## 📃 变更日志
 
 参阅 [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/docs/zh-CN/ChangeLog.md)

@@ -70,6 +70,10 @@ You can use `pip show Bladex` to check the package's installation location.
 
 _The `settings.json` file follows JSON syntax, ensure that your edits are correct._
 
+## 📃 Documentation
+
+See [Steam Community](https://steamcommunity.com/sharedfiles/filedetails/?id=3058700530)
+
 ## 📃 Change log
 
 See [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/ChangeLog.md)
