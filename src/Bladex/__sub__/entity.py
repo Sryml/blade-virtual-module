@@ -943,6 +943,17 @@ class B_Entity_Actor(B_Entity):
         return self.__FireParticleType
 
     @property
+    def FPS(self, /):
+        """*write only*\n
+        e.g: o.FPS = 20.0
+        """
+        return AttributeError
+
+    @FPS.setter
+    def FPS(self, value: Int, /):
+        ...
+
+    @property
     def LightColor(self, /):
         """*read only*"""
         return self.__LightColor
@@ -1173,6 +1184,8 @@ class B_Entity_Person(B_Entity):
         self.EnterLargeFunc: Optional[Callable[[str], Any]]
         self.EnterPrimaryAAFunc: Optional[Callable[[str], Any]]
         self.EnterSecondaryAAFunc: Optional[Callable[[str], Any]]
+        self.ExclusionGroup: Bool
+        self.__ExclusionMask: Union[int, Literal[1, 2, 4, 8, 32]]
         self.Frozen: Bool
         self.GoToJogging: Bool
         self.GoToSneaking: Bool
@@ -1300,6 +1313,22 @@ class B_Entity_Person(B_Entity):
     def EnemyLastSeen(self, /):
         """*read only*"""
         return self.__EnemyLastSeen
+
+    @property
+    def ExclusionMask(self, /):
+        """
+        EX_PERSON = 1\n
+        EX_FLOOR = 2\n
+        EX_CAMERA = 4\n
+        EX_PARTICLES = 8\n
+        EX_EYE = 32\n
+        Warning: Accessing/modifying this value will cause an error if the character intersects an impenetrable object.
+        """
+        return self.__ExclusionMask
+
+    @ExclusionMask.setter
+    def ExclusionMask(self, value: Union[int, Literal[1, 2, 4, 8, 32]], /):
+        ...
 
     @property
     def InCombat(self, /):
