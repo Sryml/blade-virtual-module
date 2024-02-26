@@ -1,6 +1,6 @@
 <div align="left">
   <b>语言:</b><br />
-  <a title="English" href="https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/README.md">
+  <a title="English" href="https://github.com/Sryml/blade-virtual-module/blob/v1.0.5/README.md">
     <img alt="🇺🇸" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
   </a>
   <a title="中文" href="#">
@@ -75,7 +75,7 @@ See [Steam Community](https://steamcommunity.com/sharedfiles/filedetails/?id=305
 
 ## 📃 变更日志
 
-参阅 [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/docs/zh-CN/ChangeLog.md)
+参阅 [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.5/docs/zh-CN/ChangeLog.md#v105)
 
 ## 💡 问题
 

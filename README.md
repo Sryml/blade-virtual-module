@@ -3,7 +3,7 @@
   <a title="English" href="#">
     <img alt="🇺🇸" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg" />
   </a>
-  <a title="中文" href="https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/docs/zh-CN/README.md">
+  <a title="中文" href="https://github.com/Sryml/blade-virtual-module/blob/v1.0.5/docs/zh-CN/README.md">
     <img alt="🇨🇳" width="33" src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg" />
   </a>
 </div>
@@ -76,7 +76,7 @@ See [Steam Community](https://steamcommunity.com/sharedfiles/filedetails/?id=305
 
 ## 📃 Change log
 
-See [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.4/ChangeLog.md)
+See [ChangeLog.md](https://github.com/Sryml/blade-virtual-module/blob/v1.0.5/ChangeLog.md#v105)
 
 ## 💡 Issues
 
