@@ -4,5 +4,3 @@ dist/
 *.egg-info/
 *.py[cod]
 *$py.class
-
-test.py

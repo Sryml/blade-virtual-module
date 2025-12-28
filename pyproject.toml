@@ -1,4 +1,5 @@
-# python -m build
+# python -m build --sdist # 查看哪些文件会被打包
+# python -m build # 使用这个构建包
 # python -m twine upload --repository testpypi dist/*
 # python -m twine upload dist/*
 # https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html

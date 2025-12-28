@@ -1,3 +1,5 @@
-include README_CN.md
+recursive-include docs *
+include ChangeLog.md
 
 exclude *.gif
+exclude .vscode/
