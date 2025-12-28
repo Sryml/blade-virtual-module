@@ -108,7 +108,7 @@ class B_PySector:
         vec1: Vector3,
         vec2: Vector3,
         vec3: Vector3,
-        sound_name: str,
+        mat_name: str,
         unknown1: float,
         unknown2: int,
         /,

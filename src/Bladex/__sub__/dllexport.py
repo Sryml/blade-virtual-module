@@ -164,8 +164,10 @@ def AddGhostSector(
 
 
 def AddInputAction(action_name: str, npi: __bt.Bool, /) -> int:
-    """AddInputAction(string action_name,int npi)
-    Crea una acción nueva."""
+    """AddInputAction(string action_name,int npi)\n
+    Create a new action.\n
+    If npi is true, the action will repeat and will not be overridden.
+    """
     ...
 
 

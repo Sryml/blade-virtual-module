@@ -5,6 +5,7 @@ from .b_types import *
 
 class B_PyChar:
     def __init__(self, /) -> None:
+        self.AddRouteAnim: str
         self.DieFall: float
         self.DistStop: float
         self.DistStop2: float
