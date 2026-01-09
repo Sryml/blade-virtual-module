@@ -1650,6 +1650,7 @@ class B_Entity_Spot(B_Entity):
         self.Color: RGBColor
         self.Flick: Bool
         self.__FlickPeriod: float
+        self.GlowTexture: str
         self.Intensity2: float
         self.Scale: float
         self.Visible: Bool
